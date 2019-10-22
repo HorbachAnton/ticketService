@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`User` (
   `name` VARCHAR(45) NULL,
   `surname` VARCHAR(45) NULL,
   `Role_id` INT NOT NULL,
-  `icon` BLOB NULL,
+  `iconPath` VARCHAR(100) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_User_Role_idx` (`Role_id` ASC),
   CONSTRAINT `fk_User_Role`
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Event` (
   `date` DATETIME NOT NULL,
   `location` VARCHAR(45) NOT NULL,
   `price` INT NULL,
-  `icon` BLOB NULL,
+  `iconPath` VARCHAR(100) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
