@@ -7,7 +7,7 @@
   <body>
     <header>
       <div class="container-fluid">
-        <div class="row">
+        <div class="row d-flex align-items-center">
           <div class="col-md-4 d-flex justify-content-around">
             <p>
               <a href="#">Главная</a>
@@ -22,7 +22,9 @@
               <a href="#">Рейтинг</a>
             </p>
           </div>
-          <div class="col-xl-4"></div>
+          <div class="col-xl-4">
+            <img src="img/logo.png" class="img-fluid rounded mx-auto d-block" alt="logo"/>
+          </div>
           <div class="col-xl-4">
             <form class="form-inline">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
