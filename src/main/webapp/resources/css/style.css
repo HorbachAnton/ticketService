@@ -6,3 +6,7 @@
   float: left;
   padding-right: 10px;
 }
+
+.row .form-control {
+  width: 80%;
+}
