@@ -26,3 +26,10 @@ hs_err_pid*
 *.idea
 *.iml
 *.metadata
+*.target
+*.settings
+*.project
+*.classpath
+
+#Other package
+target
