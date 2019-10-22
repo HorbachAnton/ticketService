@@ -26,10 +26,12 @@
             <img src="img/logo.png" class="img-fluid rounded mx-auto d-block" alt="logo"/>
           </div>
           <div class="col-xl-4">
+            <input class="btn btn-primary" type="button" value="Input">
             <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search"/>
+              <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
+
           </div>
         </div>
       </div>

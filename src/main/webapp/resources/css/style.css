@@ -1,3 +1,8 @@
 .row img {
   max-width: 10%;
 }
+
+.row .form-inline {
+  float: left;
+  padding-right: 10px;
+}
