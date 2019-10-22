@@ -59,7 +59,7 @@
       </div>
       <footer>
         <div class="container-fluid">
-          <div class="row">
+          <div class="row flex-d justify-content-center">
             All rights reserved.
           </div>
         </div>
