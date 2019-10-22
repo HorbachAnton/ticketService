@@ -56,8 +56,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.web</artifactId>
-			<version>3.2.2.RELEASE</version>
+			<artifactId>spring-web</artifactId>
+			<version>4.1.6.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
