@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema ticketService
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema ticketService
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `ticketService` DEFAULT CHARACTER SET utf8 ;
+USE `ticketService` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Role`
+-- Table `ticketService`.`Role`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Role` (
+CREATE TABLE IF NOT EXISTS `ticketService`.`Role` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -25,9 +25,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`User`
+-- Table `ticketService`.`User`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`User` (
+CREATE TABLE IF NOT EXISTS `ticketService`.`User` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
   `name` VARCHAR(45) NULL,
@@ -38,16 +38,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`User` (
   INDEX `fk_User_Role_idx` (`Role_id` ASC),
   CONSTRAINT `fk_User_Role`
     FOREIGN KEY (`Role_id`)
-    REFERENCES `mydb`.`Role` (`id`)
+    REFERENCES `ticketService`.`Role` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Event`
+-- Table `ticketService`.`Event`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Event` (
+CREATE TABLE IF NOT EXISTS `ticketService`.`Event` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `titleEvent` VARCHAR(45) NOT NULL,
   `summary` VARCHAR(400) NOT NULL,
@@ -60,9 +60,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Ticket`
+-- Table `ticketService`.`Ticket`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Ticket` (
+CREATE TABLE IF NOT EXISTS `ticketService`.`Ticket` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `Event_id` INT NOT NULL,
   `User_id` INT NOT NULL,
@@ -71,21 +71,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Ticket` (
   INDEX `fk_Ticket_User1_idx` (`User_id` ASC),
   CONSTRAINT `fk_Ticket_Event1`
     FOREIGN KEY (`Event_id`)
-    REFERENCES `mydb`.`Event` (`id`)
+    REFERENCES `ticketService`.`Event` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Ticket_User1`
     FOREIGN KEY (`User_id`)
-    REFERENCES `mydb`.`User` (`id`)
+    REFERENCES `ticketService`.`User` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Comment`
+-- Table `ticketService`.`Comment`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Comment` (
+CREATE TABLE IF NOT EXISTS `ticketService`.`Comment` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `User_id` INT NOT NULL,
   `Event_id` INT NOT NULL,
@@ -95,12 +95,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Comment` (
   INDEX `fk_Comment_Event1_idx` (`Event_id` ASC),
   CONSTRAINT `fk_Comment_User1`
     FOREIGN KEY (`User_id`)
-    REFERENCES `mydb`.`User` (`id`)
+    REFERENCES `ticketService`.`User` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Comment_Event1`
     FOREIGN KEY (`Event_id`)
-    REFERENCES `mydb`.`Event` (`id`)
+    REFERENCES `ticketService`.`Event` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

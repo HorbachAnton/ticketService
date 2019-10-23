@@ -5,6 +5,7 @@ import java.nio.file.Path;
 public class User {
 	private int id;
 	private String email;
+	private String password;
 	private String name;
 	private String surname;
 	private UserRoles role;
@@ -36,6 +37,14 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getName() {
@@ -78,6 +87,7 @@ public class User {
 		result = prime * result + ((iconPath == null) ? 0 : iconPath.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
 		return result;
@@ -109,6 +119,11 @@ public class User {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
 		if (role != other.role)
 			return false;
 		if (surname == null) {
@@ -121,8 +136,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", name=" + name + ", surname=" + surname + ", role=" + role
-				+ ", iconPath=" + iconPath + "]";
+		return "User [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", surname="
+				+ surname + ", role=" + role + ", iconPath=" + iconPath + "]";
 	}
 
 }
