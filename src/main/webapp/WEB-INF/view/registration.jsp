@@ -25,7 +25,7 @@
             </p>
           </div>
           <div class="col-xl-4">
-            <img src="img/logo.png" class="img-fluid rounded mx-auto d-block" alt="logo"/>
+            <img src="<c:url value="/resources/img/logo.png" />" class="img-fluid rounded mx-auto d-block" alt="logo"/>
           </div>
           <div class="col-xl-4">
             <input class="btn btn-primary" type="button" value="Input"/>
@@ -36,11 +36,11 @@
           </div>
         </div>
       </div>
-    </header class="bg-secondary">
+    </header>
     <div class="main-place container-fluid">
       <div class="row">
         <div class="col-md-4"></div>
-        <form:form class="col-md-4" method="POST" action="/ticetService/register" modelAttribute="user">
+        <form:form class="col-md-4" method="POST" action="register" modelAttribute="user">
           <div class="form-group">
             <form:label path="email" for="exampleInputEmail1">Email address</form:label>
             <form:input path="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>

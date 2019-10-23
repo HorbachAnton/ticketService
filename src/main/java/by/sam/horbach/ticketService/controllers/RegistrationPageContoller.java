@@ -17,8 +17,9 @@ public class RegistrationPageContoller {
 		return "registration";
 	}
 	
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public void register(@ModelAttribute("user")User user, BindingResult result, ModelMap map) {
-		
+		System.out.println(user.getEmail() + user.getPassword());
 	}
 
 }
