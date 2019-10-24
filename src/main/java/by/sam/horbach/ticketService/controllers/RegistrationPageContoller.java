@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import by.sam.horbach.ticketService.entities.User;
+import by.sam.horbach.ticketService.services.UserService;
+import by.sam.horbach.ticketService.services.impl.UserServiceImpl;
 
 @Controller
 public class RegistrationPageContoller {
@@ -20,6 +22,8 @@ public class RegistrationPageContoller {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public void register(@ModelAttribute("user")User user, BindingResult result, ModelMap map) {
 		System.out.println(user.getEmail() + user.getPassword());
+		UserService userService = new UserServiceImpl();
+		userService.register(user);
 	}
 
 }

@@ -1,15 +1,9 @@
 package by.sam.horbach.ticketService.services;
 
-import by.sam.horbach.ticketService.dao.UserDao;
 import by.sam.horbach.ticketService.entities.User;
 
-public class UserService {
+public interface UserService {
 	
-	UserDao userDao;
-	
-	public boolean register(User user) {
-		boolean result = true;
-		return result;
-	}
+	boolean register(User user);
 
 }
