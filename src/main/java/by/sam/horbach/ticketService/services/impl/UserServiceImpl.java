@@ -15,6 +15,7 @@ public class UserServiceImpl implements UserService {
 
 	public boolean register(User user) {
 		boolean result = true;
+		userDao.register(user);
 		return result;
 	}
 

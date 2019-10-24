@@ -97,6 +97,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
+<<<<<<< HEAD
 			<version>4.1.6.Final</version>
 		</dependency>
 		<dependency>
@@ -108,6 +109,9 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>2.8.6</version>
+=======
+			<version>4.3.6.Final</version>
+>>>>>>> 33a45cc416dd83db7990844594e53a52cac926cc
 		</dependency>
 	</dependencies>
 
