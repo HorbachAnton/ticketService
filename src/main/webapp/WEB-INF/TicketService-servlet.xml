@@ -16,8 +16,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-<<<<<<< HEAD
-=======
+
 	<mvc:resources mapping="/resources/**"
 		location="/resources/" />
 	<mvc:annotation-driven />
@@ -52,5 +51,4 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
->>>>>>> 33a45cc416dd83db7990844594e53a52cac926cc
 </beans>
