@@ -3,20 +3,35 @@ package by.sam.horbach.ticketService.entities;
 import java.nio.file.Path;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import by.sam.horbach.ticketService.converters.PathConverter;
+import by.sam.horbach.ticketService.converters.UserRolesConverter;
+
 @Entity
-@Table(name="User")
+@Table(name = "User")
 public class User {
+	@Id
+	@GeneratedValue
+	@Column()
 	private int id;
+	@Column()
 	private String email;
+	@Column()
 	private String password;
+	@Column()
 	private String name;
+	@Column()
 	private String surname;
+	@Column()
+	@Convert(converter = UserRolesConverter.class)
 	private UserRoles role;
+	@Column()
+	@Convert(converter = PathConverter.class)
 	private Path iconPath;
 
 	public User() {
@@ -31,9 +46,6 @@ public class User {
 		this.iconPath = iconPath;
 	}
 
-	@Id
-    @GeneratedValue
-    @Column(name="id")
 	public int getId() {
 		return id;
 	}
@@ -42,7 +54,6 @@ public class User {
 		this.id = id;
 	}
 
-	@Column(name="email")
 	public String getEmail() {
 		return email;
 	}
@@ -51,7 +62,6 @@ public class User {
 		this.email = email;
 	}
 
-	@Column(name="password")
 	public String getPassword() {
 		return password;
 	}
@@ -60,7 +70,6 @@ public class User {
 		this.password = password;
 	}
 
-	@Column(name="name")
 	public String getName() {
 		return name;
 	}
@@ -69,7 +78,6 @@ public class User {
 		this.name = name;
 	}
 
-	@Column(name="surname")
 	public String getSurname() {
 		return surname;
 	}
@@ -78,7 +86,6 @@ public class User {
 		this.surname = surname;
 	}
 
-	@Column(name="surname")
 	public UserRoles getRole() {
 		return role;
 	}
@@ -87,7 +94,6 @@ public class User {
 		this.role = role;
 	}
 
-	@Column(name="iconPath")
 	public Path getIconPath() {
 		return iconPath;
 	}

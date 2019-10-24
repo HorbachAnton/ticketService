@@ -1,5 +1,6 @@
 package by.sam.horbach.ticketService.controllers;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import by.sam.horbach.ticketService.entities.User;
 import by.sam.horbach.ticketService.services.UserService;
 
+@Controller
 public class RegistrationPageContoller {
 
 	UserService userService;
@@ -19,9 +21,10 @@ public class RegistrationPageContoller {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public void register(@ModelAttribute("user") User user, BindingResult result, ModelMap map) {
+	public String register(@ModelAttribute("user") User user, BindingResult result, ModelMap map) {
 		System.out.println(user.getEmail() + user.getPassword());
 		userService.register(user);
+		return "userPage";
 	}
 
 }
