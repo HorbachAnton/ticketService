@@ -54,7 +54,7 @@
                   <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
                   <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Log in</button>
               </form:form>
               <div class="col-md-4"></div>
             </div>
