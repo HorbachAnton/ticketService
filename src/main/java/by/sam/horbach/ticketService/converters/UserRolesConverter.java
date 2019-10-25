@@ -17,7 +17,7 @@ public class UserRolesConverter implements AttributeConverter<UserRoles, Integer
 
 	@Override
 	public UserRoles convertToEntityAttribute(Integer dbData) {
-		return dbData == null ? null : roles[dbData.intValue()];
+		return dbData == null ? null : roles[dbData.intValue() + 1];
 	}
 
 }

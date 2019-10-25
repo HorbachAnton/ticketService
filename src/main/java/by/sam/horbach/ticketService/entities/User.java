@@ -27,7 +27,7 @@ public class User {
 	private String name;
 	@Column()
 	private String surname;
-	@Column()
+	@Column(name="Role_id")
 	@Convert(converter = UserRolesConverter.class)
 	private UserRoles role;
 	@Column()
@@ -38,9 +38,10 @@ public class User {
 
 	}
 
-	public User(int id, String email, String name, String surname, UserRoles role, Path iconPath) {
+	public User(int id, String email, String password, String name, String surname, UserRoles role, Path iconPath) {
 		this.id = id;
 		this.email = email;
+		this.password = password;
 		this.name = surname;
 		this.role = role;
 		this.iconPath = iconPath;

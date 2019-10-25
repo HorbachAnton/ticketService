@@ -17,9 +17,8 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean register(User user) {
-		session.getCurrentSession().saveOrUpdate(user);
+		session.getCurrentSession().save(user);
 		return true;
-
 	}
 
 }

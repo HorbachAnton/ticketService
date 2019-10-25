@@ -29,7 +29,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 		<property name="url"
 			value="jdbc:mysql://127.0.0.1:3306/ticketService" />
 		<property name="username" value="root" />
-		<property name="password" value="@34_BadC_78@" />
+		<property name="password" value="zGsoRhnKPd9Rk3kX" />
 	</bean>
 
 	<!-- Session Factory Declaration -->
@@ -43,7 +43,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 
 				<!-- Your required Database Name -->
-				<prop key="hibernate.default_schema">dbo</prop>
+				<prop key="hibernate.default_schema">ticketService</prop>
 
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
