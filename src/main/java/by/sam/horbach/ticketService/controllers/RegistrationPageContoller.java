@@ -27,7 +27,7 @@ public class RegistrationPageContoller {
 	public String register(@ModelAttribute("user") User user, BindingResult result, ModelMap map) {
 		user.setRole(UserRoles.Consumer);
 		userService.register(user);
-		return "userPage";
+		return "userProfile";
 	}
 
 }
