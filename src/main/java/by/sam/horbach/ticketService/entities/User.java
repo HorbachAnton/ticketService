@@ -7,6 +7,8 @@ import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import by.sam.horbach.ticketService.converters.PathConverter;
@@ -27,7 +29,7 @@ public class User {
 	private String name;
 	@Column()
 	private String surname;
-	@Column(name="Role_id")
+	@Column(name = "Role_id")
 	@Convert(converter = UserRolesConverter.class)
 	private UserRoles role;
 	@Column()
@@ -42,7 +44,8 @@ public class User {
 		this.id = id;
 		this.email = email;
 		this.password = password;
-		this.name = surname;
+		this.name = name;
+		this.surname = surname;
 		this.role = role;
 		this.iconPath = iconPath;
 	}
@@ -129,32 +132,37 @@ public class User {
 		if (email == null) {
 			if (other.email != null)
 				return false;
-		} else if (!email.equals(other.email))
+		} else if (!email.equals(other.email)) {
 			return false;
+		}
 		if (iconPath == null) {
 			if (other.iconPath != null)
 				return false;
-		} else if (!iconPath.equals(other.iconPath))
+		} else if (!iconPath.equals(other.iconPath)) {
 			return false;
+		}
 		if (id != other.id)
 			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!name.equals(other.name)) {
 			return false;
+		}
 		if (password == null) {
 			if (other.password != null)
 				return false;
-		} else if (!password.equals(other.password))
+		} else if (!password.equals(other.password)) {
 			return false;
+		}
 		if (role != other.role)
 			return false;
 		if (surname == null) {
 			if (other.surname != null)
 				return false;
-		} else if (!surname.equals(other.surname))
+		} else if (!surname.equals(other.surname)) {
 			return false;
+		}
 		return true;
 	}
 

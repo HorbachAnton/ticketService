@@ -2,7 +2,7 @@ package by.sam.horbach.ticketService.entities;
 
 public enum UserRoles {
 	
-	Consumer(1), Administrator(2);
+	CONSUMER(1), ADMINISTRATOR(2);
 	
 	private final int id;
 	

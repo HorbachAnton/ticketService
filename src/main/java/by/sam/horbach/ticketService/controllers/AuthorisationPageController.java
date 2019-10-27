@@ -10,9 +10,9 @@ import by.sam.horbach.ticketService.entities.User;
 @Controller
 public class AuthorisationPageController {
 	
-	@RequestMapping(value = "/authorisation", method = RequestMethod.GET)
+	@RequestMapping(value = "/authorization", method = RequestMethod.GET)
 	public String getPage(@ModelAttribute("user") User user) {
-		return "authorisation";
+		return "authorization";
 	}
 
 }

@@ -16,25 +16,21 @@ public class UserProfileDaoImpl implements UserProfileDao {
 
 	@Override
 	public boolean updateProfile() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean changePassword() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean changeEmail() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean loadIcon() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

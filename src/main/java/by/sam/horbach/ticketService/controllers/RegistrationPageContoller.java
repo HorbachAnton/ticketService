@@ -25,7 +25,7 @@ public class RegistrationPageContoller {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(@ModelAttribute("user") User user, BindingResult result, ModelMap map) {
-		user.setRole(UserRoles.Consumer);
+		user.setRole(UserRoles.CONSUMER);
 		userService.register(user);
 		return "userProfile";
 	}
