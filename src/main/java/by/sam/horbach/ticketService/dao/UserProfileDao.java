@@ -2,12 +2,12 @@ package by.sam.horbach.ticketService.dao;
 
 public interface UserProfileDao {
 
-	public boolean updateProfile();
+	boolean updateProfile();
 
-	public boolean changePassword();
+	boolean changePassword();
 
-	public boolean changeEmail();
+	boolean changeEmail();
 	
-	public boolean loadIcon();
+	boolean loadIcon();
 
 }

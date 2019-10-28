@@ -13,7 +13,7 @@ import by.sam.horbach.ticketService.entities.UserRoles;
 import by.sam.horbach.ticketService.services.UserService;
 
 @Controller
-public class RegistrationPageContoller {
+public class RegistrationPageController {
 
 	@Autowired
 	UserService userService;

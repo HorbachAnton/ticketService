@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="by.sam.horbach.ticketService.entities.User"
+		table="user" catalog="test">
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="email" type="string">
+			<column name="email" length="45" not-null="true" />
+		</property>
+		<property name="password" type="string">
+			<column name="password" length="20" not-null="true" />
+		</property>
+		<property name="name" type="string">
+			<column name="name" length="45" />
+		</property>
+		<property name="surname" type="string">
+			<column name="surname" length="45" />
+		</property>
+		<property name="role">
+			<column name="Role_id" />
+			<type name="converted::UserRolesConverter" />
+		</property>
+		<property name="iconPath">
+			<column name="iconPath" />
+			<type name="converted::PathConverter" />
+		</property>
+	</class>
+</hibernate-mapping>

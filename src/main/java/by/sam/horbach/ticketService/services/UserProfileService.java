@@ -2,12 +2,12 @@ package by.sam.horbach.ticketService.services;
 
 public interface UserProfileService {
 
-	public boolean updateProfile();
+	boolean updateProfile();
 
-	public boolean changePassword();
+	boolean changePassword();
 
-	public boolean changeEmail();
+	boolean changeEmail();
 	
-	public boolean loadIcon();
+	boolean loadIcon();
 
 }
