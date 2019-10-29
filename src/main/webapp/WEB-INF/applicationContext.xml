@@ -25,14 +25,19 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	<mvc:resources mapping="/resources/**"
 		location="/resources/" />
 
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations"
+			value="classpath:properties/hibernate.properties" />
+	</bean>
+
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName"
-			value="com.mysql.jdbc.Driver" />
-		<property name="url"
-			value="jdbc:mysql://127.0.0.1:3306/ticketService?useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
-		<property name="username" value="root" />
-		<property name="password" value="zGsoRhnKPd9Rk3kX" />
+			value="${dataSource.driverClassName}" />
+		<property name="url" value="${dataSource.url}" />
+		<property name="username" value="${dataSource.username}" />
+		<property name="password" value="${dataSource.password}" />
 	</bean>
 
 	<!-- Session Factory Declaration -->
@@ -40,21 +45,32 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan"
-			value="by.sam.horbach.ticketService.entities" />
+			value="${sessionFactory.packagesToScan}" />
+
 		<property name="hibernateProperties">
 			<props>
 				<!-- SQL Dialect -->
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.dialect">${sessionFactory.hibernate.dialect}</prop>
 
 				<!-- Your required Database Name -->
-				<prop key="hibernate.default_schema">ticketService</prop>
+				<prop key="hibernate.default_schema">${sessionFactory.hibernate.default_schema}</prop>
 
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
-				<prop key="format_sql">true</prop>
-				<prop key="use_sql_comments">true</prop>
+				<prop key="hibernate.id.new_generator_mappings">${sessionFactory.hibernate.id.new_generator_mappings}
+				</prop>
+
+				<prop key="hibernate.connection.charSet">${sessionFactory.hibernate.connection.charSet}</prop>
+				<prop key="hibernate.show_sql">${sessionFactory.hibernate.show_sql}</prop>
+				<prop key="hibernate.enable_lazy_load_no_trans">${sessionFactory.hibernate.enable_lazy_load_no_trans}
+				</prop>
+				<prop key="format_sql">${sessionFactory.format_sql}</prop>
+				<prop key="use_sql_comments">${sessionFactory.use_sql_comments}</prop>
 			</props>
 		</property>
+		<property name="mappingLocations">
+        <list>
+            <value>classpath:orm/*.hbm.xml</value>
+        </list>
+    </property>
 	</bean>
 
 	<tx:annotation-driven

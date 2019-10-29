@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="by.sam.horbach.ticketService.entities.User"
-		table="user" catalog="test">
+		table="user" catalog="ticketService">
 		<id name="id" type="int" column="id">
 			<generator class="native" />
 		</id>
@@ -21,11 +21,11 @@
 		</property>
 		<property name="role">
 			<column name="Role_id" />
-			<type name="converted::UserRolesConverter" />
+			<type name="converted::by.sam.horbach.ticketService.converters.UserRolesConverter" />
 		</property>
 		<property name="iconPath">
 			<column name="iconPath" />
-			<type name="converted::PathConverter" />
+			<type name="converted::by.sam.horbach.ticketService.converters.PathConverter" />
 		</property>
 	</class>
 </hibernate-mapping>

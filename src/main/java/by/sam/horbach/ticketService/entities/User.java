@@ -2,36 +2,14 @@ package by.sam.horbach.ticketService.entities;
 
 import java.nio.file.Path;
 
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import by.sam.horbach.ticketService.converters.PathConverter;
-import by.sam.horbach.ticketService.converters.UserRolesConverter;
-
-@Entity
-@Table(name = "User")
 public class User {
-	@Id
-	@GeneratedValue
-	@Column()
+
 	private int id;
-	@Column()
 	private String email;
-	@Column()
 	private String password;
-	@Column()
 	private String name;
-	@Column()
 	private String surname;
-	@Column(name = "Role_id")
-	@Convert(converter = UserRolesConverter.class)
 	private UserRoles role;
-	@Column()
-	@Convert(converter = PathConverter.class)
 	private Path iconPath;
 
 	public User() {

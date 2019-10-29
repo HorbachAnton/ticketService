@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import by.sam.horbach.ticketService.entities.User;
-import by.sam.horbach.ticketService.services.UserProfileService;
+import by.sam.horbach.ticketService.services.UserService;
 
 @Controller
 public class UserProfilePageController {
 
 	@Autowired
-	UserProfileService userProfileService;
+	UserService userService;
 
 	@RequestMapping(value = "/userProfile", method = RequestMethod.GET)
 	public String getPage(@ModelAttribute("user") User user) {
