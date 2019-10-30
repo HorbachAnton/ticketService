@@ -16,71 +16,17 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 http://www.springframework.org/schema/aop 
 http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
+	<import resource="TicketService-servlet.xml" />
+	<import resource="database.xml" />
+
 	<!-- Enable autowire -->
 	<context:annotation-config />
 	<context:component-scan
-		base-package="by.sam.horbach.ticketService" />
+		base-package="by.sam.horbach.ticketService.controllers" />
 
 	<mvc:annotation-driven />
 	<mvc:resources mapping="/resources/**"
 		location="/resources/" />
-
-	<bean
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations"
-			value="classpath:properties/hibernate.properties" />
-	</bean>
-
-	<bean id="dataSource"
-		class="org.apache.commons.dbcp2.BasicDataSource">
-		<property name="driverClassName"
-			value="${dataSource.driverClassName}" />
-		<property name="url" value="${dataSource.url}" />
-		<property name="username" value="${dataSource.username}" />
-		<property name="password" value="${dataSource.password}" />
-	</bean>
-
-	<!-- Session Factory Declaration -->
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan"
-			value="${sessionFactory.packagesToScan}" />
-
-		<property name="hibernateProperties">
-			<props>
-				<!-- SQL Dialect -->
-				<prop key="hibernate.dialect">${sessionFactory.hibernate.dialect}</prop>
-
-				<!-- Your required Database Name -->
-				<prop key="hibernate.default_schema">${sessionFactory.hibernate.default_schema}</prop>
-
-				<prop key="hibernate.id.new_generator_mappings">${sessionFactory.hibernate.id.new_generator_mappings}
-				</prop>
-
-				<prop key="hibernate.connection.charSet">${sessionFactory.hibernate.connection.charSet}</prop>
-				<prop key="hibernate.show_sql">${sessionFactory.hibernate.show_sql}</prop>
-				<prop key="hibernate.enable_lazy_load_no_trans">${sessionFactory.hibernate.enable_lazy_load_no_trans}
-				</prop>
-				<prop key="format_sql">${sessionFactory.format_sql}</prop>
-				<prop key="use_sql_comments">${sessionFactory.use_sql_comments}</prop>
-			</props>
-		</property>
-		<property name="mappingLocations">
-        <list>
-            <value>classpath:orm/*.hbm.xml</value>
-        </list>
-    </property>
-	</bean>
-
-	<tx:annotation-driven
-		transaction-manager="transactionManager" />
-
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-
 
 	<tx:advice id="txAdvice"
 		transaction-manager="transactionManager">
@@ -97,5 +43,12 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 		<aop:advisor advice-ref="txAdvice"
 			pointcut-ref="userServicePointCut" />
 	</aop:config>
+
+	<bean id="User" class="by.sam.horbach.ticketService.entities.User" />
+
+	<bean id="UserService"
+		class="by.sam.horbach.ticketService.services.impl.UserServiceImpl">
+		<property name="UserDao" ref="UserDao" />
+	</bean>
 
 </beans>
