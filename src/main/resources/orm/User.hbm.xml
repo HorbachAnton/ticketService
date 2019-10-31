@@ -13,6 +13,9 @@
 		<property name="password" type="string">
 			<column name="password" length="20" not-null="true" />
 		</property>
+		<property name="enabled">
+			<column name="enabled" not-null="true" />
+		</property>
 		<property name="name" type="string">
 			<column name="name" length="45" />
 		</property>
@@ -21,11 +24,13 @@
 		</property>
 		<property name="role">
 			<column name="Role_id" />
-			<type name="converted::by.sam.horbach.ticketService.converters.UserRolesConverter" />
+			<type
+				name="converted::by.sam.horbach.ticketService.converters.UserRolesConverter" />
 		</property>
 		<property name="iconPath">
 			<column name="iconPath" />
-			<type name="converted::by.sam.horbach.ticketService.converters.PathConverter" />
+			<type
+				name="converted::by.sam.horbach.ticketService.converters.PathConverter" />
 		</property>
 	</class>
 </hibernate-mapping>

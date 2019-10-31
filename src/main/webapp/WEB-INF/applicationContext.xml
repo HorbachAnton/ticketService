@@ -51,4 +51,15 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 		<property name="UserDao" ref="UserDao" />
 	</bean>
 
+	<bean id="UserDetailsService"
+		class="by.sam.horbach.ticketService.services.UserDetailsServiceImpl">
+		<property name="UserDao" ref="UserDao" />
+	</bean>
+
+	<bean id="PathConverter"
+		class="by.sam.horbach.ticketService.converters.PathConverter" />
+
+	<bean id="UserRolesConverter"
+		class="by.sam.horbach.ticketService.converters.UserRolesConverter" />
+
 </beans>
