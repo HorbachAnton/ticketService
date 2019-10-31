@@ -124,3 +124,7 @@ CREATE TABLE IF NOT EXISTS `ticketservice`.`Comment` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
+INSERT INTO `ticketservice`.`role` (`id`, `name`) VALUES ('1', 'CONSUMER');
+INSERT INTO `ticketservice`.`role` (`id`, `name`) VALUES ('2', 'ADMINISTRATOR');
+INSERT INTO `ticketservice`.`role` (`id`, `name`) VALUES ('3', 'GUEST');

@@ -7,6 +7,7 @@ public class User {
 	private int id;
 	private String email;
 	private String password;
+	private boolean enabled;
 	private String name;
 	private String surname;
 	private UserRoles role;
@@ -16,10 +17,11 @@ public class User {
 
 	}
 
-	public User(int id, String email, String password, String name, String surname, UserRoles role, Path iconPath) {
+	public User(int id, String email, String password, boolean enabled, String name, String surname, UserRoles role, Path iconPath) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
+		this.enabled = enabled;
 		this.name = name;
 		this.surname = surname;
 		this.role = role;
@@ -48,6 +50,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public String getName() {
@@ -87,6 +97,7 @@ public class User {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + (enabled ? 1231 : 1237);
 		result = prime * result + ((iconPath == null) ? 0 : iconPath.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -111,6 +122,8 @@ public class User {
 		} else if (!email.equals(other.email)) {
 			return false;
 		}
+		if (enabled != other.enabled)
+			return false;
 		if (iconPath == null) {
 			if (other.iconPath != null)
 				return false;
@@ -144,8 +157,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", surname="
-				+ surname + ", role=" + role + ", iconPath=" + iconPath + "]";
+		return "User [id=" + id + ", email=" + email + ", password=" + password + ", enabled=" + enabled + ", name="
+				+ name + ", surname=" + surname + ", role=" + role + ", iconPath=" + iconPath + "]";
 	}
 
 }
