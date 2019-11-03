@@ -39,7 +39,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `ticketservice`.`User` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(20) NOT NULL,
+  `password` VARCHAR(70) NOT NULL,
   `enabled` TINYINT NOT NULL,
   `name` VARCHAR(45) NULL DEFAULT NULL,
   `surname` VARCHAR(45) NULL DEFAULT NULL,

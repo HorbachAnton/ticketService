@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import by.sam.horbach.ticketService.entities.User;
-import by.sam.horbach.ticketService.entities.UserRoles;
 import by.sam.horbach.ticketService.services.UserService;
 
 @Controller
@@ -25,8 +24,6 @@ public class RegistrationPageController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(@ModelAttribute("user") User user, BindingResult result, ModelMap map) {
-		user.setRole(UserRoles.CONSUMER);
-		user.setEnabled(true);
 		userService.register(user);
 		return "userProfile";
 	}
