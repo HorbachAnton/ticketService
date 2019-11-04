@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	private User prepareUser(User user) {
-		user.setRole(UserRoles.CONSUMER);
+		user.setIdRole(UserRoles.CONSUMER.getId());
 		user.setEnabled(true);
 		user.setPassword(encodePassword(user.getPassword()));
 		return user;

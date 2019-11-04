@@ -21,7 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String email) {
 		User user = userDao.findByUserEmail(email);
-		List<GrantedAuthority> authorities = buildUserAuthority(user.getRole());
+		List<GrantedAuthority> authorities = buildUserAuthority(user.getIdRole());
 		return buildUserForAuthentication(user, authorities);
 	}
 
@@ -31,9 +31,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 				user.isEnabled(), true, true, true, authorities);
 	}
 
-	private List<GrantedAuthority> buildUserAuthority(UserRoles userRole) {
+	private List<GrantedAuthority> buildUserAuthority(int idRole) {
 		Set<GrantedAuthority> setAuths = new HashSet<>();
-		setAuths.add(new SimpleGrantedAuthority(userRole.toString()));
+		setAuths.add(new SimpleGrantedAuthority(UserRoles.getRoleById(idRole).toString()));
 		return new ArrayList<>(setAuths);
 	}
 

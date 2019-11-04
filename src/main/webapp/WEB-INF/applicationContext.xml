@@ -22,22 +22,26 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	<mvc:resources mapping="/resources/**"
 		location="/resources/" />
 
-	<bean id="User" class="by.sam.horbach.ticketService.entities.User" />
+	<bean id="user" class="by.sam.horbach.ticketService.entities.User" />
 
-	<bean id="UserService"
-		class="by.sam.horbach.ticketService.services.impl.UserServiceImpl">
-		<property name="UserDao" ref="UserDao" />
+	<bean id="userDTO" class="by.sam.horbach.ticketService.dto.UserDTO" />
+	
+	<bean id ="registrationFacade" class="by.sam.horbach.ticketService.facade.RegistrationFacade"/>
+
+	<bean id="userService" class="by.sam.horbach.ticketService.services.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao" />
 	</bean>
 
-	<bean id="UserDetailsService"
-		class="by.sam.horbach.ticketService.services.UserDetailsServiceImpl">
-		<property name="UserDao" ref="UserDao" />
+	<bean id="userDetailsService" class="by.sam.horbach.ticketService.services.UserDetailsServiceImpl">
+		<property name="userDao" ref="userDao" />
 	</bean>
 
-	<bean id="PathConverter"
-		class="by.sam.horbach.ticketService.converters.PathConverter" />
+	<bean id="pathConverter" class="by.sam.horbach.ticketService.converters.PathConverter" />
 
-	<bean id="UserRolesConverter"
-		class="by.sam.horbach.ticketService.converters.UserRolesConverter" />
+	<bean id="userRolesConverter" class="by.sam.horbach.ticketService.converters.UserRolesConverter" />
+	
+	<bean id="userConverter" class="by.sam.horbach.ticketService.converters.UserConverter"/>
+	
+	<bean id="userReverseConverter" class="by.sam.horbach.ticketService.converters.UserReverseConverter"></bean>
 
 </beans>

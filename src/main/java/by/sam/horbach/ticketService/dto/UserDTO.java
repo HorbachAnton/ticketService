@@ -1,6 +1,10 @@
-package by.sam.horbach.ticketService.entities;
+package by.sam.horbach.ticketService.dto;
 
-public class User {
+import java.nio.file.Path;
+
+import by.sam.horbach.ticketService.entities.UserRoles;
+
+public class UserDTO {
 
 	private int id;
 	private String email;
@@ -8,23 +12,21 @@ public class User {
 	private boolean enabled;
 	private String name;
 	private String surname;
-	private int idRole;
-	private String iconPath;
+	private UserRoles role;
+	private Path iconPath;
 
-	public User() {
+	public UserDTO() {
 
 	}
 
-	public User(int id, String email, String password, boolean enabled, String name, String surname, int idRole,
-			String iconPath) {
-		super();
+	public UserDTO(int id, String email, String password, boolean enabled, String name, String surname, UserRoles role, Path iconPath) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.enabled = enabled;
 		this.name = name;
 		this.surname = surname;
-		this.idRole = idRole;
+		this.role = role;
 		this.iconPath = iconPath;
 	}
 
@@ -51,7 +53,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 	public boolean isEnabled() {
 		return enabled;
 	}
@@ -76,19 +78,19 @@ public class User {
 		this.surname = surname;
 	}
 
-	public int getIdRole() {
-		return idRole;
+	public UserRoles getRole() {
+		return role;
 	}
 
-	public void setIdRole(int idRole) {
-		this.idRole = idRole;
+	public void setRole(UserRoles role) {
+		this.role = role;
 	}
 
-	public String getIconPath() {
+	public Path getIconPath() {
 		return iconPath;
 	}
 
-	public void setIconPath(String iconPath) {
+	public void setIconPath(Path iconPath) {
 		this.iconPath = iconPath;
 	}
 
@@ -100,40 +102,38 @@ public class User {
 		result = prime * result + (enabled ? 1231 : 1237);
 		result = prime * result + ((iconPath == null) ? 0 : iconPath.hashCode());
 		result = prime * result + id;
-		result = prime * result + idRole;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-
+		
 		if (this == obj) {
 			return true;
 		}
-
+		
 		if (obj == null) {
 			return false;
 		}
-
+		
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-
-		User other = (User) obj;
-
+		
+		UserDTO other = (UserDTO) obj;
+		
 		if (email == null) {
-			if (other.email != null) {
+			if (other.email != null)
 				return false;
-			}
 		} else if (!email.equals(other.email)) {
 			return false;
 		}
-		if (enabled != other.enabled) {
+		if (enabled != other.enabled)
 			return false;
-		}
 		if (iconPath == null) {
 			if (other.iconPath != null)
 				return false;
@@ -141,8 +141,6 @@ public class User {
 			return false;
 		}
 		if (id != other.id)
-			return false;
-		if (idRole != other.idRole)
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -156,6 +154,8 @@ public class User {
 		} else if (!password.equals(other.password)) {
 			return false;
 		}
+		if (role != other.role)
+			return false;
 		if (surname == null) {
 			if (other.surname != null)
 				return false;
@@ -167,8 +167,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "UserDTO [id=" + id + ", email=" + email + ", password=" + password + ", enabled=" + enabled + ", name="
-				+ name + ", surname=" + surname + ", idRole=" + idRole + ", iconPath=" + iconPath + "]";
+		return "User [id=" + id + ", email=" + email + ", password=" + password + ", enabled=" + enabled + ", name="
+				+ name + ", surname=" + surname + ", role=" + role + ", iconPath=" + iconPath + "]";
 	}
 
 }
