@@ -1,18 +1,15 @@
 package by.sam.horbach.ticketService.converters;
 
-import org.springframework.core.convert.converter.Converter;
+import org.springframework.binding.convert.converters.TwoWayConverter;
 
 import by.sam.horbach.ticketService.dto.UserDTO;
 import by.sam.horbach.ticketService.entities.User;
 
-public class UserConverter implements Converter<UserDTO, User>{
+public interface UserConverter extends TwoWayConverter {
 
 	@Override
-	public User convert(UserDTO source) {
-		User user = new User();
-		user.setEmail(source.getEmail());
-		user.setPassword(source.getPassword());
-		return user;
-	}
+	public UserDTO convertSourceToTargetClass(Object source, Class<?> targetClass) throws Exception;
 
+	@Override
+	public User convertTargetToSourceClass(Object target, Class<?> sourceClass) throws Exception;
 }
