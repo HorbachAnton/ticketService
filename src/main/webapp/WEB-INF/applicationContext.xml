@@ -45,4 +45,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		<property name="userService" ref="userService"/>
 	</bean>
 	
+	<bean id="registrationFormValidator" class="by.sam.horbach.ticketService.validators.RegistrationValidator">
+	    <property name="userDao" ref="userDao"/>
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="classpath:properties/messages" />
+    </bean>
+	
 </beans>

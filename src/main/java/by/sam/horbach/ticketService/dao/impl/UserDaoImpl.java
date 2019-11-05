@@ -22,7 +22,7 @@ public class UserDaoImpl implements UserDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public User findByUserEmail(String email) {
-		List<User> users = session.getCurrentSession().createQuery("from User where email=?").setParameter(0, email)
+		List<User> users = session.getCurrentSession().createQuery("from User where email=?0").setParameter(0, email)
 				.list();
 
 		if (!users.isEmpty()) {

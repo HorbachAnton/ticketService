@@ -49,7 +49,7 @@ public class UserConverter implements TwoWayConverter {
 		source.setEnabled(targetDTO.isEnabled());
 		source.setName((targetDTO.getName() != null) ? targetDTO.getName() : VALUE_FOR_NULL_FILED);
 		source.setSurname((targetDTO.getSurname()) != null ? targetDTO.getSurname() : VALUE_FOR_NULL_FILED);
-		source.setIdRole(targetDTO.getRole().getId());
+		source.setIdRole((targetDTO.getRole() != null) ? targetDTO.getRole().getId() : UserRoles.NOT_INSTALLED.getId());
 		source.setIconPath((targetDTO.getIconPath() != null) ? targetDTO.getIconPath().toString() : VALUE_FOR_NULL_FILED);
 
 		return source;
