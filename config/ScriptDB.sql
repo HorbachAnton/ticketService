@@ -1,6 +1,7 @@
 -- -----------------------------------------------------
 -- Schema ticketService
 -- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `ticketservice`;
 CREATE SCHEMA IF NOT EXISTS `ticketservice` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 USE `ticketservice` ;
 
@@ -128,4 +129,6 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 INSERT INTO `ticketservice`.`role` (`id`, `name`) VALUES ('1', 'CONSUMER');
 INSERT INTO `ticketservice`.`role` (`id`, `name`) VALUES ('2', 'ADMINISTRATOR');
-INSERT INTO `ticketservice`.`role` (`id`, `name`) VALUES ('3', 'GUEST');
+INSERT INTO `ticketservice`.`user` (`email`, `password`, `enabled`, `name`, `surname`, `Role_id`, `iconPath`) VALUES ('gleb@yandex.by', '$2y$12$boL9uxBRqPZWiBKVu.y8p.mxG8GMS8ytrNNOYKsN2RlgfNKIpO2CG', '1', 'Gleb', 'Fedorovich', '1', 'Не указано');
+
+

@@ -2,6 +2,7 @@ package by.sam.horbach.ticketService.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,12 +19,13 @@ public class RegistrationPageController {
 	RegistrationFacade registrationFacade;
 
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
-	public String getPage() {
+	public String getPage(Model model) {
+		model.addAttribute("userDTO", new UserDTO());
 		return "registration";
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String register(@ModelAttribute("user") UserDTO userDTO, BindingResult result, ModelMap map) {
+	public String register(@ModelAttribute("userDTO") UserDTO userDTO, BindingResult result, ModelMap map) {
 		registrationFacade.register(userDTO);
 		return "userProfile";
 	}

@@ -16,7 +16,6 @@ public class UserDTO {
 	private Path iconPath;
 
 	public UserDTO() {
-
 	}
 
 	public UserDTO(int id, String email, String password, boolean enabled, String name, String surname, UserRoles role, Path iconPath) {

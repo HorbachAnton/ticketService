@@ -22,15 +22,11 @@
 		<property name="surname" type="string">
 			<column name="surname" length="45" />
 		</property>
-		<property name="role">
+		<property name="idRole" type="int">
 			<column name="Role_id" />
-			<type
-				name="converted::by.sam.horbach.ticketService.converters.UserRolesConverter" />
 		</property>
-		<property name="iconPath">
+		<property name="iconPath" type="string">
 			<column name="iconPath" />
-			<type
-				name="converted::by.sam.horbach.ticketService.converters.PathConverter" />
 		</property>
 	</class>
 </hibernate-mapping>

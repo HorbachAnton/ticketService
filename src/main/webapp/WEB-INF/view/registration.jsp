@@ -43,7 +43,7 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 			<form:form class="col-md-4" method="POST" action="register"
-				modelAttribute="user">
+				modelAttribute="userDTO">
 				<div class="form-group">
 					<form:label path="email" for="exampleInputEmail1">Email address</form:label>
 					<form:input path="email" type="email" class="form-control"
