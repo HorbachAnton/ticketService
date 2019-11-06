@@ -1,5 +1,6 @@
 package by.sam.horbach.ticketService.validators;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
@@ -23,6 +24,10 @@ public class RegistrationValidator implements Validator {
 
 		UserDTO userDTO = (UserDTO) target;
 
+		
+		if (StringUtils.isNotEmpty(userDTO.getEmail())) {
+			
+		}
 		if (userDao.findByUserEmail(userDTO.getEmail()) != null) {
 			errors.rejectValue("email", "errors.existing_email", "errors.existing_email.message");
 		}

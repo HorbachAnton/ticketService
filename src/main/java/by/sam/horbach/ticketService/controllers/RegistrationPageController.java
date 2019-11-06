@@ -18,7 +18,7 @@ public class RegistrationPageController {
 
 	@Autowired
 	RegistrationFacade registrationFacade;
-	
+
 	@Autowired
 	RegistrationValidator registrationValidator;
 
@@ -31,7 +31,7 @@ public class RegistrationPageController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(@ModelAttribute("userDTO") UserDTO userDTO, BindingResult result, ModelMap map) {
 		registrationValidator.validate(userDTO, result);
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			return "registration";
 		}
 		registrationFacade.register(userDTO);

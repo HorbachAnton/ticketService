@@ -1,4 +1,4 @@
-package by.sam.horbach.ticketService.services;
+package by.sam.horbach.ticketService.services.impl;
 
 import java.util.ArrayList;
 import java.util.HashSet;

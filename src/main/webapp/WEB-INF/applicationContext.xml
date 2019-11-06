@@ -30,7 +30,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		<property name="userDao" ref="userDao" />
 	</bean>
 
-	<bean id="userDetailsService" class="by.sam.horbach.ticketService.services.UserDetailsServiceImpl">
+	<bean id="userDetailsService" class="by.sam.horbach.ticketService.services.impl.UserDetailsServiceImpl">
 		<property name="userDao" ref="userDao" />
 	</bean>
 
@@ -50,7 +50,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	</bean>
 	
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename" value="classpath:properties/messages" />
+        <property name="basename" value="properties/messages" />
     </bean>
 	
 </beans>

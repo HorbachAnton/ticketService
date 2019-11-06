@@ -59,10 +59,11 @@ http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-
-	<bean id="userDao"
-		class="by.sam.horbach.ticketService.dao.impl.UserDaoImpl">
-		<property name="session" ref="sessionFactory" />
+	
+	<bean id="abstractBaseDao" class="by.sam.horbach.ticketService.dao.AbstractBaseDao" abstract="true">
+        <property name="session" ref="sessionFactory"/>
 	</bean>
+
+	<bean id="userDao" class="by.sam.horbach.ticketService.dao.impl.UserDaoImpl" parent="abstractBaseDao"/>
 
 </beans>
