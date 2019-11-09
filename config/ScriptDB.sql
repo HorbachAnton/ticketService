@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `ticketservice`.`Comment` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `User_id` INT NOT NULL,
   `Event_id` INT NOT NULL,
-  `comment` VARCHAR(400) NULL DEFAULT NULL,
+  `text` VARCHAR(400) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id` (`id` ASC) VISIBLE,
   INDEX `fk_Comment_User1_idx` (`User_id` ASC) VISIBLE,
@@ -135,7 +135,7 @@ INSERT INTO `ticketservice`.`location` (`id`, `title`) VALUES ('1', 'Магни�
 INSERT INTO `ticketservice`.`location` (`id`, `title`) VALUES ('2', 'ТЦ ПЛАЗА');
 INSERT INTO `ticketservice`.`event` (`id`, `title`, `summary`, `date`, `Location_id`, `price`, `iconPath`) VALUES ('1', 'Хеллоуин', 'Тест', '01.01.2019', '1', '245', 'Не указано');
 INSERT INTO `ticketservice`.`ticket` (`id`, `Event_id`, `User_id`) VALUES ('1', '1', '1');
-INSERT INTO `ticketservice`.`comment` (`id`, `User_id`, `Event_id`, `comment`) VALUES ('1', '1', '1', 'Тест');
+INSERT INTO `ticketservice`.`comment` (`id`, `User_id`, `Event_id`, `text`) VALUES ('1', '1', '1', 'Тест');
 
 
 
