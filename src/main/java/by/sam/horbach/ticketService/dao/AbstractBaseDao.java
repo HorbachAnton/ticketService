@@ -3,28 +3,26 @@ package by.sam.horbach.ticketService.dao;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
-import by.sam.horbach.ticketService.entities.User;
-
 @Transactional
 public abstract class AbstractBaseDao implements IAbstractBaseDao{
 	
 	SessionFactory session;
 	
-	public  void save(User user) {
-		session.getCurrentSession().save(user);
+	public  void save(Object object) {
+		session.getCurrentSession().save(object);
 	}
 	
-	public  void update(User user) {
-		session.getCurrentSession().update(user);
+	public  void update(Object object) {
+		session.getCurrentSession().update(object);
 	}
 	
-	public  void delete(User user) {
-		session.getCurrentSession().delete(user);
+	public  void delete(Object object) {
+		session.getCurrentSession().delete(object);
 		
 	}
 	
-	public  User getById(int userId) {
-		return session.getCurrentSession().get(User.class, userId);
+	public  Object getById(int objectId) {
+		return session.getCurrentSession().get(Object.class, objectId);
 	}
 
 	protected SessionFactory getSession() {

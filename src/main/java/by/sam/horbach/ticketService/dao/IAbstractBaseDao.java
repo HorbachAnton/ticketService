@@ -1,15 +1,13 @@
 package by.sam.horbach.ticketService.dao;
 
-import by.sam.horbach.ticketService.entities.User;
-
 public interface IAbstractBaseDao {
 	
-	void save(User user);
+	void save(Object user);
 	
-	void update(User user);
+	void update(Object user);
 	
-	void delete(User user);
+	void delete(Object user);
 	
-	User getById(int userId);
+	Object getById(int userId);
 
 }
