@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09.11.2019 20:12:49 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="by.sam.horbach.ticketService.entities.Event" table="EVENT">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="title" />
+        </property>
+        <property name="summary" type="java.lang.String">
+            <column name="summary" />
+        </property>
+        <property name="date" type="java.time.LocalDateTime">
+            <column name="date" />
+        </property>
+        <property name="idLocation" type="java.lang.String">
+            <column name="Location_id" />
+        </property>
+        <property name="price" type="int">
+            <column name="price" />
+        </property>
+        <property name="iconPath" type="java.lang.String">
+            <column name="iconPath" />
+        </property>
+    </class>
+</hibernate-mapping>
