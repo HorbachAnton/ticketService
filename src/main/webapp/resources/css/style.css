@@ -5,6 +5,7 @@
 .row .form-inline {
   float: left;
   padding-right: 10px;
+  padding-top: 10px;
 }
 
 .row .form-control {

@@ -42,7 +42,7 @@
 	<div class="main-place container-fluid">
 		<div class="row">
 			<div class="col-md-4"></div>
-			<form:form class="col-md-4" method="POST" action="register"
+			<form:form class="col-md-4" method="POST" action="login"
 				modelAttribute="user">
 				<div class="form-group">
 					<form:label path="email" for="exampleInputEmail1">Email address</form:label>
