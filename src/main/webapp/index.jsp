@@ -37,3 +37,134 @@
                 </div>
               </div>
             </header>
+            <body>
+              <div class="container-fluid border border-dark">
+                <div class="row border border-dark">
+                  <div class="col-xl-12 center-block text-center">
+                    <h1>Новости</h1>
+                  </div>
+                </div>
+                <div class="row border border-dark">
+                  <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                    <figure class="figure">
+                      <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
+                      <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                      <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                      <button type="button" class="btn btn-primary">Читать</button>
+                    </figure>
+                  </div>
+                  <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                    <figure class="figure">
+                      <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
+                      <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                      <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                      <button type="button" class="btn btn-primary">Читать</button>
+                    </figure>
+                  </div>
+                  <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                    <figure class="figure">
+                      <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded center-block"/>
+                      <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                      <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                      <button type="button" class="btn btn-primary">Читать</button>
+                    </figure>
+                  </div>
+                  <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                    <figure class="figure">
+                      <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
+                      <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                      <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                      <button type="button" class="btn btn-primary text-center">Читать</button>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="container-fluid border border-dark">
+                <div class="row border border-dark">
+                  <div class="col-xl-12 center-block text-center">
+                    <h1>Ближайшие мероприятия</h1>
+                  </div>
+                </div>
+                <div class="row border border-dark">
+                  <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                    <figure class="figure">
+                      <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
+                      <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                      <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                      <button type="button" class="btn btn-primary">Купить билет</button>
+                    </figure>
+                  </div>
+                  <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                    <figure class="figure">
+                      <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
+                      <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                      <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                      <button type="button" class="btn btn-primary">Купить билет</button>
+                    </figure>
+                  </div>
+                  <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                    <figure class="figure">
+                      <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded center-block"/>
+                      <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                      <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                      <button type="button" class="btn btn-primary">Купить билет</button>
+                    </figure>
+                  </div>
+                  <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                    <figure class="figure">
+                      <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
+                      <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                      <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                      <button type="button" class="btn btn-primary text-center">Купить билет</button>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="container-fluid border border-dark">
+                <div class="row border border-dark">
+                  <div class="col-xl-12 center-block text-center">
+                    <h1>Недавние обзоры</h1>
+                  </div>
+                </div>
+                <div class="row border border-dark">
+                  <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                    <figure class="figure">
+                      <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
+                      <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                      <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                      <button type="button" class="btn btn-primary">Читать</button>
+                    </figure>
+                  </div>
+                  <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                    <figure class="figure">
+                      <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
+                      <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                      <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                      <button type="button" class="btn btn-primary">Читать</button>
+                    </figure>
+                  </div>
+                  <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                    <figure class="figure">
+                      <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded center-block"/>
+                      <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                      <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                      <button type="button" class="btn btn-primary">Читать</button>
+                    </figure>
+                  </div>
+                  <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                    <figure class="figure">
+                      <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
+                      <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                      <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                      <button type="button" class="btn btn-primary text-center">Читать</button>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </body>
+            <footer>
+              <div class="container-fluid">
+                <div class="row flex-d justify-content-center">All rights reserved.</div>
+              </div>
+            </footer>
+          </html>

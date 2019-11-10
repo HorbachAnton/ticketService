@@ -1,13 +1,31 @@
-.row img {
+header .row img {
   max-width: 10%;
 }
 
-.row .form-inline {
+header .row .btn-primary {
+  margin-top: 10px;
+}
+
+header .row .form-inline {
   float: left;
   padding-right: 10px;
   padding-top: 10px;
 }
 
-.row .form-control {
+header .form-control {
   width: 80%;
+}
+
+body img {
+  display: block;
+  margin: 10px auto auto auto;
+}
+
+body .figure button {
+  display: block;
+  margin: 10px auto auto auto;
+}
+
+footer {
+  background: darkgrey;
 }
