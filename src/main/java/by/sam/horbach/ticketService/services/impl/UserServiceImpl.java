@@ -28,6 +28,10 @@ public class UserServiceImpl implements UserService {
 	private String encodePassword(String password) {
 		return BCrypt.hashpw(password, BCrypt.gensalt());
 	}
+	
+	public User getUserByEmail(String userEmail) {
+		return userDao.findByUserEmail(userEmail);
+	}
 
 	public UserDao getUserDao() {
 		return userDao;
