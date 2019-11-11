@@ -1,7 +1,7 @@
 package by.sam.horbach.ticketService.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -11,17 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import by.sam.horbach.ticketService.dto.UserDTO;
+import by.sam.horbach.ticketService.facades.UpdateFacade;
 import by.sam.horbach.ticketService.services.UserService;
 
 @Controller
 public class UserProfilePageController {
 
 	@Autowired
+	UpdateFacade updateFacade;
+	
+	@Autowired
 	UserService userService;
 
 	@RequestMapping(value = "/userProfile", method = RequestMethod.GET)
 	public String getPage(Model model) {
-
+        model.addAttribute("userDTO", updateFacade.getUserByEmail(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return "userProfile";
 	}
 

@@ -35,11 +35,19 @@ public class UpdateValidator implements Validator {
 		if (StringUtils.isBlank(userDTO.getSurname())) {
 			errors.rejectValue("surname", "errors.null_surname", "errors.null_surname.message");
 		}
-		
+
 		if (userDao.findByUserEmail(userDTO.getEmail()) != null) {
 			errors.rejectValue("email", "errors.existing_email", "errors.existing_email.message");
 		}
 
+	}
+
+	public UserDao getUserDao() {
+		return userDao;
+	}
+
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
 	}
 
 }
