@@ -31,11 +31,13 @@ public class RegistrationPageController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(@ModelAttribute("userDTO") UserDTO userDTO, BindingResult result, ModelMap map) {
 		registrationValidator.validate(userDTO, result);
+		
 		if (result.hasErrors()) {
 			return "registration";
 		}
+		
 		registrationFacade.register(userDTO);
-		return "userProfile";
+		return "authorization";
 	}
 
 }
