@@ -8,7 +8,7 @@
 					</head>
 					<body>
 						<header>
-							<div class="container-fluid">
+							<div class="container-fluid border border-dark">
 								<div class="row d-flex align-items-center">
 									<div class="col-xl-4 d-flex justify-content-around">
 										<p>
@@ -38,5 +38,32 @@
 							</div>
 						</header>
 						<body>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-xl-2"></div>
+									<div class="col-xl-8  border border-dark rounded">
+										<div class="container-fluid text-center">
+											<figure class="figure">
+												<img src="<c:url value="/resources/img/icon_profile_not_found.png" />" class="border border-dark rounded"/>
+												<figcaption class="figure-caption text-center">
+													<h3>email@example.com</h3>
+												</figcaption>
+												<figcaption class="figure-caption text-center">
+													<h2>User Example</h2>
+												</figcaption>
+												<figcaption class="figure-caption text-center">
+													<h2>Учётная запись: активирована</h2>
+												</figcaption>
+											</figure>
+										</div>
+										<div class="container-fluid text-center">
+											<button type="button" class="btn btn-primary text-center">Сменить пароль</button>
+											<button type="button" class="btn btn-primary text-center">Сменить имя и фамилию</button>
+											<button type="button" class="btn btn-primary text-center">Сменить почтовый ящик</button>
+										</div>
+									</div>
+									<div class="col-xl-2"></div>
+								</div>
+							</div>
 						</body>
 					</html>
