@@ -1,6 +1,6 @@
 package by.sam.horbach.ticketService.services.impl;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import by.sam.horbach.ticketService.dao.UserDao;
 import by.sam.horbach.ticketService.entities.User;
@@ -9,7 +9,7 @@ import by.sam.horbach.ticketService.services.UserService;
 
 public class UserServiceImpl implements UserService {
 
-	BCryptPasswordEncoder passwordEncoder;
+	PasswordEncoder passwordEncoder;
 	UserDao userDao;
 
 	public boolean register(User user) {
@@ -42,11 +42,11 @@ public class UserServiceImpl implements UserService {
 		this.userDao = userDao;
 	}
 
-	public BCryptPasswordEncoder getPasswordEncoder() {
+	public PasswordEncoder getPasswordEncoder() {
 		return passwordEncoder;
 	}
 
-	public void setPasswordEncoder(BCryptPasswordEncoder passwordEncoder) {
+	public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
 		this.passwordEncoder = passwordEncoder;
 	}
 

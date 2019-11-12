@@ -7,6 +7,7 @@
 						<head-tag:addCssAndScripts/>
 					</head>
 					<body>
+						<c:set var = "enabled" scope = "session" value = "${userDTO.enabled}"/>
 						<header>
 							<div class="container-fluid border border-dark">
 								<div class="row d-flex align-items-center">
@@ -46,13 +47,13 @@
 											<figure class="figure">
 												<img src="<c:url value="/resources/img/icon_profile_not_found.png" />" class="border border-dark rounded"/>
 												<figcaption class="figure-caption text-center">
-													<h3>email@example.com</h3>
+													<h3>Почтовый ящик: ${userDTO.email}</h3>
 												</figcaption>
 												<figcaption class="figure-caption text-center">
-													<h2>User Example</h2>
+													<h2>Имя: ${userDTO.name} &nbsp; Фамилия: ${userDTO.surname}</h2>
 												</figcaption>
 												<figcaption class="figure-caption text-center">
-													<h2>Учётная запись: активирована</h2>
+													<h2>Учётная запись: <c:out value="${enabled eq true ? 'Активирована' : 'Не активирована'}" /></h2>
 												</figcaption>
 											</figure>
 										</div>
