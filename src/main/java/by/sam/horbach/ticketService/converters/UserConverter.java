@@ -22,18 +22,18 @@ public class UserConverter implements TwoWayConverter {
 	}
 
 	@Override
-	public Object convertSourceToTargetClass(Object sourceObject, Class<?> targetClass) {
-		User source = (User) sourceObject;
+	public Object convertSourceToTargetClass(Object source, Class<?> targetClass) {
+		User sourceUser = (User) source;
 
 		UserDTO target = new UserDTO();
-		target.setId(source.getId());
-		target.setEmail(source.getEmail());
-		target.setPassword(source.getPassword());
-		target.setEnabled(source.isEnabled());
-		target.setName((source.getName() != null) ? source.getName() : VALUE_FOR_NULL_FILED);
-		target.setSurname((source.getSurname() != null) ? source.getSurname() : VALUE_FOR_NULL_FILED);
-		target.setRole(UserRoles.getRoleById(source.getIdRole()));
-		target.setIconPath(Paths.get((source.getIconPath() != null) ? source.getIconPath() : VALUE_FOR_NULL_FILED));
+		target.setId(sourceUser.getId());
+		target.setEmail(sourceUser.getEmail());
+		target.setPassword(sourceUser.getPassword());
+		target.setEnabled(sourceUser.isEnabled());
+		target.setName((sourceUser.getName() != null) ? sourceUser.getName() : VALUE_FOR_NULL_FILED);
+		target.setSurname((sourceUser.getSurname() != null) ? sourceUser.getSurname() : VALUE_FOR_NULL_FILED);
+		target.setRole(UserRoles.getRoleById(sourceUser.getIdRole()));
+		target.setIconPath(Paths.get((sourceUser.getIconPath() != null) ? sourceUser.getIconPath() : VALUE_FOR_NULL_FILED));
 
 		return target;
 	}
