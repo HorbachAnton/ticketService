@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public abstract class AbstractBaseDao implements IAbstractBaseDao{
 	
-	SessionFactory session;
+	protected SessionFactory session;
 	
 	public  void save(Object object) {
 		session.getCurrentSession().save(object);

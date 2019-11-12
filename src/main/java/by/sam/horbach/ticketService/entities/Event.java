@@ -8,7 +8,7 @@ public class Event {
 	private String title;
 	private String summary;
 	private LocalDateTime date;
-	private String idLocation;
+	private int idLocation;
 	private int price;
 	private String iconPath;
 	
@@ -16,7 +16,7 @@ public class Event {
 		
 	}
 	
-	public Event(int id, String title, String summary, LocalDateTime date, String idLocation, int price, String iconPath) {
+	public Event(int id, String title, String summary, LocalDateTime date, int idLocation, int price, String iconPath) {
 		this.id = id;
 		this.title = title;
 		this.summary = summary;
@@ -50,10 +50,10 @@ public class Event {
 	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
-	public String getIdLocation() {
+	public int getIdLocation() {
 		return idLocation;
 	}
-	public void setIdLocation(String idLocation) {
+	public void setIdLocation(int idLocation) {
 		this.idLocation = idLocation;
 	}
 	public int getPrice() {
@@ -68,7 +68,7 @@ public class Event {
 	public void setIconPath(String iconPath) {
 		this.iconPath = iconPath;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -76,7 +76,7 @@ public class Event {
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + ((iconPath == null) ? 0 : iconPath.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((idLocation == null) ? 0 : idLocation.hashCode());
+		result = prime * result + idLocation;
 		result = prime * result + price;
 		result = prime * result + ((summary == null) ? 0 : summary.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
@@ -104,10 +104,7 @@ public class Event {
 			return false;
 		if (id != other.id)
 			return false;
-		if (idLocation == null) {
-			if (other.idLocation != null)
-				return false;
-		} else if (!idLocation.equals(other.idLocation))
+		if (idLocation != other.idLocation)
 			return false;
 		if (price != other.price)
 			return false;

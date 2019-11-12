@@ -2,12 +2,12 @@ package by.sam.horbach.ticketService.dao;
 
 public interface IAbstractBaseDao {
 	
-	void save(Object user);
+	void save(Object object);
 	
-	void update(Object user);
+	void update(Object object);
 	
-	void delete(Object user);
+	void delete(Object object);
 	
-	Object getById(int userId);
+	Object getById(int objectId);
 
 }
