@@ -66,4 +66,11 @@ http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 
 	<bean id="userDao" class="by.sam.horbach.ticketService.dao.impl.UserDaoImpl" parent="abstractBaseDao"/>
 
+    <bean id="locationDao" class="by.sam.horbach.ticketService.dao.impl.LocationDaoImpl" parent="abstractBaseDao"/>
+    
+    <bean id="eventDao" class="by.sam.horbach.ticketService.dao.impl.EventDaoImpl" parent="abstractBaseDao"/>
+    
+    <bean id="commentDao" class="by.sam.horbach.ticketService.dao.impl.CommentDaoImpl" parent="abstractBaseDao"/>
+    
+    <bean id="ticketDao" class="by.sam.horbach.ticketService.dao.impl.TicketDaoImpl" parent="abstractBaseDao"/>
 </beans>

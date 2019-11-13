@@ -13,59 +13,94 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	<import resource="TicketService-servlet.xml" />
 	<import resource="database.xml" />
 	<import resource="spring-security-config.xml" />
-
+	
 	<!-- Enable autowire -->
 	<context:annotation-config />
-	<context:component-scan
-		base-package="by.sam.horbach.ticketService.controllers" />
+	<context:component-scan base-package="by.sam.horbach.ticketService.controllers" />
 
 	<mvc:annotation-driven />
-	<mvc:resources mapping="/resources/**"
-		location="/resources/" />
-
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	
 	<bean id="user" class="by.sam.horbach.ticketService.entities.User" />
-
+	
+	<bean id="comment" class="by.sam.horbach.ticketService.entities.Comment"/>
+	
+	<bean id="event" class="by.sam.horbach.ticketService.entities.Event"/>
+	
+	<bean id="location" class="by.sam.horbach.ticketService.entities.Location"/>
+	
+	<bean id="ticket" class="by.sam.horbach.ticketService.entities.Ticket"/>
+	
 	<bean id="userDTO" class="by.sam.horbach.ticketService.dto.UserDTO" />
+	
+	<bean id="commentDTO" class="by.sam.horbach.ticketService.dto.CommentDTO"/>
+	
+	<bean id="eventDTO" class="by.sam.horbach.ticketService.dto.EventDTO"/>
+	
+	<bean id="locationDTO" class="by.sam.horbach.ticketService.dto.LocationDTO"/>
+	
+	<bean id="ticketDTO" class="by.sam.horbach.ticketService.dto.TicketDTO"/>
 	
 	<bean id="userService" class="by.sam.horbach.ticketService.services.impl.UserServiceImpl">
 		<property name="userDao" ref="userDao" />
 		<property name="passwordEncoder" ref="bcrypt" />
 	</bean>
+	
+	<bean id="locationService" class="by.sam.horbach.ticketService.services.impl.LocationServiceImpl">
+		<property name="locationDao" ref="locationDao"/>
+	</bean>
+	
+	<bean id="eventService" class="by.sam.horbach.ticketService.services.impl.EventServiceImpl">
+		<property name="eventDao" ref="eventDao"/>
+	</bean>
 
 	<bean id="userDetailsService" class="by.sam.horbach.ticketService.services.impl.UserDetailsServiceImpl">
 		<property name="userDao" ref="userDao" />
 	</bean>
-
+	
 	<bean id="pathConverter" class="by.sam.horbach.ticketService.converters.PathConverter" />
 
 	<bean id="userRolesConverter" class="by.sam.horbach.ticketService.converters.UserRolesConverter" />
 	
-	<bean id="userConverter" class="by.sam.horbach.ticketService.converters.UserConverter"/>
+	<bean id="userConverter" class="by.sam.horbach.ticketService.converters.UserConverter" />
+	
+	<bean id="eventConverter" class="by.sam.horbach.ticketService.converters.EventConverter">
+		<property name="locationService" ref="locationService"/>			
+	</bean>
+	
+	<bean id="eventListConverter" class="by.sam.horbach.ticketService.converters.EventListConverter">
+		<property name="eventConverter" ref="eventConverter"/>	
+	</bean>
 	
 	<bean id="registrationFacade" class="by.sam.horbach.ticketService.facades.RegistrationFacade">
-		<property name="userConverter" ref="userConverter"/>	
-		<property name="userService" ref="userService"/>
+		<property name="userConverter" ref="userConverter" />
+		<property name="userService" ref="userService" />
 	</bean>
 	
 	<bean id="updateFacade" class="by.sam.horbach.ticketService.facades.UpdateFacade">
-	    <property name="userConverter" ref="userConverter"/>
-	    <property name="userService" ref="userService"/>
+		<property name="userConverter" ref="userConverter" />
+		<property name="userService" ref="userService" />
 	</bean>
 	
+	<bean id="welcomeFacade" class="by.sam.horbach.ticketService.facades.WelcomeFacade">
+		<property name="eventListConverter" ref="eventListConverter"/>
+		<property name="eventService" ref="eventService"/>
+   </bean>
+	
 	<bean id="registrationFormValidator" class="by.sam.horbach.ticketService.validators.RegistrationValidator">
-	    <property name="userDao" ref="userDao"/>
+		<property name="userDao" ref="userDao"/>
 	</bean>
 	
 	<bean id="updateValidator" class="by.sam.horbach.ticketService.validators.UpdateValidator">
-	    <property name="userDao" ref="userDao"/>
+		<property name="userDao" ref="userDao" />
 	</bean>
-	
+
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename" value="properties/messages" />
-    </bean>
-    
-    <bean id="bcrypt" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
-	    <constructor-arg name="strength" value="12"/>
+		<property name="basename" value="properties/messages" />
 	</bean>
-	
+
+	<bean id="bcrypt" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+		<constructor-arg name="strength" value="12" />
+	</bean>
+
 </beans>
