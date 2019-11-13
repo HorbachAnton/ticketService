@@ -58,4 +58,12 @@ public class EventListConverter implements TwoWayConverter {
 		return events;
 	}
 
+	public EventConverter getEventConverter() {
+		return eventConverter;
+	}
+
+	public void setEventConverter(EventConverter eventConverter) {
+		this.eventConverter = eventConverter;
+	}
+
 }
