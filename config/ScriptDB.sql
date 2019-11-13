@@ -138,10 +138,10 @@ INSERT INTO `ticketservice`.`location` (`id`, `title`) VALUES ('2', 'ТЦ ПЛА
 INSERT INTO `ticketservice`.`location` (`id`, `title`) VALUES ('3', 'Большая опера');
 INSERT INTO `ticketservice`.`location` (`id`, `title`) VALUES ('4', 'Кинотеатр');
 
-INSERT INTO `ticketservice`.`event` (`id`, `title`, `summary`, `date`, `Location_id`, `price`, `iconPath`) VALUES ('1', 'Хеллоуин', 'Тест', '2019-10-12 14:32:44', '1', '245', 'Не указано');
-INSERT INTO `ticketservice`.`event` (`id`, `title`, `summary`, `date`, `Location_id`, `price`, `iconPath`) VALUES ('2', 'Фестиваль', 'Тест', '2021-11-20 20:12:40', '2', '344', 'Не указано');
-INSERT INTO `ticketservice`.`event` (`id`, `title`, `summary`, `date`, `Location_id`, `price`, `iconPath`) VALUES ('3', 'Опера', 'Тест', '2018-12-14 17:34:40', '3', '421', 'Не указано');
-INSERT INTO `ticketservice`.`event` (`id`, `title`, `summary`, `date`, `Location_id`, `price`, `iconPath`) VALUES ('4', 'Фильм', 'Тест', '2020-08-03 15:28:17', '4', '297', 'Не указано');
+INSERT INTO `ticketservice`.`event` (`id`, `title`, `summary`, `date`, `Location_id`, `price`, `iconPath`) VALUES ('1', 'Хеллоуин', 'Тест', '2019-10-12 14:32:44', '1', '245', 'resources/img/halloween.png');
+INSERT INTO `ticketservice`.`event` (`id`, `title`, `summary`, `date`, `Location_id`, `price`, `iconPath`) VALUES ('2', 'Фестиваль', 'Тест', '2021-11-20 20:12:40', '2', '344', 'resources/img/festival.png');
+INSERT INTO `ticketservice`.`event` (`id`, `title`, `summary`, `date`, `Location_id`, `price`, `iconPath`) VALUES ('3', 'Опера', 'Тест', '2018-12-14 17:34:40', '3', '421', 'resources/img/opera.png');
+INSERT INTO `ticketservice`.`event` (`id`, `title`, `summary`, `date`, `Location_id`, `price`, `iconPath`) VALUES ('4', 'Фильм', 'Тест', '2020-08-03 15:28:17', '4', '297', 'resources/img/film.png');
 
 INSERT INTO `ticketservice`.`ticket` (`id`, `Event_id`, `User_id`) VALUES ('1', '1', '1');
 
