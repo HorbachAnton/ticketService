@@ -12,11 +12,12 @@
 	   <intercept-url pattern="/authorization*" access="permitAll" /> 
 	   <intercept-url pattern="/registration*" access="permitAll" />
 	   <intercept-url pattern="/" access="permitAll" />
+	   <intercept-url pattern="/welcome" access="permitAll" />
 	   <intercept-url pattern="/userProfile*" access="isAuthenticated()" />
 		<!-- access denied page -->
 		<access-denied-handler error-page="/403" />
 		<form-login login-page="/authorization"
-			default-target-url="/"
+			default-target-url="/welcome"
 			authentication-failure-url="/authorization-failed"
 			username-parameter="email" password-parameter="password" />
 		<logout logout-success-url="/authorization" />
