@@ -10,7 +10,7 @@ public class LocationServiceImpl implements LocationService {
 	
 	@Override
 	public Location getLocation(int id) {
- 		return (Location) locationDao.getById(id);
+ 		return (Location) locationDao.getById(Location.class, id);
 	}
 
 	public LocationDao getLocationDao() {

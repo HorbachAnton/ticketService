@@ -21,8 +21,8 @@ public abstract class AbstractBaseDao implements IAbstractBaseDao{
 		
 	}
 	
-	public  Object getById(int objectId) {
-		return session.getCurrentSession().get(Object.class, objectId);
+	public  <T> Object getById(Class<T> expectedClass, int objectId) {
+		return session.getCurrentSession().get(expectedClass, objectId);
 	}
 
 	protected SessionFactory getSession() {

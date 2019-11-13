@@ -8,6 +8,6 @@ public interface IAbstractBaseDao {
 	
 	void delete(Object object);
 	
-	Object getById(int objectId);
+	<T> Object getById(Class<T> expectedClass, int objectId);
 
 }

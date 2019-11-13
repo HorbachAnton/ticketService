@@ -17,6 +17,7 @@ import by.sam.horbach.ticketService.entities.Event;
 @Transactional
 public class EventDaoImpl extends AbstractBaseDao implements EventDao {
 	
+	private static final String COLUMN_EVENT_DATE = "date";
 	private static final int NUMBER_UPCOMING_EVENT = 4;
 
 	@Override
@@ -38,7 +39,7 @@ public class EventDaoImpl extends AbstractBaseDao implements EventDao {
 		CriteriaQuery<Event> cr = cb.createQuery(Event.class);
 		Root<Event> root = cr.from(Event.class);
 		cr.select(root);
-		cr.orderBy(cb.desc(root.get("data")));
+		cr.orderBy(cb.desc(root.get(COLUMN_EVENT_DATE)));
 		
 		Query<Event> query = currentSession.createQuery(cr).setMaxResults(NUMBER_UPCOMING_EVENT);
 		return query.getResultList();

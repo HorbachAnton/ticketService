@@ -17,7 +17,7 @@
         <property name="date" type="java.time.LocalDateTime">
             <column name="date" />
         </property>
-        <property name="idLocation" type="java.lang.String">
+        <property name="idLocation" type="int">
             <column name="Location_id" />
         </property>
         <property name="price" type="int">
