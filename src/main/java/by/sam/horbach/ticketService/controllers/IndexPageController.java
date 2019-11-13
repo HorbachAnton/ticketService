@@ -10,7 +10,7 @@ public class IndexPageController {
 	
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String getPage(Model model) {
-		return "index";
+		return "";
 	}
 
 }
