@@ -8,7 +8,7 @@ import by.sam.horbach.ticketService.dto.EventDTO;
 import by.sam.horbach.ticketService.entities.Comment;
 import by.sam.horbach.ticketService.services.EventService;
 
-public class IndexFacade {
+public class WelcomeFacade {
 
 	TwoWayConverter eventListConverter;
 	EventService eventService;
@@ -28,6 +28,22 @@ public class IndexFacade {
 
 	public List<Comment> getComments() {
 		return null;
+	}
+
+	public TwoWayConverter getEventListConverter() {
+		return eventListConverter;
+	}
+
+	public void setEventListConverter(TwoWayConverter eventListConverter) {
+		this.eventListConverter = eventListConverter;
+	}
+
+	public EventService getEventService() {
+		return eventService;
+	}
+
+	public void setEventService(EventService eventService) {
+		this.eventService = eventService;
 	}
 
 }
