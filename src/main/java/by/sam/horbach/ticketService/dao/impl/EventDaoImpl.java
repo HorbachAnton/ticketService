@@ -8,11 +8,13 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import by.sam.horbach.ticketService.dao.AbstractBaseDao;
 import by.sam.horbach.ticketService.dao.EventDao;
 import by.sam.horbach.ticketService.entities.Event;
 
+@Transactional
 public class EventDaoImpl extends AbstractBaseDao implements EventDao {
 	
 	private static final int NUMBER_UPCOMING_EVENT = 4;
