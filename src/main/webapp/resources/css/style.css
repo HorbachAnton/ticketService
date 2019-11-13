@@ -26,6 +26,11 @@ body .figure button {
   margin: 10px auto auto auto;
 }
 
+body .upcoming-events-block img {
+  width: 252px;
+  height: 190px;
+}
+
 footer {
   background: darkgrey;
 }

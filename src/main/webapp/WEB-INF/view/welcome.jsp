@@ -87,9 +87,9 @@
                 </div>
                 <div class="row border border-dark">
                   <c:forEach var="event" items="${upcomingEvents}">
-                    <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                    <div class="col-xl-3 border border-dark rounded d-flex justify-content-center upcoming-events-block">
                       <figure class="figure">
-                        <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
+                        <img src="<c:url value="${event.getIconPath()}" />" class="border border-dark rounded"/>
                         <figcaption class="figure-caption text-center"><c:out value="${event.getTitle()}"/></figcaption>
                         <figcaption class="figure-caption text-center"><c:out value="${event.getSummary()}"/></figcaption>
                         <button type="button" class="btn btn-primary">Купить билет</button>
