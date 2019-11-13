@@ -21,10 +21,6 @@ public class UpdateFacade {
 
 	}
 
-	public void update() {
-
-	}
-
 	public TwoWayConverter getUserConverter() {
 		return userConverter;
 	}
