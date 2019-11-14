@@ -54,10 +54,6 @@ public class EventConverter implements TwoWayConverter {
 		return source;
 	}
 
-	public LocationService getLocationService() {
-		return locationService;
-	}
-
 	public void setLocationService(LocationService locationService) {
 		this.locationService = locationService;
 	}

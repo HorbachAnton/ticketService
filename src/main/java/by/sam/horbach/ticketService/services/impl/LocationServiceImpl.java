@@ -13,10 +13,6 @@ public class LocationServiceImpl implements LocationService {
  		return (Location) locationDao.getById(Location.class, id);
 	}
 
-	public LocationDao getLocationDao() {
-		return locationDao;
-	}
-
 	public void setLocationDao(LocationDao locationDao) {
 		this.locationDao = locationDao;
 	}

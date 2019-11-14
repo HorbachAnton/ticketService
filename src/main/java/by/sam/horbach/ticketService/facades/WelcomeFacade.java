@@ -19,8 +19,8 @@ public class WelcomeFacade {
 		
 		try {
 			eventsDTO = (List<EventDTO>) eventListConverter.convertSourceToTargetClass(eventService.getUpcomingEvents(), List.class);
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception exc) {
+			exc.printStackTrace();
 		}
 		
 		return eventsDTO;
@@ -30,16 +30,8 @@ public class WelcomeFacade {
 		return null;
 	}
 
-	public TwoWayConverter getEventListConverter() {
-		return eventListConverter;
-	}
-
 	public void setEventListConverter(TwoWayConverter eventListConverter) {
 		this.eventListConverter = eventListConverter;
-	}
-
-	public EventService getEventService() {
-		return eventService;
 	}
 
 	public void setEventService(EventService eventService) {

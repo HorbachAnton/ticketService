@@ -21,16 +21,9 @@ public class UpdateFacade {
 
 	}
 
-	public TwoWayConverter getUserConverter() {
-		return userConverter;
-	}
 
 	public void setUserConverter(TwoWayConverter userConverter) {
 		this.userConverter = userConverter;
-	}
-
-	public UserService getUserService() {
-		return userService;
 	}
 
 	public void setUserService(UserService userService) {

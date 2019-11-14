@@ -20,10 +20,6 @@ public class UpdateValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		UserDTO userDTO = (UserDTO) target;
 
-		if (StringUtils.isBlank(userDTO.getEmail())) {
-			errors.rejectValue("email", "errors.null_email", "errors.null_email.message");
-		}
-
 		if (StringUtils.isBlank(userDTO.getPassword())) {
 			errors.rejectValue("password", "errors.null_password", "errors.null_password.message");
 		}
@@ -40,10 +36,6 @@ public class UpdateValidator implements Validator {
 			errors.rejectValue("email", "errors.existing_email", "errors.existing_email.message");
 		}
 
-	}
-
-	public UserDao getUserDao() {
-		return userDao;
 	}
 
 	public void setUserDao(UserDao userDao) {
