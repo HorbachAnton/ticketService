@@ -29,10 +29,6 @@ public class RegistrationValidator implements Validator {
 
 	}
 
-	public UserDao getUserDao() {
-		return userDao;
-	}
-
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
 	}

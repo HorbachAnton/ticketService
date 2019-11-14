@@ -1,5 +1,9 @@
 package by.sam.horbach.ticketService.services.impl;
 
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import by.sam.horbach.ticketService.dao.UserDao;
@@ -18,7 +22,7 @@ public class UserServiceImpl implements UserService {
 		userDao.save(user);
 		return result;
 	}
-	
+
 	private User prepareUser(User user) {
 		user.setIdRole(UserRoles.CONSUMER.getId());
 		user.setEnabled(true);
@@ -29,21 +33,35 @@ public class UserServiceImpl implements UserService {
 	private String encodePassword(String password) {
 		return passwordEncoder.encode(password);
 	}
-	
+
 	public User getUserByEmail(String userEmail) {
 		return userDao.findByUserEmail(userEmail);
 	}
 
-	public UserDao getUserDao() {
-		return userDao;
+	@Override
+	public User getCurrentUser() {
+		SecurityContext securityContext = SecurityContextHolder.getContext();
+		Authentication authentication = securityContext.getAuthentication();
+
+		if (!isAuthenticated(authentication)) {
+			return null;
+		}
+
+		return userDao.findByUserEmail(authentication.getName());
+	}
+
+	@Override
+	public boolean isCurrentUser(User user) {
+		return getCurrentUser().equals(user);
+	}
+
+	@Override
+	public boolean isAuthenticated(Authentication authentication) {
+		return authentication != null && !(authentication instanceof AnonymousAuthenticationToken) && authentication.isAuthenticated();
 	}
 
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
-	}
-
-	public PasswordEncoder getPasswordEncoder() {
-		return passwordEncoder;
 	}
 
 	public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
