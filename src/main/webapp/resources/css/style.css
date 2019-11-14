@@ -31,6 +31,15 @@ body .upcoming-events-block img {
   height: 190px;
 }
 
-footer {
-  background: darkgrey;
+.footer-welcome {
+  background: #DFDFDF;
+  height: 55px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  background-color: #DFDFDF;
 }

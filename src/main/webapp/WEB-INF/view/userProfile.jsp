@@ -7,7 +7,7 @@
 						<head-tag:addCssAndScripts/>
 					</head>
 					<body>
-						<c:set var = "enabled" scope = "session" value = "${userDTO.enabled}"/>
+						<c:set var="enabled" scope="session" value="${userDTO.enabled}"/>
 						<header>
 							<div class="container-fluid border border-dark">
 								<div class="row d-flex align-items-center">
@@ -53,18 +53,22 @@
 													<h2>Имя: ${userDTO.name} &nbsp; Фамилия: ${userDTO.surname}</h2>
 												</figcaption>
 												<figcaption class="figure-caption text-center">
-													<h2>Учётная запись: <c:out value="${enabled eq true ? 'Активирована' : 'Не активирована'}" /></h2>
+													<h2>Учётная запись: <c:out value="${enabled eq true ? 'Активирована' : 'Не активирована'}"/></h2>
 												</figcaption>
 											</figure>
 										</div>
 										<div class="container-fluid text-center">
 											<button type="button" class="btn btn-primary text-center">Сменить пароль</button>
 											<button type="button" class="btn btn-primary text-center">Сменить имя и фамилию</button>
-											<button type="button" class="btn btn-primary text-center">Сменить почтовый ящик</button>
 										</div>
 									</div>
 									<div class="col-xl-2"></div>
 								</div>
 							</div>
 						</body>
+						<footer class="footer d-flex align-items-center">
+							<div class="container">
+								<div class="row flex-d justify-content-center">All rights reserved.</div>
+							</div>
+						</footer>
 					</html>

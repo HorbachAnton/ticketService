@@ -140,7 +140,7 @@
                 </div>
               </div>
             </body>
-            <footer>
+            <footer class="footer-welcome  d-flex align-items-center">
               <div class="container-fluid">
                 <div class="row flex-d justify-content-center">All rights reserved.</div>
               </div>

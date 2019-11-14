@@ -9,8 +9,6 @@ import org.springframework.binding.convert.converters.TwoWayConverter;
 
 public class UserConverter implements TwoWayConverter {
 
-	public static final String VALUE_FOR_NULL_FILED = "Не указано";
-
 	@Override
 	public Class<User> getSourceClass() {
 		return User.class;
@@ -30,10 +28,10 @@ public class UserConverter implements TwoWayConverter {
 		target.setEmail(sourceUser.getEmail());
 		target.setPassword(sourceUser.getPassword());
 		target.setEnabled(sourceUser.isEnabled());
-		target.setName((sourceUser.getName() != null) ? sourceUser.getName() : VALUE_FOR_NULL_FILED);
-		target.setSurname((sourceUser.getSurname() != null) ? sourceUser.getSurname() : VALUE_FOR_NULL_FILED);
+		target.setName(sourceUser.getName());
+		target.setSurname(sourceUser.getSurname());
 		target.setRole(UserRoles.getRoleById(sourceUser.getIdRole()));
-		target.setIconPath(Paths.get((sourceUser.getIconPath() != null) ? sourceUser.getIconPath() : VALUE_FOR_NULL_FILED));
+		target.setIconPath(Paths.get(sourceUser.getIconPath()));
 
 		return target;
 	}
@@ -47,10 +45,10 @@ public class UserConverter implements TwoWayConverter {
 		source.setEmail(targetDTO.getEmail());
 		source.setPassword(targetDTO.getPassword());
 		source.setEnabled(targetDTO.isEnabled());
-		source.setName((targetDTO.getName() != null) ? targetDTO.getName() : VALUE_FOR_NULL_FILED);
-		source.setSurname((targetDTO.getSurname()) != null ? targetDTO.getSurname() : VALUE_FOR_NULL_FILED);
-		source.setIdRole((targetDTO.getRole() != null) ? targetDTO.getRole().getId() : UserRoles.NOT_INSTALLED.getId());
-		source.setIconPath((targetDTO.getIconPath() != null) ? targetDTO.getIconPath().toString() : VALUE_FOR_NULL_FILED);
+		source.setName(targetDTO.getName());
+		source.setSurname(targetDTO.getSurname());
+		source.setIdRole(targetDTO.getRole().getId());
+		source.setIconPath(targetDTO.getIconPath().toString());
 
 		return source;
 	}
