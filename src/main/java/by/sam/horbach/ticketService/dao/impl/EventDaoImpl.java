@@ -1,13 +1,6 @@
 package by.sam.horbach.ticketService.dao.impl;
 
 import java.util.List;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
-import org.hibernate.Session;
-import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 import by.sam.horbach.ticketService.dao.AbstractBaseDao;
@@ -17,32 +10,19 @@ import by.sam.horbach.ticketService.entities.Event;
 @Transactional
 public class EventDaoImpl extends AbstractBaseDao implements EventDao {
 	
-	private static final String COLUMN_EVENT_DATE = "date";
-	private static final int NUMBER_UPCOMING_EVENT = 4;
+	private static final String QUERY_LIST_ALL_EVENTS = "select * from event";
+	private static final String QUERY_LIST_UPCOMING_EVENTS = "select * from event order by `date` desc limit 4";
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Event> getEvents() {
-		Session currentSession = super.session.getCurrentSession();
-		CriteriaBuilder cb = session.getCriteriaBuilder();
-		CriteriaQuery<Event> cr = cb.createQuery(Event.class);
-		Root<Event> root = cr.from(Event.class);
-		cr.select(root);
-		
-		Query<Event> query = currentSession.createQuery(cr);
-		return query.getResultList();
+		return (List<Event>) super.getCurrentSession().createQuery(QUERY_LIST_ALL_EVENTS).list();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Event> getUpcomingEvents() {
-		Session currentSession = super.session.getCurrentSession();
-		CriteriaBuilder cb = session.getCriteriaBuilder();
-		CriteriaQuery<Event> cr = cb.createQuery(Event.class);
-		Root<Event> root = cr.from(Event.class);
-		cr.select(root);
-		cr.orderBy(cb.desc(root.get(COLUMN_EVENT_DATE)));
-		
-		Query<Event> query = currentSession.createQuery(cr).setMaxResults(NUMBER_UPCOMING_EVENT);
-		return query.getResultList();
+		return (List<Event>) super.getCurrentSession().createQuery(QUERY_LIST_UPCOMING_EVENTS).list();
 	}
 
 }

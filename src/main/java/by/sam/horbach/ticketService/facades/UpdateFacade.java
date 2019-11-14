@@ -1,6 +1,7 @@
 package by.sam.horbach.ticketService.facades;
 
 import org.springframework.binding.convert.converters.TwoWayConverter;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import by.sam.horbach.ticketService.dto.UserDTO;
 import by.sam.horbach.ticketService.services.UserService;
@@ -10,10 +11,10 @@ public class UpdateFacade {
 	TwoWayConverter userConverter;
 	UserService userService;
 
-	public UserDTO getUserByEmail(String userEmail) {
+	public UserDTO getUserByEmail() {
 		UserDTO userDTO = null;
 		try {
-			userDTO = (UserDTO) userConverter.convertSourceToTargetClass(userService.getUserByEmail(userEmail), UserDTO.class);
+			userDTO = (UserDTO) userConverter.convertSourceToTargetClass(userService.getUserByEmail(SecurityContextHolder.getContext().getAuthentication().getName()), UserDTO.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
