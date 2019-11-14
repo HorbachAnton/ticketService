@@ -24,16 +24,16 @@ public class EventListConverter implements TwoWayConverter {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Object convertSourceToTargetClass(Object source, Class<?> targetClass) throws Exception {
+	public Object convertSourceToTargetClass(Object source, Class<?> targetClass) {
 		List<Event> events = (List<Event>) source;
 
 		List<EventDTO> eventsDTO = new ArrayList<>(events.size());
-		
+
 		events.forEach(event -> {
 			try {
 				eventsDTO.add((EventDTO) eventConverter.convertSourceToTargetClass(event, EventDTO.class));
-			} catch (Exception e) {
-				e.printStackTrace();
+			} catch (Exception exc) {
+				exc.printStackTrace();
 			}
 		});
 
@@ -42,17 +42,13 @@ public class EventListConverter implements TwoWayConverter {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Object convertTargetToSourceClass(Object target, Class<?> sourceClass) throws Exception {
+	public Object convertTargetToSourceClass(Object target, Class<?> sourceClass) {
 		List<EventDTO> eventsDTO = (List<EventDTO>) target;
 
 		List<Event> events = new ArrayList<>(eventsDTO.size());
 		
 		eventsDTO.forEach(eventDTO -> {
-			try {
 				events.add((Event) eventConverter.convertTargetToSourceClass(eventDTO, Event.class));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		});
 
 		return events;

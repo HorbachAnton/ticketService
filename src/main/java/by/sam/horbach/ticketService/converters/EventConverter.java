@@ -23,7 +23,7 @@ public class EventConverter implements TwoWayConverter {
 	}
 
 	@Override
-	public Object convertSourceToTargetClass(Object source, Class<?> targetClass) throws Exception {
+	public Object convertSourceToTargetClass(Object source, Class<?> targetClass) {
 		Event sourceEvent = (Event) source;
 
 		EventDTO target = new EventDTO();
@@ -39,7 +39,7 @@ public class EventConverter implements TwoWayConverter {
 	}
 
 	@Override
-	public Object convertTargetToSourceClass(Object target, Class<?> sourceClass) throws Exception {
+	public Object convertTargetToSourceClass(Object target, Class<?> sourceClass) {
 		EventDTO targetDTO = (EventDTO) target;
 
 		Event source = new Event();
