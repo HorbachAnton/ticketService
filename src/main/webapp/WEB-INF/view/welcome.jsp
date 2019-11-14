@@ -92,7 +92,7 @@
                         <img src="<c:url value="${event.getIconPath()}" />" class="border border-dark rounded"/>
                         <figcaption class="figure-caption text-center"><c:out value="${event.getTitle()}"/></figcaption>
                         <figcaption class="figure-caption text-center"><c:out value="${event.getSummary()}"/></figcaption>
-                        <button type="button" class="btn btn-primary">Купить билет</button>
+                        <button type="button" class="btn btn-primary">Узнать больше</button>
                       </figure>
                     </div>
                   </c:forEach>

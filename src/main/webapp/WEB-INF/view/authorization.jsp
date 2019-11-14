@@ -39,10 +39,10 @@
 			</div>
 		</div>
 	</header>
-	<div class="main-place container-fluid">
+	<div class="main-place container-fluid form-container">
 		<div class="row">
 			<div class="col-md-4"></div>
-			<form:form class="col-md-4" method="POST" action="login">
+			<form:form class="col-md-4 border border-dark rounded" method="POST" action="login">
 				<div class="form-group">
 					<label for="exampleInputEmail1">Email address</label>
 					<input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
@@ -61,7 +61,7 @@
 			<div class="col-md-4"></div>
 		</div>
 	</div>
-	<footer>
+	<footer class="footer d-flex align-items-center">
 		<div class="container-fluid">
 			<div class="row flex-d justify-content-center">All rights reserved.</div>
 		</div>

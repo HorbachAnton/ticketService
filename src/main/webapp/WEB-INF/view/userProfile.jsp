@@ -59,7 +59,7 @@
 										</div>
 										<div class="container-fluid text-center">
 											<button type="button" class="btn btn-primary text-center">Сменить пароль</button>
-											<button type="button" class="btn btn-primary text-center">Сменить имя и фамилию</button>
+											<button type="button" class="btn btn-primary text-center">Сменить персональные данные</button>
 										</div>
 									</div>
 									<div class="col-xl-2"></div>
