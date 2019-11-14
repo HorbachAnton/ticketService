@@ -1,7 +1,6 @@
 package by.sam.horbach.ticketService.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -25,7 +24,7 @@ public class UserProfilePageController {
 
 	@RequestMapping(value = "/userProfile", method = RequestMethod.GET)
 	public String getPage(Model model) {
-        model.addAttribute("userDTO", updateFacade.getUserByEmail(SecurityContextHolder.getContext().getAuthentication().getName()));
+        model.addAttribute("userDTO", updateFacade.getUserByEmail());
 		return "userProfile";
 	}
 
@@ -37,8 +36,8 @@ public class UserProfilePageController {
 	public boolean changePassword() {
 		return true;
 	}
-
-	public boolean changeEmail() {
+	
+	public boolean changePersonalData () {
 		return true;
 	}
 

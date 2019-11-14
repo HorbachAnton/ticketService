@@ -19,5 +19,10 @@ public class WelcomePageController {
 		model.addAttribute("upcomingEvents", welcomeFacadeFacade.getUpcomingEvents());
 		return "welcome";
 	}
+	
+	@RequestMapping(value="/moreInfo")
+	public String  moreInfo() {
+		return "event";
+	}
 
 }
