@@ -11,13 +11,13 @@ import by.sam.horbach.ticketService.entities.User;
 @Transactional
 public class UserDaoImpl extends AbstractBaseDao implements UserDao {
 
-	private static final String QUERY_USER_BY_EMAIL = "select * from User where email = :email";
+	private static final String QUERY_USER_BY_EMAIL = "select * from User where email = ?";
 
 	@Override
 	public User findByUserEmail(String email) {
 		User user = null;
 		try {
-			user = (User) super.getCurrentSession().createSQLQuery(QUERY_USER_BY_EMAIL).setParameter("email", email).getSingleResult();
+			user = (User) super.getCurrentSession().createSQLQuery(QUERY_USER_BY_EMAIL).addEntity(User.class).setParameter(1, email).getSingleResult();
 		} catch (NoResultException  e) {
 			user = null;
 		}

@@ -16,13 +16,13 @@ public class EventDaoImpl extends AbstractBaseDao implements EventDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Event> getEvents() {
-		return (List<Event>) super.getCurrentSession().createSQLQuery(QUERY_LIST_ALL_EVENTS).list();
+		return (List<Event>) super.getCurrentSession().createSQLQuery(QUERY_LIST_ALL_EVENTS).addEntity(Event.class).list();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Event> getUpcomingEvents() {
-		return (List<Event>) super.getCurrentSession().createSQLQuery(QUERY_LIST_UPCOMING_EVENTS).list();
+		return (List<Event>) super.getCurrentSession().createSQLQuery(QUERY_LIST_UPCOMING_EVENTS).addEntity(Event.class).list();
 	}
 
 }

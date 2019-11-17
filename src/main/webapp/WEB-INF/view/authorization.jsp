@@ -43,7 +43,6 @@
                       <img src="<c:url value="/resources/img/logo.png" />" class="img-fluid rounded mx-auto d-block" alt="logo"/>
                     </div>
                     <div class="col-xl-4">
-                      <input class="btn btn-primary" type="button" value="Input"/>
                       <form class="form-inline">
                         <input class="form-control" type="search" placeholder="${button_message}" aria-label="${button_message}"/>
                         <button class="btn btn-outline-success" type="submit">${button_message}</button>
