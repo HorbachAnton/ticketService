@@ -30,11 +30,7 @@ public class EventListConverter implements TwoWayConverter {
 		List<EventDTO> eventsDTO = new ArrayList<>(events.size());
 
 		events.forEach(event -> {
-			try {
-				eventsDTO.add((EventDTO) eventConverter.convertSourceToTargetClass(event, EventDTO.class));
-			} catch (Exception exc) {
-				exc.printStackTrace();
-			}
+			eventsDTO.add((EventDTO) eventConverter.convertSourceToTargetClass(event, EventDTO.class));
 		});
 
 		return eventsDTO;
@@ -46,9 +42,9 @@ public class EventListConverter implements TwoWayConverter {
 		List<EventDTO> eventsDTO = (List<EventDTO>) target;
 
 		List<Event> events = new ArrayList<>(eventsDTO.size());
-		
+
 		eventsDTO.forEach(eventDTO -> {
-				events.add((Event) eventConverter.convertTargetToSourceClass(eventDTO, Event.class));
+			events.add((Event) eventConverter.convertTargetToSourceClass(eventDTO, Event.class));
 		});
 
 		return events;

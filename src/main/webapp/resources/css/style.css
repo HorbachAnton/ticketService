@@ -36,6 +36,14 @@ body .upcoming-events-block img {
   text-align: center;
 }
 
+.form-container button {
+  margin: 10px;
+}
+
+.form-container .form_buttons input {
+  margin: 10px;
+}
+
 .footer-welcome {
   background: #DFDFDF;
   height: 55px;
