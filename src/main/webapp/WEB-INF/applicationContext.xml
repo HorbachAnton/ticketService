@@ -52,11 +52,11 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	<bean id="ticketDTO"
 		class="by.sam.horbach.ticketService.dto.TicketDTO" />
 
-	<bean id="registrationFormFTO"
+	<bean id="registrationFormDTO"
 		class="by.sam.horbach.ticketService.dto.forms.RegistrationDTO" />
 
-	<bean id="changePasswordFormDTO"
-		class="by.sam.horbach.ticketService.dto.forms.ChangePasswordDTO" />
+	<bean id="PasswordDTO"
+		class="by.sam.horbach.ticketService.dto.forms.PasswordDTO" />
 
 	<bean id="userService"
 		class="by.sam.horbach.ticketService.services.impl.UserServiceImpl">
@@ -101,15 +101,15 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		<property name="eventConverter" ref="eventConverter" />
 	</bean>
 
+	<bean id="PasswordDTOConverter"
+		class="by.sam.horbach.ticketService.converters.PasswordDTOConverter">
+		<property name="userService" ref="userService" />
+	</bean>
+
 	<bean id="registrationFacade"
 		class="by.sam.horbach.ticketService.facades.RegistrationFacade">
 		<property name="userConverter"
 			ref="userRegistrationConverter" />
-		<property name="userService" ref="userService" />
-	</bean>
-
-	<bean id="changePasswordDTOConverter"
-		class="by.sam.horbach.ticketService.converters.ChangePasswordDTOConverter">
 		<property name="userService" ref="userService" />
 	</bean>
 
@@ -125,15 +125,18 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		<property name="eventService" ref="eventService" />
 	</bean>
 
+	<bean id="changePasswordFacade"
+		class="by.sam.horbach.ticketService.facades.ChangePasswordFacade">
+		<property name="converter" ref="PasswordDTOConverter" />
+		<property name="userService" ref="userService" />
+	</bean>
+	
+	<bean id="changePersonalDataFacade" class="by.sam.horbach.ticketService.facades.ChangePersonalDataFacade">
+	</bean>
+
 	<bean id="registrationFormValidator"
 		class="by.sam.horbach.ticketService.validators.RegistrationValidator">
 		<property name="userDao" ref="userDao" />
-	</bean>
-
-	<bean id="ChangePasswordFacade"
-		class="by.sam.horbach.ticketService.facades.ChangePasswordFacade">
-		<property name="converter" ref="changePasswordDTOConverter" />
-		<property name="userService" ref="userService" />
 	</bean>
 
 	<bean id="updateValidator"

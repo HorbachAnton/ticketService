@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.binding.convert.converters.TwoWayConverter;
 
 
-import by.sam.horbach.ticketService.dto.forms.ChangePasswordDTO;
+import by.sam.horbach.ticketService.dto.forms.PasswordDTO;
 import by.sam.horbach.ticketService.entities.User;
 import by.sam.horbach.ticketService.services.UserService;
 
@@ -17,7 +17,7 @@ public class ChangePasswordFacade {
 	TwoWayConverter converter;
 	UserService userService;
 
-	public void changePassword(ChangePasswordDTO changePasswordDTO) {
+	public void changePassword(PasswordDTO changePasswordDTO) {
 		User user = null;
 
 		try {

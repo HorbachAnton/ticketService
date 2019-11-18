@@ -8,8 +8,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
-import by.sam.horbach.ticketService.dto.forms.ChangePasswordDTO;
+import by.sam.horbach.ticketService.dto.forms.PasswordDTO;
 import by.sam.horbach.ticketService.facades.ChangePasswordFacade;
 
 @Controller
@@ -20,15 +21,15 @@ public class ChangePasswordPageController {
 
 	@RequestMapping(value = "/change_password_page", method = RequestMethod.GET)
 	public String getPage(Model model) {
-		model.addAttribute("changePasswordDTO", new ChangePasswordDTO());
+		model.addAttribute("changePasswordDTO", new PasswordDTO());
 		return "changePassword";
 	}
 
 	@RequestMapping(value = "/change", method = RequestMethod.POST)
-	public String change(@ModelAttribute("changePasswordDTO") ChangePasswordDTO changePasswordDTO, BindingResult result,
+	public ModelAndView change(@ModelAttribute("changePasswordDTO") PasswordDTO changePasswordDTO, BindingResult result,
 			ModelMap map) {
 		changePasswordFacade.changePassword(changePasswordDTO);
-		return "welcome";
+		return new ModelAndView("redirect:/welcome");
 	}
 
 	public void setChangePasswordFacade(ChangePasswordFacade changePasswordFacade) {

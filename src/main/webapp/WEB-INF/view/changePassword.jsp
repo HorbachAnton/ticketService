@@ -52,15 +52,10 @@
               <div class="main-place container-fluid form-container">
                 <div class="row">
                   <div class="col-md-4"></div>
-                  <form:form
-                    class="col-md-4 border border-dark rounded"
-                    method="POST"
-                    action="change"
-                    modelAttribute="changePasswordDTO"
-                    oninput='confirm_password.setCustomValidity(confirm_password.value != password.value ? "Passwords do not match." : "")'>
+                  <form:form class="col-md-4 border border-dark rounded" method="POST" action="change" modelAttribute="changePasswordDTO" oninput='confirm_password.setCustomValidity(confirm_password.value != password.value ? "Passwords do not match." : "")'>
                     <div class="form-group">
-                      <label path="password" for="password">${password}</label>
-                      <input path="password" type="password" class="form-control" id="password" placeholder="${password_placeholder}" name="password"/>
+                      <form:label path="password" for="password">${password}</form:label>
+                      <form:input path="password" type="password" class="form-control" id="password" placeholder="${password_placeholder}" name="password"/>
                     </div>
                     <div class="form-group">
                       <label for="confirm-password">${password_confirm}</label>
@@ -68,10 +63,13 @@
                     </div>
                     <button type="submit" class="btn btn-primary">${change_password_button}</button>
                   </form:form>
-                </body>
-                <footer class="footer d-flex align-items-center">
-                  <div class="container">
-                    <div class="row flex-d justify-content-center">${rights}</div>
-                  </div>
-                </footer>
-              </html>
+                  <div class="col-md-4"></div>
+                </div>
+              </div>
+            </body>
+            <footer class="footer d-flex align-items-center">
+              <div class="container">
+                <div class="row flex-d justify-content-center">${rights}</div>
+              </div>
+            </footer>
+          </html>

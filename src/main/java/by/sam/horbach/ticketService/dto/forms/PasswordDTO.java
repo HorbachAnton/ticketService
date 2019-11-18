@@ -1,14 +1,14 @@
 package by.sam.horbach.ticketService.dto.forms;
 
-public class ChangePasswordDTO {
+public class PasswordDTO {
 	
 	private String password;
 	
-	public ChangePasswordDTO() {
+	public PasswordDTO() {
 		
 	}
 
-	public ChangePasswordDTO(String password) {
+	public PasswordDTO(String password) {
 		super();
 		this.password = password;
 	}

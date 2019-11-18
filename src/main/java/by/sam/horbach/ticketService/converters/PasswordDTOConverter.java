@@ -2,17 +2,17 @@ package by.sam.horbach.ticketService.converters;
 
 import org.springframework.binding.convert.converters.TwoWayConverter;
 
-import by.sam.horbach.ticketService.dto.forms.ChangePasswordDTO;
+import by.sam.horbach.ticketService.dto.forms.PasswordDTO;
 import by.sam.horbach.ticketService.entities.User;
 import by.sam.horbach.ticketService.services.UserService;
 
-public class ChangePasswordDTOConverter implements TwoWayConverter {
+public class PasswordDTOConverter implements TwoWayConverter {
 
 	UserService userService;
 
 	@Override
-	public Class<ChangePasswordDTO> getSourceClass() {
-		return ChangePasswordDTO.class;
+	public Class<PasswordDTO> getSourceClass() {
+		return PasswordDTO.class;
 	}
 
 	@Override
@@ -22,7 +22,7 @@ public class ChangePasswordDTOConverter implements TwoWayConverter {
 
 	@Override
 	public Object convertSourceToTargetClass(Object source, Class<?> targetClass) throws Exception {
-		ChangePasswordDTO sourceDTO = (ChangePasswordDTO) source;
+		PasswordDTO sourceDTO = (PasswordDTO) source;
 
 		User targetUser = userService.getCurrentUser();
 		targetUser.setPassword(sourceDTO.getPassword());
@@ -34,7 +34,7 @@ public class ChangePasswordDTOConverter implements TwoWayConverter {
 	public Object convertTargetToSourceClass(Object target, Class<?> sourceClass) throws Exception {
 		User targetUser = (User) target;
 
-		ChangePasswordDTO sourceDTO = new ChangePasswordDTO();
+		PasswordDTO sourceDTO = new PasswordDTO();
 		sourceDTO.setPassword(targetUser.getPassword());
 
 		return sourceDTO;
