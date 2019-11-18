@@ -22,6 +22,7 @@
 							<spring:message code="body.user_profile.account_disabled" var="body.user_profile.account_disabled"/>
 							<spring:message code="body.user_profile.change_password_button" var="change_password_button"/>
 							<spring:message code="body.user_profile.change_personal_data_button" var="change_personal_data_button"/>
+							<spring:message code="body.user_profile.loadIcon" var="loadIcon"/>
 							<spring:message code="footer.rights" var="rights"/>
 
 							<header>
@@ -54,7 +55,7 @@
 								</div>
 							</header>
 							<body>
-								<div class="container-fluid">
+								<div class="container-fluid form-container">
 									<div class="row">
 										<div class="col-xl-2"></div>
 										<div class="col-xl-8  border border-dark rounded">
@@ -73,9 +74,16 @@
 													</figcaption>
 												</figure>
 											</div>
-											<div class="container-fluid text-center">
-												<button type="button" class="btn btn-primary text-center">${change_password_button}</button>
-												<button type="button" class="btn btn-primary text-center">${change_personal_data_button}</button>
+											<div class="container-fluid d-flex justify-content-center form_buttons">
+												<form:form method="GET" action="change_password_page">
+													<input class="btn btn-primary" type="submit" value="${change_password_button}"/>
+												</form:form>
+												<form:form method="GET" action="change_perdonal_data_page">
+													<input class="btn btn-primary" type="submit" value="${change_personal_data_button}"/>
+												</form:form>
+												<form:form method="GET" action="load_page">
+													<input class="btn btn-primary" type="submit" value="${loadIcon}"/>
+												</form:form>
 											</div>
 										</div>
 										<div class="col-xl-2"></div>

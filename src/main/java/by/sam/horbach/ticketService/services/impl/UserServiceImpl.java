@@ -22,6 +22,11 @@ public class UserServiceImpl implements UserService {
 		userDao.save(user);
 		return result;
 	}
+	
+	public void changePassword(User user) {
+		user.setPassword(encodePassword(user.getPassword()));
+		userDao.update(user);
+	}
 
 	private User prepareUser(User user) {
 		user.setIdRole(UserRoles.CONSUMER.getId());

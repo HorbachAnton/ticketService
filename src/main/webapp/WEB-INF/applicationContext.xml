@@ -52,6 +52,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	<bean id="ticketDTO"
 		class="by.sam.horbach.ticketService.dto.TicketDTO" />
 
+	<bean id="registrationFormFTO"
+		class="by.sam.horbach.ticketService.dto.forms.RegistrationDTO" />
+
+	<bean id="changePasswordFormDTO"
+		class="by.sam.horbach.ticketService.dto.forms.ChangePasswordDTO" />
+
 	<bean id="userService"
 		class="by.sam.horbach.ticketService.services.impl.UserServiceImpl">
 		<property name="userDao" ref="userDao" />
@@ -81,8 +87,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
 	<bean id="userConverter"
 		class="by.sam.horbach.ticketService.converters.UserConverter" />
-		
-	<bean id="userRegistrationConverter" class="by.sam.horbach.ticketService.converters.UserRegistrationConverter"/>
+
+	<bean id="userRegistrationConverter"
+		class="by.sam.horbach.ticketService.converters.UserRegistrationConverter" />
 
 	<bean id="eventConverter"
 		class="by.sam.horbach.ticketService.converters.EventConverter">
@@ -96,7 +103,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
 	<bean id="registrationFacade"
 		class="by.sam.horbach.ticketService.facades.RegistrationFacade">
-		<property name="userConverter" ref="userRegistrationConverter" />
+		<property name="userConverter"
+			ref="userRegistrationConverter" />
+		<property name="userService" ref="userService" />
+	</bean>
+
+	<bean id="changePasswordDTOConverter"
+		class="by.sam.horbach.ticketService.converters.ChangePasswordDTOConverter">
 		<property name="userService" ref="userService" />
 	</bean>
 
@@ -117,6 +130,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		<property name="userDao" ref="userDao" />
 	</bean>
 
+	<bean id="ChangePasswordFacade"
+		class="by.sam.horbach.ticketService.facades.ChangePasswordFacade">
+		<property name="converter" ref="changePasswordDTOConverter" />
+		<property name="userService" ref="userService" />
+	</bean>
+
 	<bean id="updateValidator"
 		class="by.sam.horbach.ticketService.validators.UpdateValidator">
 		<property name="userDao" ref="userDao" />
@@ -130,7 +149,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 				<value>properties/locales/locale</value>
 			</list>
 		</property>
-		<property name="defaultEncoding" value="UTF-8"/>
+		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
 
 	<bean id="bcrypt"

@@ -8,6 +8,8 @@ public interface UserService {
 	
 	boolean register(User user);
 	
+	void changePassword(User user);
+	
 	User getUserByEmail(String userEmail);
 	
 	User getCurrentUser();

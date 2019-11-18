@@ -33,16 +33,4 @@ public class UserProfilePageController {
 		return "userProfile";
 	}
 
-	public boolean changePassword() {
-		return true;
-	}
-	
-	public boolean changePersonalData () {
-		return true;
-	}
-
-	public boolean loadIcon() {
-		return true;
-	}
-
 }
