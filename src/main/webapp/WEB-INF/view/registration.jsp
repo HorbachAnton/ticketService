@@ -13,6 +13,7 @@
               <spring:message code="header.link_poster_page" var="link_poster_page"/>
               <spring:message code="header.link_rating_page" var="link_rating_page"/>
               <spring:message code="header.button_message" var="button_message"/>
+              <spring:message code="header.button_authorization" var="button_authorization"/>
               <spring:message code="body.form.email_address_placeholder" var="email_address_placeholder"/>
               <spring:message code="body.form.email_address" var="email_address"/>
               <spring:message code="body.form.email_address_note" var="email_address_note"/>
@@ -46,6 +47,9 @@
                         <input class="form-control" type="search" placeholder="${button_message}" aria-label="${button_message}"/>
                         <button class="btn btn-outline-success" type="submit">${button_message}</button>
                       </form>
+                      <form:form method="GET" action="authorization">
+                        <input class="btn btn-primary" type="submit" value="${button_authorization}"/>
+                      </form:form>
                     </div>
                   </div>
                 </div>

@@ -13,10 +13,11 @@
               <spring:message code="header.link_poster_page" var="link_poster_page"/>
               <spring:message code="header.link_rating_page" var="link_rating_page"/>
               <spring:message code="header.button_message" var="button_message"/>
+              <spring:message code="header.button_registration" var="button_registration"/>
               <spring:message code="body.form.email_address" var="email_address"/>
               <spring:message code="body.form.email_address_placeholder" var="email_address_placeholder"/>
               <spring:message code="body.form.email_address_note" var="email_address_note"/>
-              <spring:message code="body.form.password" var="form.password"/>
+              <spring:message code="body.form.password" var="password"/>
               <spring:message code="body.form.password_placeholder" var="password_placeholder"/>
               <spring:message code="body.form.checkbox.remember_me" var="remember_me"/>
               <spring:message code="body.form.authorization_button" var="authorization_button"/>
@@ -47,6 +48,9 @@
                         <input class="form-control" type="search" placeholder="${button_message}" aria-label="${button_message}"/>
                         <button class="btn btn-outline-success" type="submit">${button_message}</button>
                       </form>
+                      <form:form method="GET" action="registration">
+                        <input class="btn btn-primary" type="submit" value="${button_registration}"/>
+                      </form:form>
                     </div>
                   </div>
                 </div>
