@@ -13,7 +13,7 @@
 	   <intercept-url pattern="/registration*" access="permitAll" />
 	   <intercept-url pattern="/" access="permitAll" />
 	   <intercept-url pattern="/welcome" access="permitAll" />
-	   <intercept-url pattern="/userProfile*" access="isAuthenticated()" />
+	   <intercept-url pattern="/user_profile*" access="isAuthenticated()" />
 	   <intercept-url pattern="/change_password_page*" access="isAuthenticated()" />
 	   <intercept-url pattern="/change_personal_data_page*" access="isAuthenticated()" />
 		<!-- access denied page -->

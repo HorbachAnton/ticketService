@@ -22,7 +22,7 @@ public class ChangePasswordPageController {
 	@RequestMapping(value = "/change_password_page", method = RequestMethod.GET)
 	public String getPage(Model model) {
 		model.addAttribute("passwordDTO", new PasswordDTO());
-		return "changePassword";
+		return "change_password";
 	}
 
 	@RequestMapping(value = "/change_password", method = RequestMethod.POST)

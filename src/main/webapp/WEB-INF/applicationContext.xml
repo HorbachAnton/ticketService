@@ -37,6 +37,11 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	<bean id="ticket"
 		class="by.sam.horbach.ticketService.entities.Ticket" />
 
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="200000" />
+	</bean>
+
 	<bean id="userDTO"
 		class="by.sam.horbach.ticketService.dto.UserDTO" />
 

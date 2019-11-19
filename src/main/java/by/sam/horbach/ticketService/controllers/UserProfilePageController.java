@@ -18,10 +18,10 @@ public class UserProfilePageController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(value = "/userProfile", method = RequestMethod.GET)
+	@RequestMapping(value = "/user_profile", method = RequestMethod.GET)
 	public String getPage(Model model) {
 		model.addAttribute("userDTO", userProfileFacade.getUserByEmail());
-		return "userProfile";
+		return "user_profile";
 	}
 
 }

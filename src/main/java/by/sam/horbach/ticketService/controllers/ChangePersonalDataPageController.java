@@ -22,7 +22,7 @@ public class ChangePersonalDataPageController {
 	@RequestMapping(value = "/change_personal_data_page", method = RequestMethod.GET)
 	public String getPage(Model model) {
 		model.addAttribute("personalDataDTO", new PersonalDataDTO());
-		return "changePersonalData";
+		return "change_personal_data";
 	}
 
 	@RequestMapping(value = "/change_personal_data", method = RequestMethod.POST)
