@@ -1,6 +1,10 @@
 package by.sam.horbach.ticketService.entities;
 
-public class Ticket {
+import java.io.Serializable;
+
+public class Ticket implements Serializable{
+	
+	private static final long serialVersionUID = 4252623676898191747L;
 	
 	private int id;
 	private int idEvent;

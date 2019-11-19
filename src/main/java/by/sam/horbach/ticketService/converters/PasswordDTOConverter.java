@@ -21,7 +21,7 @@ public class PasswordDTOConverter implements TwoWayConverter {
 	}
 
 	@Override
-	public Object convertSourceToTargetClass(Object source, Class<?> targetClass) throws Exception {
+	public Object convertSourceToTargetClass(Object source, Class<?> targetClass) {
 		PasswordDTO sourceDTO = (PasswordDTO) source;
 
 		User targetUser = userService.getCurrentUser();
@@ -31,7 +31,7 @@ public class PasswordDTOConverter implements TwoWayConverter {
 	}
 
 	@Override
-	public Object convertTargetToSourceClass(Object target, Class<?> sourceClass) throws Exception {
+	public Object convertTargetToSourceClass(Object target, Class<?> sourceClass) {
 		User targetUser = (User) target;
 
 		PasswordDTO sourceDTO = new PasswordDTO();

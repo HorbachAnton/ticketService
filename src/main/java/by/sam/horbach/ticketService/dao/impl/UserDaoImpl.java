@@ -17,7 +17,7 @@ public class UserDaoImpl extends AbstractBaseDao implements UserDao {
 	public User findByUserEmail(String email) {
 		User user = null;
 		try {
-			user = (User) super.getCurrentSession().createSQLQuery(QUERY_USER_BY_EMAIL).addEntity(User.class).setParameter(1, email).getSingleResult();
+			user = (User) getCurrentSession().createSQLQuery(QUERY_USER_BY_EMAIL).addEntity(User.class).setParameter(1, email).getSingleResult();
 		} catch (NoResultException  e) {
 			user = null;
 		}

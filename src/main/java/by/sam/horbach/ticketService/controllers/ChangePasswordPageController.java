@@ -31,8 +31,4 @@ public class ChangePasswordPageController {
 		return new ModelAndView("redirect:/welcome");
 	}
 
-	public void setChangePasswordFacade(ChangePasswordFacade changePasswordFacade) {
-		this.changePasswordFacade = changePasswordFacade;
-	}
-
 }

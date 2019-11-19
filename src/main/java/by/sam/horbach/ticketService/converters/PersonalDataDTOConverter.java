@@ -21,7 +21,7 @@ public class PersonalDataDTOConverter implements TwoWayConverter {
 	}
 
 	@Override
-	public Object convertSourceToTargetClass(Object source, Class<?> targetClass) throws Exception {
+	public Object convertSourceToTargetClass(Object source, Class<?> targetClass) {
 		PersonalDataDTO sourceDTO = (PersonalDataDTO) source;
 
 		User targetUser = userService.getCurrentUser();
@@ -32,7 +32,7 @@ public class PersonalDataDTOConverter implements TwoWayConverter {
 	}
 
 	@Override
-	public Object convertTargetToSourceClass(Object target, Class<?> sourceClass) throws Exception {
+	public Object convertTargetToSourceClass(Object target, Class<?> sourceClass) {
 		User targetUser = (User) target;
 
 		PersonalDataDTO personalDataDTO = new PersonalDataDTO();

@@ -1,7 +1,12 @@
 package by.sam.horbach.ticketService.entities;
 
-public class Comment {
+import java.io.Serializable;
 
+public class Comment implements Serializable{
+
+
+	private static final long serialVersionUID = 185775475888270963L;
+	
 	private int id;
 	private int idUser;
 	private int idEvent;

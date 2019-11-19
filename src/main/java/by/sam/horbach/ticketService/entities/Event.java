@@ -1,8 +1,12 @@
 package by.sam.horbach.ticketService.entities;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Event {
+public class Event implements Serializable{
+	
+
+	private static final long serialVersionUID = 9191737762441616555L;
 	
 	private int id;
 	private String title;

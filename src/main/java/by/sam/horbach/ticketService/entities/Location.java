@@ -1,7 +1,11 @@
 package by.sam.horbach.ticketService.entities;
 
-public class Location {
+import java.io.Serializable;
 
+public class Location  implements Serializable{
+	
+	private static final long serialVersionUID = -1974753648940913639L;
+	
 	private int id;
 	private String title;
 
