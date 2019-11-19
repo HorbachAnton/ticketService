@@ -101,8 +101,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		<property name="eventConverter" ref="eventConverter" />
 	</bean>
 
-	<bean id="PasswordDTOConverter"
+	<bean id="passwordDTOConverter"
 		class="by.sam.horbach.ticketService.converters.PasswordDTOConverter">
+		<property name="userService" ref="userService" />
+	</bean>
+
+	<bean id="personalDataDTOConverter"
+		class="by.sam.horbach.ticketService.converters.PersonalDataDTOConverter">
 		<property name="userService" ref="userService" />
 	</bean>
 
@@ -113,8 +118,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		<property name="userService" ref="userService" />
 	</bean>
 
-	<bean id="updateFacade"
-		class="by.sam.horbach.ticketService.facades.UpdateFacade">
+	<bean id="userProfileFacade"
+		class="by.sam.horbach.ticketService.facades.UserProfileFacade">
 		<property name="userConverter" ref="userConverter" />
 		<property name="userService" ref="userService" />
 	</bean>
@@ -127,11 +132,14 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
 	<bean id="changePasswordFacade"
 		class="by.sam.horbach.ticketService.facades.ChangePasswordFacade">
-		<property name="converter" ref="PasswordDTOConverter" />
+		<property name="converter" ref="passwordDTOConverter" />
 		<property name="userService" ref="userService" />
 	</bean>
-	
-	<bean id="changePersonalDataFacade" class="by.sam.horbach.ticketService.facades.ChangePersonalDataFacade">
+
+	<bean id="changePersonalDataFacade"
+		class="by.sam.horbach.ticketService.facades.ChangePersonalDataFacade">
+		<property name="converter" ref="personalDataDTOConverter" />
+		<property name="userService" ref="userService" />
 	</bean>
 
 	<bean id="registrationFormValidator"

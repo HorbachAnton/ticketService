@@ -10,6 +10,8 @@ public interface UserService {
 	
 	void changePassword(User user);
 	
+	void changePersonalData(User user);
+	
 	User getUserByEmail(String userEmail);
 	
 	User getCurrentUser();

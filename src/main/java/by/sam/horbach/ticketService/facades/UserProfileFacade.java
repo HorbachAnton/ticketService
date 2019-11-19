@@ -8,10 +8,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import by.sam.horbach.ticketService.dto.UserDTO;
 import by.sam.horbach.ticketService.services.UserService;
 
-public class UpdateFacade {
+public class UserProfileFacade {
 	
 	private static final String ERROR_MESSAGE= "Failed to convert User in UserDTO";
-	private static final Logger LOGGER = LogManager.getLogger(UpdateFacade.class);
+	private static final Logger LOGGER = LogManager.getLogger(UserProfileFacade.class);
 
 	TwoWayConverter userConverter;
 	UserService userService;

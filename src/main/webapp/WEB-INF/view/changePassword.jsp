@@ -17,7 +17,7 @@
               <spring:message code="body.form.password_placeholder" var="password_placeholder"/>
               <spring:message code="body.form.password_confirm" var="password_confirm"/>
               <spring:message code="body.form.password_confirm_placeholder" var="password_confirm_placeholder"/>
-              <spring:message code="body.form.change_password_button" var="change_password_button"/>
+              <spring:message code="body.form.change_personal_data_button" var="change_personal_data_button"/>
               <spring:message code="footer.rights" var="rights"/>
 
               <header>
@@ -52,7 +52,7 @@
               <div class="main-place container-fluid form-container">
                 <div class="row">
                   <div class="col-md-4"></div>
-                  <form:form class="col-md-4 border border-dark rounded" method="POST" action="change" modelAttribute="changePasswordDTO" oninput='confirm_password.setCustomValidity(confirm_password.value != password.value ? "Passwords do not match." : "")'>
+                  <form:form class="col-md-4 border border-dark rounded" method="POST" action="change_password" modelAttribute="passwordDTO" oninput='confirm_password.setCustomValidity(confirm_password.value != password.value ? "Passwords do not match." : "")'>
                     <div class="form-group">
                       <form:label path="password" for="password">${password}</form:label>
                       <form:input path="password" type="password" class="form-control" id="password" placeholder="${password_placeholder}" name="password"/>
@@ -61,7 +61,7 @@
                       <label for="confirm-password">${password_confirm}</label>
                       <input type="password" class="form-control" placeholder="${password_confirm_placeholder}" id="confirm-password" name="confirm_password"/>
                     </div>
-                    <button type="submit" class="btn btn-primary">${change_password_button}</button>
+                    <button type="submit" class="btn btn-primary">${change_personal_data_button}</button>
                   </form:form>
                   <div class="col-md-4"></div>
                 </div>

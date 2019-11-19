@@ -78,7 +78,7 @@
 												<form:form method="GET" action="change_password_page">
 													<input class="btn btn-primary" type="submit" value="${change_password_button}"/>
 												</form:form>
-												<form:form method="GET" action="change_perdonal_data_page">
+												<form:form method="GET" action="change_personal_data_page">
 													<input class="btn btn-primary" type="submit" value="${change_personal_data_button}"/>
 												</form:form>
 												<form:form method="GET" action="load_page">

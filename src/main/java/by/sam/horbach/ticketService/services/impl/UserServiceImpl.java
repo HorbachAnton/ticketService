@@ -23,20 +23,24 @@ public class UserServiceImpl implements UserService {
 		return result;
 	}
 	
-	public void changePassword(User user) {
-		user.setPassword(encodePassword(user.getPassword()));
-		userDao.update(user);
-	}
-
 	private User prepareUser(User user) {
 		user.setIdRole(UserRoles.CONSUMER.getId());
 		user.setEnabled(true);
 		user.setPassword(encodePassword(user.getPassword()));
 		return user;
 	}
-
+	
 	private String encodePassword(String password) {
 		return passwordEncoder.encode(password);
+	}
+	
+	public void changePassword(User user) {
+		user.setPassword(encodePassword(user.getPassword()));
+		userDao.update(user);
+	}
+	
+	public void changePersonalData(User user) {
+		userDao.update(user);
 	}
 
 	public User getUserByEmail(String userEmail) {

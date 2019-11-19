@@ -21,14 +21,13 @@ public class ChangePasswordPageController {
 
 	@RequestMapping(value = "/change_password_page", method = RequestMethod.GET)
 	public String getPage(Model model) {
-		model.addAttribute("changePasswordDTO", new PasswordDTO());
+		model.addAttribute("passwordDTO", new PasswordDTO());
 		return "changePassword";
 	}
 
-	@RequestMapping(value = "/change", method = RequestMethod.POST)
-	public ModelAndView change(@ModelAttribute("changePasswordDTO") PasswordDTO changePasswordDTO, BindingResult result,
-			ModelMap map) {
-		changePasswordFacade.changePassword(changePasswordDTO);
+	@RequestMapping(value = "/change_password", method = RequestMethod.POST)
+	public ModelAndView change(@ModelAttribute("passwordDTO") PasswordDTO passwordDTO, BindingResult result, ModelMap map) {
+		changePasswordFacade.changePassword(passwordDTO);
 		return new ModelAndView("redirect:/welcome");
 	}
 
