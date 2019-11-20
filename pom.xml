@@ -217,6 +217,15 @@
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven-surefire-plugin.version}</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+						<systemProperties>
+							<property>
+								<name>catalina.home</name>
+								<value>${sys:catalina.home}</value>
+							</property>
+						</systemProperties>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-war-plugin</artifactId>
