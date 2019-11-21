@@ -1,4 +1,3 @@
-Service for buying tickets to various events.
 The program is a service for buying tickets for festivals, films and other events. It also allows you to leave comments on certain events.
 
 Implemented functionality: authorization, registration, remembering user, changing personal data and password, localisation and internationalization.
