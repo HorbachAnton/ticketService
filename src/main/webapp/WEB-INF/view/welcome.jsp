@@ -93,7 +93,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary">Читать</button>
+                          <button type="button" class="btn btn-primary">${button_read_news}</button>
                         </figure>
                       </div>
                       <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
@@ -101,7 +101,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded center-block"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary">Читать</button>
+                          <button type="button" class="btn btn-primary">${button_read_news}</button>
                         </figure>
                       </div>
                       <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
@@ -109,7 +109,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary text-center">Читать</button>
+                          <button type="button" class="btn btn-primary text-center">${button_read_news}</button>
                         </figure>
                       </div>
                     </div>
@@ -153,7 +153,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary">Читать</button>
+                          <button type="button" class="btn btn-primary">${button_read_recent_comments}</button>
                         </figure>
                       </div>
                       <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
@@ -161,7 +161,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded center-block"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary">Читать</button>
+                          <button type="button" class="btn btn-primary">${button_read_recent_comments}</button>
                         </figure>
                       </div>
                       <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
@@ -169,7 +169,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary text-center">Читать</button>
+                          <button type="button" class="btn btn-primary text-center">${button_read_recent_comments}</button>
                         </figure>
                       </div>
                     </div>
