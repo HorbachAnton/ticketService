@@ -9,42 +9,46 @@
                 <head-tag:addCssAndScripts/>
               </head>
               <body>
-                <spring:message code="header.link_main_page" var="link_main_page"/>
-                <spring:message code="header.link_news_page" var="link_news_page"/>
-                <spring:message code="header.link_poster_page" var="link_poster_page"/>
-                <spring:message code="header.link_rating_page" var="link_rating_page"/>
-                <spring:message code="header.button_message" var="button_message"/>
-                <spring:message code="header.button_authorization" var="button_authorization"/>
-                <spring:message code="header.button_registration" var="button_registration"/>
-                <spring:message code="body.welcome.news" var="news"/>
-                <spring:message code="body.welcome.button_read_news" var="button_read_news"/>
-                <spring:message code="body.welcome.upcoming_events" var="upcoming_events"/>
-                <spring:message code="body.welcome.upcoming_events.button" var="button"/>
-                <spring:message code="body.welcome.recent_commnets" var="recent_commnets"/>
-                <spring:message code="body.welcome.button_read_recent_comments" var="button_read_recent_comments"/>
-                <spring:message code="footer.rights" var="rights"/>
+                <spring:message code="header.a.main_page" var="main_page"/>
+                <spring:message code="header.a.news_page" var="news_page"/>
+                <spring:message code="header.a.poster_page" var="poster_page"/>
+                <spring:message code="header.a.rating_page" var="rating_page"/>
+                <spring:message code="header.button.english_locale" var="english_locale"/>
+                <spring:message code="header.button.russian_locale" var="russian_locale"/>
+                <spring:message code="header.input.message" var="message"/>
+                <spring:message code="header.input.authorization" var="authorization"/>
+                <spring:message code="header.input.registration" var="registration"/>
+                <spring:message code="header.input.logout" var="logout"/>
+                <spring:message code="header.input.user_profile" var="user_profile"/>
+                <spring:message code="welcome.h1.news" var="news"/>
+                <spring:message code="welcome.button.read_news" var="read_news"/>
+                <spring:message code="welcome.h1.upcoming_events" var="upcoming_events_message"/>
+                <spring:message code="welcome.button.upcoming_events" var="upcoming_events_bt"/>
+                <spring:message code="welcome.h1.recent_comments" var="recent_comments"/>
+                <spring:message code="welcome.button.read_recent_comments" var="read_recent_comments"/>
+                <spring:message code="footer.div.rights" var="rights"/>
 
                 <header>
                   <div class="container-fluid">
                     <div class="row d-flex align-items-center">
                       <div class="col-xl-4 d-flex justify-content-around">
                         <p>
-                          <a href="welcome">${link_main_page}</a>
+                          <a href="welcome">${main_page}</a>
                         </p>
                         <p>
-                          <a href="#">${link_news_page}</a>
+                          <a href="#">${news_page}</a>
                         </p>
                         <p>
-                          <a href="#">${link_poster_page}</a>
+                          <a href="#">${poster_page}</a>
                         </p>
                         <p>
-                          <a href="#">${link_rating_page}</a>
+                          <a href="#">${rating_page}</a>
                         </p>
                         <a href="?lang=en_EN">
-                          <button class="btn btn-primary" type="submit">ENG</button>
+                          <button class="btn btn-primary" type="submit">${english_locale}</button>
                         </a>
                         <a href="?lang=ru_RU">
-                          <button class="btn btn-primary" type="submit">RUS</button>
+                          <button class="btn btn-primary" type="submit">${russian_locale}</button>
                         </a>
                       </div>
                       <div class="col-xl-4">
@@ -52,23 +56,23 @@
                       </div>
                       <div class="col-xl-4 d-flex justify-content-end">
                         <form class="form-inline">
-                          <input class="form-control" type="search" placeholder="${button_message}" aria-label="${button_message}"/>
-                          <button class="btn btn-outline-success" type="submit">${button_message}</button>
+                          <input class="form-control" type="search" placeholder="${message}" aria-label="${message}"/>
+                          <button class="btn btn-outline-success" type="submit">${message}</button>
                         </form>
                         <sec:authorize access="!isAuthenticated()">
                           <form:form method="GET" action="authorization">
-                            <input class="btn btn-primary" type="submit" value="${button_authorization}"/>
+                            <input class="btn btn-primary" type="submit" value="${authorization}"/>
                           </form:form>
                           <form:form method="GET" action="registration">
-                            <input class="btn btn-primary" type="submit" value="${button_registration}"/>
+                            <input class="btn btn-primary" type="submit" value="${registration}"/>
                           </form:form>
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
                           <form:form method="POST" action="logout">
-                            <input class="btn btn-primary" type="submit" value="Log out"/>
+                            <input class="btn btn-primary" type="submit" value="${logout}"/>
                           </form:form>
                           <form:form method="GET" action="user_profile">
-                            <input class="btn btn-primary" type="submit" value="My profile"/>
+                            <input class="btn btn-primary" type="submit" value="${user_profile}"/>
                           </form:form>
                         </sec:authorize>
                       </div>
@@ -88,7 +92,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary">${button_read_news}</button>
+                          <button type="button" class="btn btn-primary">${read_news}</button>
                         </figure>
                       </div>
                       <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
@@ -96,7 +100,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary">${button_read_news}</button>
+                          <button type="button" class="btn btn-primary">${read_news}</button>
                         </figure>
                       </div>
                       <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
@@ -104,7 +108,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded center-block"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary">${button_read_news}</button>
+                          <button type="button" class="btn btn-primary">${read_news}</button>
                         </figure>
                       </div>
                       <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
@@ -112,7 +116,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary text-center">${button_read_news}</button>
+                          <button type="button" class="btn btn-primary text-center">${read_news}</button>
                         </figure>
                       </div>
                     </div>
@@ -120,7 +124,7 @@
                   <div class="container-fluid border border-dark">
                     <div class="row border border-dark">
                       <div class="col-xl-12 center-block text-center">
-                        <h1>${upcoming_events}</h1>
+                        <h1>${upcoming_events_message}</h1>
                       </div>
                     </div>
                     <div class="row border border-dark">
@@ -130,7 +134,7 @@
                             <img src="<c:url value="${event.getIconPath()}" />" class="border border-dark rounded"/>
                             <figcaption class="figure-caption text-center"><c:out value="${event.getTitle()}"/></figcaption>
                             <figcaption class="figure-caption text-center"><c:out value="${event.getSummary()}"/></figcaption>
-                            <button type="button" class="btn btn-primary">${button}</button>
+                            <button type="button" class="btn btn-primary">${upcoming_events_bt}</button>
                           </figure>
                         </div>
                       </c:forEach>
@@ -139,7 +143,7 @@
                   <div class="container-fluid border border-dark">
                     <div class="row border border-dark">
                       <div class="col-xl-12 center-block text-center">
-                        <h1>${recent_commnets}</h1>
+                        <h1>${recent_comments}</h1>
                       </div>
                     </div>
                     <div class="row border border-dark">
@@ -148,7 +152,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary">${button_read_recent_comments}</button>
+                          <button type="button" class="btn btn-primary">${read_recent_comments}</button>
                         </figure>
                       </div>
                       <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
@@ -156,7 +160,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary">${button_read_recent_comments}</button>
+                          <button type="button" class="btn btn-primary">${read_recent_comments}</button>
                         </figure>
                       </div>
                       <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
@@ -164,7 +168,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded center-block"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary">${button_read_recent_comments}</button>
+                          <button type="button" class="btn btn-primary">${read_recent_comments}</button>
                         </figure>
                       </div>
                       <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
@@ -172,7 +176,7 @@
                           <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary text-center">${button_read_recent_comments}</button>
+                          <button type="button" class="btn btn-primary text-center">${read_recent_comments}</button>
                         </figure>
                       </div>
                     </div>

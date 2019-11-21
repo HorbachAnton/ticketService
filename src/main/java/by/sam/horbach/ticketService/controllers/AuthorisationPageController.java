@@ -11,5 +11,9 @@ public class AuthorisationPageController {
 	public String getPage() {
 		return "authorization";
 	}
-
+	
+	@RequestMapping(value = "/authorization-failed", method = RequestMethod.GET)
+	public String getErrorPage() {
+		return "/authorization-failed";
+	}
 }

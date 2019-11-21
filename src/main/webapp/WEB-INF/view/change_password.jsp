@@ -9,39 +9,45 @@
                 <head-tag:addCssAndScripts/>
               </head>
               <body>
-                <spring:message code="header.link_main_page" var="link_main_page"/>
-                <spring:message code="header.link_news_page" var="link_news_page"/>
-                <spring:message code="header.link_poster_page" var="link_poster_page"/>
-                <spring:message code="header.link_rating_page" var="link_rating_page"/>
-                <spring:message code="header.button_message" var="button_message"/>
-                <spring:message code="body.form.password" var="password"/>
-                <spring:message code="body.form.password_placeholder" var="password_placeholder"/>
-                <spring:message code="body.form.password_confirm" var="password_confirm"/>
-                <spring:message code="body.form.password_confirm_placeholder" var="password_confirm_placeholder"/>
-                <spring:message code="body.form.change_personal_data_button" var="change_personal_data_button"/>
-                <spring:message code="footer.rights" var="rights"/>
+                <spring:message code="header.a.main_page" var="main_page"/>
+                <spring:message code="header.a.news_page" var="news_page"/>
+                <spring:message code="header.a.poster_page" var="poster_page"/>
+                <spring:message code="header.a.rating_page" var="rating_page"/>
+                <spring:message code="header.button.english_locale" var="english_locale"/>
+                <spring:message code="header.button.russian_locale" var="russian_locale"/>
+                <spring:message code="header.input.message" var="message"/>
+                <spring:message code="header.input.authorization" var="authorization"/>
+                <spring:message code="header.input.registration" var="registration"/>
+                <spring:message code="header.input.logout" var="logout"/>
+                <spring:message code="header.input.user_profile" var="user_profile"/>
+                <spring:message code="change_password.label.password" var="password_lb"/>
+                <spring:message code="change_password.placeholder.password" var="password_ph"/>
+                <spring:message code="change_password.label.password_confirm" var="password_confirm_lb"/>
+                <spring:message code="change_password.placeholder.password_confirm" var="password_confirm_ph"/>
+                <spring:message code="change_password.button.change_password" var="change_password"/>
+                <spring:message code="footer.div.rights" var="rights"/>
 
                 <header>
                   <div class="container-fluid">
                     <div class="row d-flex align-items-center">
-                      <div class="col-md-4 d-flex justify-content-around">
+                      <div class="col-xl-4 d-flex justify-content-around">
                         <p>
-                          <a href="welcome"><c:out value="${link_main_page}"/></a>
+                          <a href="welcome">${main_page}</a>
                         </p>
                         <p>
-                          <a href="#"><c:out value="${link_news_page}"/></a>
+                          <a href="#">${news_page}</a>
                         </p>
                         <p>
-                          <a href="#"><c:out value="${link_poster_page}"/></a>
+                          <a href="#">${poster_page}</a>
                         </p>
                         <p>
-                          <a href="#"><c:out value="${link_rating_page}"/></a>
+                          <a href="#">${rating_page}</a>
                         </p>
                         <a href="?lang=en_EN">
-                          <button class="btn btn-primary" type="submit">ENG</button>
+                          <button class="btn btn-primary" type="submit">${english_locale}</button>
                         </a>
                         <a href="?lang=ru_RU">
-                          <button class="btn btn-primary" type="submit">RUS</button>
+                          <button class="btn btn-primary" type="submit">${russian_locale}</button>
                         </a>
                       </div>
                       <div class="col-xl-4">
@@ -49,20 +55,23 @@
                       </div>
                       <div class="col-xl-4 d-flex justify-content-end">
                         <form class="form-inline">
-                          <input class="form-control" type="search" placeholder="${button_message}" aria-label="${button_message}"/>
-                          <button class="btn btn-outline-success" type="submit">${button_message}</button>
+                          <input class="form-control" type="search" placeholder="${message}" aria-label="${message}"/>
+                          <button class="btn btn-outline-success" type="submit">${message}</button>
                         </form>
                         <sec:authorize access="!isAuthenticated()">
                           <form:form method="GET" action="authorization">
-                            <input class="btn btn-primary" type="submit" value="${button_authorization}"/>
+                            <input class="btn btn-primary" type="submit" value="${authorization}"/>
                           </form:form>
                           <form:form method="GET" action="registration">
-                            <input class="btn btn-primary" type="submit" value="${button_registration}"/>
+                            <input class="btn btn-primary" type="submit" value="${registration}"/>
                           </form:form>
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
                           <form:form method="POST" action="logout">
-                            <input class="btn btn-primary" type="submit" value="Log out"/>
+                            <input class="btn btn-primary" type="submit" value="${logout}"/>
+                          </form:form>
+                          <form:form method="GET" action="user_profile">
+                            <input class="btn btn-primary" type="submit" value="${user_profile}"/>
                           </form:form>
                         </sec:authorize>
                       </div>
@@ -72,16 +81,18 @@
                 <div class="main-place container-fluid form-container">
                   <div class="row">
                     <div class="col-md-4"></div>
-                    <form:form class="col-md-4 border border-dark rounded" method="POST" action="change_password" modelAttribute="passwordDTO" oninput='confirm_password.setCustomValidity(confirm_password.value != password.value ? "Passwords do not match." : "")'>
+                    <form:form class="col-md-4 border border-dark rounded" method="POST" action="change_password" modelAttribute="passwordDTO" oninput='confirmPassword.setCustomValidity(confirmPassword.value != password.value ? "Passwords do not match." : "")'>
                       <div class="form-group">
-                        <form:label path="password" for="password">${password}</form:label>
-                        <form:input path="password" type="password" class="form-control" id="password" placeholder="${password_placeholder}" name="password"/>
+                        <form:label path="password" for="password">${password_lb}</form:label>
+                        <form:input path="password" type="password" class="form-control" id="password" placeholder="${password_ph}" name="password"/>
+                        <form:errors path="password" CssClass="error"/>
                       </div>
                       <div class="form-group">
-                        <label for="confirm-password">${password_confirm}</label>
-                        <input type="password" class="form-control" placeholder="${password_confirm_placeholder}" id="confirm-password" name="confirm_password"/>
+                        <form:label path="confirmPassword" for="confirmPassword">${password_confirm_lb}</form:label>
+                        <form:input path="confirmPassword" type="password" class="form-control" placeholder="${password_confirm_ph}" id="confirmPassword" name="confirmPassword"/>
+                        <form:errors path="confirmPassword" CssClass="error"/>
                       </div>
-                      <button type="submit" class="btn btn-primary">${change_personal_data_button}</button>
+                      <button type="submit" class="btn btn-primary">${change_password}</button>
                     </form:form>
                     <div class="col-md-4"></div>
                   </div>

@@ -10,45 +10,49 @@
 							</head>
 							<body>
 								<c:set var="enabled" scope="session" value="${userDTO.enabled}"/>
-								<spring:message code="header.link_main_page" var="link_main_page"/>
-								<spring:message code="header.link_news_page" var="link_news_page"/>
-								<spring:message code="header.link_poster_page" var="link_poster_page"/>
-								<spring:message code="header.link_rating_page" var="link_rating_page"/>
-								<spring:message code="header.button_message" var="button_message"/>
-								<spring:message code="header.button_authorization" var="button_authorization"/>
-								<spring:message code="header.button_registration" var="button_registration"/>
-								<spring:message code="body.user_profile.email" var="email"/>
-								<spring:message code="body.user_profile.name" var="name"/>
-								<spring:message code="body.user_profile.surname" var="surname"/>
-								<spring:message code="body.user_profile.account" var="account"/>
-								<spring:message code="body.user_profile.account_enabled" var="account_enabled"/>
-								<spring:message code="body.user_profile.account_disabled" var="body.user_profile.account_disabled"/>
-								<spring:message code="body.user_profile.change_password_button" var="change_password_button"/>
-								<spring:message code="body.user_profile.change_personal_data_button" var="change_personal_data_button"/>
-								<spring:message code="body.user_profile.loadIcon" var="loadIcon"/>
-								<spring:message code="footer.rights" var="rights"/>
+								<spring:message code="header.a.main_page" var="main_page"/>
+								<spring:message code="header.a.news_page" var="news_page"/>
+								<spring:message code="header.a.poster_page" var="poster_page"/>
+								<spring:message code="header.a.rating_page" var="rating_page"/>
+								<spring:message code="header.button.english_locale" var="english_locale"/>
+								<spring:message code="header.button.russian_locale" var="russian_locale"/>
+								<spring:message code="header.input.message" var="message"/>
+								<spring:message code="header.input.authorization" var="authorization"/>
+								<spring:message code="header.input.registration" var="registration"/>
+								<spring:message code="header.input.logout" var="logout"/>
+								<spring:message code="header.input.user_profile" var="user_profile"/>
+								<spring:message code="user_profile.h3.email" var="email"/>
+								<spring:message code="user_profile.h2.name" var="name"/>
+								<spring:message code="user_profile.h2.surname" var="surname"/>
+								<spring:message code="user_profile.h2.account" var="account"/>
+								<spring:message code="user_profile.h2.account_enabled" var="account_enabled"/>
+								<spring:message code="user_profile.h2.account_disabled" var="account_disabled"/>
+								<spring:message code="user_profile.button.change_password" var="change_password"/>
+								<spring:message code="user_profile.button.change_personal_data" var="change_personal_data"/>
+								<spring:message code="user_profile.button.loadIcon" var="loadIcon"/>
+								<spring:message code="footer.div.rights" var="rights"/>
 
 								<header>
-									<div class="container-fluid border border-dark">
+									<div class="container-fluid">
 										<div class="row d-flex align-items-center">
-											<div class="col-xl-4 d-flex justify-content-around">
+											<div class="col-md-4 d-flex justify-content-around">
 												<p>
-													<a href="welcome">${link_main_page}</a>
+													<a href="welcome"><c:out value="${main_page}"/></a>
 												</p>
 												<p>
-													<a href="#">${link_news_page}</a>
+													<a href="#"><c:out value="${news_page}"/></a>
 												</p>
 												<p>
-													<a href="#">${link_poster_page}</a>
+													<a href="#"><c:out value="${poster_page}"/></a>
 												</p>
 												<p>
-													<a href="#">${link_rating_page}</a>
+													<a href="#"><c:out value="${rating_page}"/></a>
 												</p>
 												<a href="?lang=en_EN">
-													<button class="btn btn-primary" type="submit">ENG</button>
+													<button class="btn btn-primary" type="submit">${english_locale}</button>
 												</a>
 												<a href="?lang=ru_RU">
-													<button class="btn btn-primary" type="submit">RUS</button>
+													<button class="btn btn-primary" type="submit">${russian_locale}</button>
 												</a>
 											</div>
 											<div class="col-xl-4">
@@ -56,20 +60,23 @@
 											</div>
 											<div class="col-xl-4 d-flex justify-content-end">
 												<form class="form-inline">
-													<input class="form-control" type="search" placeholder="${button_message}" aria-label="${button_message}"/>
-													<button class="btn btn-outline-success" type="submit">${button_message}</button>
+													<input class="form-control" type="search" placeholder="${message}" aria-label="${message}"/>
+													<button class="btn btn-outline-success" type="submit">${message}</button>
 												</form>
 												<sec:authorize access="!isAuthenticated()">
 													<form:form method="GET" action="authorization">
-														<input class="btn btn-primary" type="submit" value="${button_authorization}"/>
+														<input class="btn btn-primary" type="submit" value="${authorization}"/>
 													</form:form>
 													<form:form method="GET" action="registration">
-														<input class="btn btn-primary" type="submit" value="${button_registration}"/>
+														<input class="btn btn-primary" type="submit" value="${registration}"/>
 													</form:form>
 												</sec:authorize>
 												<sec:authorize access="isAuthenticated()">
 													<form:form method="POST" action="logout">
-														<input class="btn btn-primary" type="submit" value="Log out"/>
+														<input class="btn btn-primary" type="submit" value="${logout}"/>
+													</form:form>
+													<form:form method="GET" action="user_profile">
+														<input class="btn btn-primary" type="submit" value="${user_profile}"/>
 													</form:form>
 												</sec:authorize>
 											</div>
@@ -98,10 +105,10 @@
 												</div>
 												<div class="container-fluid d-flex justify-content-center form_buttons">
 													<form:form method="GET" action="change_password_page">
-														<input class="btn btn-primary" type="submit" value="${change_password_button}"/>
+														<input class="btn btn-primary" type="submit" value="${change_password}"/>
 													</form:form>
 													<form:form method="GET" action="change_personal_data_page">
-														<input class="btn btn-primary" type="submit" value="${change_personal_data_button}"/>
+														<input class="btn btn-primary" type="submit" value="${change_personal_data}"/>
 													</form:form>
 													<form:form method="GET" action="load_user_icon_page">
 														<input class="btn btn-primary" type="submit" value="${loadIcon}"/>

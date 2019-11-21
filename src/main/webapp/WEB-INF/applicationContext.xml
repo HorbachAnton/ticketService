@@ -152,7 +152,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	</bean>
 
 	<bean id="updateValidator"
-		class="by.sam.horbach.ticketService.validators.UpdateValidator">
+		class="by.sam.horbach.ticketService.validators.UpdatePasswordValidator">
 		<property name="userDao" ref="userDao" />
 	</bean>
 

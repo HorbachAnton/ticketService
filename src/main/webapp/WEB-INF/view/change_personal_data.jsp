@@ -9,41 +9,45 @@
                 <head-tag:addCssAndScripts/>
               </head>
               <body>
-                <spring:message code="header.link_main_page" var="link_main_page"/>
-                <spring:message code="header.link_news_page" var="link_news_page"/>
-                <spring:message code="header.link_poster_page" var="link_poster_page"/>
-                <spring:message code="header.link_rating_page" var="link_rating_page"/>
-                <spring:message code="header.button_message" var="button_message"/>
-                <spring:message code="header.button_authorization" var="button_authorization"/>
-                <spring:message code="header.button_registration" var="button_registration"/>
-                <spring:message code="body.form.name" var="name"/>
-                <spring:message code="body.form.name_placeholder" var="name_placeholder"/>
-                <spring:message code="body.form.surname" var="surname"/>
-                <spring:message code="body.form.surname_placeholder" var="surname_placeholder"/>
-                <spring:message code="body.form.change_password_button" var="change_password_button"/>
-                <spring:message code="footer.rights" var="rights"/>
+                <spring:message code="header.a.main_page" var="main_page"/>
+                <spring:message code="header.a.news_page" var="news_page"/>
+                <spring:message code="header.a.poster_page" var="poster_page"/>
+                <spring:message code="header.a.rating_page" var="rating_page"/>
+                <spring:message code="header.button.english_locale" var="english_locale"/>
+                <spring:message code="header.button.russian_locale" var="russian_locale"/>
+                <spring:message code="header.input.message" var="message"/>
+                <spring:message code="header.input.authorization" var="authorization"/>
+                <spring:message code="header.input.registration" var="registration"/>
+                <spring:message code="header.input.logout" var="logout"/>
+                <spring:message code="header.input.user_profile" var="user_profile"/>
+                <spring:message code="change_personal_data.label.name" var="name_lb"/>
+                <spring:message code="change_personal_data.placeholder.name" var="name_ph"/>
+                <spring:message code="change_personal_data.label.surname" var="surname_lb"/>
+                <spring:message code="change_personal_data.placeholder.surname" var="surname_ph"/>
+                <spring:message code="change_personal_data.button.change_personal_data" var="change_personal_data"/>
+                <spring:message code="footer.div.rights" var="rights"/>
 
                 <header>
                   <div class="container-fluid">
                     <div class="row d-flex align-items-center">
-                      <div class="col-md-4 d-flex justify-content-around">
+                      <div class="col-xl-4 d-flex justify-content-around">
                         <p>
-                          <a href="welcome"><c:out value="${link_main_page}"/></a>
+                          <a href="welcome">${main_page}</a>
                         </p>
                         <p>
-                          <a href="#"><c:out value="${link_news_page}"/></a>
+                          <a href="#">${news_page}</a>
                         </p>
                         <p>
-                          <a href="#"><c:out value="${link_poster_page}"/></a>
+                          <a href="#">${poster_page}</a>
                         </p>
                         <p>
-                          <a href="#"><c:out value="${link_rating_page}"/></a>
+                          <a href="#">${rating_page}</a>
                         </p>
                         <a href="?lang=en_EN">
-                          <button class="btn btn-primary" type="submit">ENG</button>
+                          <button class="btn btn-primary" type="submit">${english_locale}</button>
                         </a>
                         <a href="?lang=ru_RU">
-                          <button class="btn btn-primary" type="submit">RUS</button>
+                          <button class="btn btn-primary" type="submit">${russian_locale}</button>
                         </a>
                       </div>
                       <div class="col-xl-4">
@@ -51,39 +55,43 @@
                       </div>
                       <div class="col-xl-4 d-flex justify-content-end">
                         <form class="form-inline">
-                          <input class="form-control" type="search" placeholder="${button_message}" aria-label="${button_message}"/>
-                          <button class="btn btn-outline-success" type="submit">${button_message}</button>
+                          <input class="form-control" type="search" placeholder="${message}" aria-label="${message}"/>
+                          <button class="btn btn-outline-success" type="submit">${message}</button>
                         </form>
                         <sec:authorize access="!isAuthenticated()">
                           <form:form method="GET" action="authorization">
-                            <input class="btn btn-primary" type="submit" value="${button_authorization}"/>
+                            <input class="btn btn-primary" type="submit" value="${authorization}"/>
                           </form:form>
                           <form:form method="GET" action="registration">
-                            <input class="btn btn-primary" type="submit" value="${button_registration}"/>
+                            <input class="btn btn-primary" type="submit" value="${registration}"/>
                           </form:form>
                         </sec:authorize>
                         <sec:authorize access="isAuthenticated()">
                           <form:form method="POST" action="logout">
-                            <input class="btn btn-primary" type="submit" value="Log out"/>
+                            <input class="btn btn-primary" type="submit" value="${logout}"/>
+                          </form:form>
+                          <form:form method="GET" action="user_profile">
+                            <input class="btn btn-primary" type="submit" value="${user_profile}"/>
                           </form:form>
                         </sec:authorize>
                       </div>
                     </div>
                   </div>
                 </header>
+
                 <div class="main-place container-fluid form-container">
                   <div class="row">
                     <div class="col-md-4"></div>
                     <form:form class="col-md-4 border border-dark rounded" method="POST" action="change_personal_data" modelAttribute="personalDataDTO">
                       <div class="form-group">
-                        <form:label path="name" for="name">${name}</form:label>
-                        <form:input path="name" type="text" class="form-control" placeholder="${name_placeholder}" name="name"/>
+                        <form:label path="name" for="name">${name_lb}</form:label>
+                        <form:input path="name" type="text" class="form-control" placeholder="${name_ph}" name="name"/>
                       </div>
                       <div class="form-group">
-                        <form:label path="surname" for="surname">${surname}</form:label>
-                        <form:input path="surname" type="text" class="form-control" placeholder="${surname_placeholder}" name="surname"/>
+                        <form:label path="surname" for="surname">${surname_lb}</form:label>
+                        <form:input path="surname" type="text" class="form-control" placeholder="${surname_ph}" name="surname"/>
                       </div>
-                      <button type="submit" class="btn btn-primary">${change_password_button}</button>
+                      <button type="submit" class="btn btn-primary">${change_personal_data}</button>
                     </form:form>
                     <div class="col-md-4"></div>
                   </div>
