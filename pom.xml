@@ -190,7 +190,7 @@
 					<configuration>
 						<scanIntervalSeconds>10</scanIntervalSeconds>
 						<webApp>
-							<contextPath>/ticketService</contextPath>
+							<contextPath>/ticket-service</contextPath>
 						</webApp>
 						<httpConnector>
 							<port>8080</port>
