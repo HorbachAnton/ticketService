@@ -29,7 +29,7 @@
                     <div class="row d-flex align-items-center">
                       <div class="col-xl-4 d-flex justify-content-around">
                         <p>
-                          <a href="#">${link_main_page}</a>
+                          <a href="welcome">${link_main_page}</a>
                         </p>
                         <p>
                           <a href="#">${link_news_page}</a>
@@ -66,6 +66,9 @@
                         <sec:authorize access="isAuthenticated()">
                           <form:form method="POST" action="logout">
                             <input class="btn btn-primary" type="submit" value="Log out"/>
+                          </form:form>
+                          <form:form method="GET" action="user_profile">
+                            <input class="btn btn-primary" type="submit" value="My profile"/>
                           </form:form>
                         </sec:authorize>
                       </div>

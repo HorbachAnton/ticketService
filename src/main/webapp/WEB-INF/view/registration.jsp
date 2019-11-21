@@ -29,7 +29,7 @@
                     <div class="row d-flex align-items-center">
                       <div class="col-md-4 d-flex justify-content-around">
                         <p>
-                          <a href="#">${link_main_page}</a>
+                          <a href="welcome">${link_main_page}</a>
                         </p>
                         <p>
                           <a href="#">${link_news_page}</a>
