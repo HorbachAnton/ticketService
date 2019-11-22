@@ -6,13 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import by.sam.horbach.ticketService.facades.WelcomeFacade;
+import by.sam.horbach.ticketService.facades.impl.WelcomeFacadeImpl;
 
 @Controller
 public class WelcomePageController {
 	
 	@Autowired
-	WelcomeFacade welcomeFacadeFacade;
+	WelcomeFacadeImpl welcomeFacadeFacade;
 	
 	@RequestMapping(value="/welcome", method = RequestMethod.GET)
 	public String getPage(Model model) {

@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import by.sam.horbach.ticketService.dto.UserDTO;
-import by.sam.horbach.ticketService.facades.RegistrationFacade;
+import by.sam.horbach.ticketService.facades.impl.RegistrationFacadeImpl;
 import by.sam.horbach.ticketService.validators.RegistrationValidator;
 
 @Controller
 public class RegistrationPageController {
 
 	@Autowired
-	RegistrationFacade registrationFacade;
+	RegistrationFacadeImpl registrationFacade;
 
 	@Autowired
 	RegistrationValidator registrationValidator;

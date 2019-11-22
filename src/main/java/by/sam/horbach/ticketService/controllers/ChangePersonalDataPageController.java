@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import by.sam.horbach.ticketService.dto.forms.PersonalDataDTO;
-import by.sam.horbach.ticketService.facades.ChangePersonalDataFacade;
+import by.sam.horbach.ticketService.facades.impl.ChangePersonalDataFacadeImpl;
 import by.sam.horbach.ticketService.utils.Constants;
 
 @Controller
 public class ChangePersonalDataPageController implements Constants {
 
 	@Autowired
-	ChangePersonalDataFacade changePersonalDataFacade;
+	ChangePersonalDataFacadeImpl changePersonalDataFacade;
 
 	@RequestMapping(value = "/change_personal_data_page", method = RequestMethod.GET)
 	public String getPage(Model model) {

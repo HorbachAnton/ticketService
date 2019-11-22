@@ -116,32 +116,32 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	</bean>
 
 	<bean id="registrationFacade"
-		class="by.sam.horbach.ticketService.facades.RegistrationFacade">
+		class="by.sam.horbach.ticketService.facades.impl.RegistrationFacadeImpl">
 		<property name="userConverter"
 			ref="userRegistrationConverter" />
 		<property name="userService" ref="userService" />
 	</bean>
 
 	<bean id="userProfileFacade"
-		class="by.sam.horbach.ticketService.facades.UserProfileFacade">
+		class="by.sam.horbach.ticketService.facades.impl.UserProfileFacadeImpl">
 		<property name="userConverter" ref="userConverter" />
 		<property name="userService" ref="userService" />
 	</bean>
 
 	<bean id="welcomeFacade"
-		class="by.sam.horbach.ticketService.facades.WelcomeFacade">
+		class="by.sam.horbach.ticketService.facades.impl.WelcomeFacadeImpl">
 		<property name="eventListConverter" ref="eventListConverter" />
 		<property name="eventService" ref="eventService" />
 	</bean>
 
 	<bean id="changePasswordFacade"
-		class="by.sam.horbach.ticketService.facades.ChangePasswordFacade">
+		class="by.sam.horbach.ticketService.facades.impl.ChangePasswordFacadeImpl">
 		<property name="converter" ref="passwordDTOConverter" />
 		<property name="userService" ref="userService" />
 	</bean>
 
 	<bean id="changePersonalDataFacade"
-		class="by.sam.horbach.ticketService.facades.ChangePersonalDataFacade">
+		class="by.sam.horbach.ticketService.facades.impl.ChangePersonalDataFacadeImpl">
 		<property name="converter" ref="personalDataDTOConverter" />
 		<property name="userService" ref="userService" />
 	</bean>

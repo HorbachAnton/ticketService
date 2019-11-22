@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import by.sam.horbach.ticketService.dto.forms.PasswordDTO;
-import by.sam.horbach.ticketService.facades.ChangePasswordFacade;
+import by.sam.horbach.ticketService.facades.impl.ChangePasswordFacadeImpl;
 import by.sam.horbach.ticketService.utils.Constants;
 import by.sam.horbach.ticketService.validators.UpdatePasswordValidator;
 
@@ -21,7 +21,7 @@ public class ChangePasswordPageController implements Constants{
 	UpdatePasswordValidator passwordValidator;
 
 	@Autowired
-	ChangePasswordFacade changePasswordFacade;
+	ChangePasswordFacadeImpl changePasswordFacade;
 
 	@RequestMapping(value = "/change_password_page", method = RequestMethod.GET)
 	public String getPage(Model model) {
