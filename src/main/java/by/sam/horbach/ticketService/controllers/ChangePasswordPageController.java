@@ -11,10 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import by.sam.horbach.ticketService.dto.forms.PasswordDTO;
 import by.sam.horbach.ticketService.facades.ChangePasswordFacade;
+import by.sam.horbach.ticketService.utils.Constants;
 import by.sam.horbach.ticketService.validators.UpdatePasswordValidator;
 
 @Controller
-public class ChangePasswordPageController {
+public class ChangePasswordPageController implements Constants{
 
 	@Autowired
 	UpdatePasswordValidator passwordValidator;
@@ -38,7 +39,7 @@ public class ChangePasswordPageController {
 		}
 		
 		changePasswordFacade.changePassword(passwordDTO);
-		return new ModelAndView("redirect:/welcome");
+		return new ModelAndView(REDIRECT_PREFIX + "/welcome");
 	}
 
 }

@@ -160,7 +160,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames">
 			<list>
-				<value>properties/messages</value>
+				<value>properties/messages/messages</value>
 				<value>properties/locales/locale</value>
 			</list>
 		</property>

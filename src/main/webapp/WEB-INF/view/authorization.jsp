@@ -57,7 +57,7 @@
                       </div>
                       <div class="col-xl-4 d-flex justify-content-end">
                         <form class="form-inline">
-                          <input class="form-control" type="search" placeholder="${message}" aria-label="${message}"/>
+                          <input class="form-control " type="search" placeholder="${message}" aria-label="${message}"/>
                           <button class="btn btn-outline-success" type="submit">${message}</button>
                         </form>
                         <sec:authorize access="!isAuthenticated()">
@@ -86,7 +86,7 @@
                     <form:form class="col-md-4 border border-dark rounded" method="POST" action="login">
                       <div class="form-group">
                         <label for="exampleInputEmail1">${email_address_lb}</label>
-                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="${email_address_ph}"/>
+                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="${email_address_ph}" required />
                         <small id="emailHelp" class="form-text text-muted">${email_address_sm}</small>
                       </div>
                       <div class="form-group">
