@@ -7,6 +7,12 @@ import by.sam.horbach.ticketService.dao.AbstractBaseDao;
 import by.sam.horbach.ticketService.dao.EventDao;
 import by.sam.horbach.ticketService.entities.Event;
 
+/**
+ * A class implementing database operations associated with the Event entity.
+ * 
+ * @author Horbach Anton
+ *
+ */
 @Transactional
 public class EventDaoImpl extends AbstractBaseDao implements EventDao {
 

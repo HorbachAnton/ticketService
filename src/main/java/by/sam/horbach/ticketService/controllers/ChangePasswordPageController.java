@@ -14,8 +14,14 @@ import by.sam.horbach.ticketService.facades.impl.ChangePasswordFacadeImpl;
 import by.sam.horbach.ticketService.utils.Constants;
 import by.sam.horbach.ticketService.validators.UpdatePasswordValidator;
 
+/**
+ * A class responsible for interacting with the change password page.
+ * 
+ * @author Horbach Anton
+ *
+ */
 @Controller
-public class ChangePasswordPageController implements Constants{
+public class ChangePasswordPageController implements Constants {
 
 	@Autowired
 	UpdatePasswordValidator passwordValidator;
@@ -23,21 +29,43 @@ public class ChangePasswordPageController implements Constants{
 	@Autowired
 	ChangePasswordFacadeImpl changePasswordFacade;
 
+	/**
+	 * Returns a view name of a change password page to be resolved with
+	 * ViewResolver implementations and used together with the implicit model —
+	 * determined through command objects and @ModelAttribute methods.
+	 * 
+	 * @param model Model interface implementation
+	 * @return a view name of a change password page
+	 */
 	@RequestMapping(value = "/change_password_page", method = RequestMethod.GET)
 	public String getPage(Model model) {
 		model.addAttribute("passwordDTO", new PasswordDTO());
 		return "change_password";
 	}
 
+	/**
+	 * Changes the user password in the system and returns a view name of a welcome
+	 * page to be resolved with ViewResolver implementations and used together with
+	 * the implicit model — determined through command objects and @ModelAttribute
+	 * methods. In case of binding errors, returns a view name of change password
+	 * page.
+	 * 
+	 * @param passwordDTO instance of PasswordDTO class which contains the new
+	 *                    password
+	 * @param result      BindingResult interface implementation
+	 * @param model       Model interface implementation
+	 * @return a view name of a welcome page. In case of binding errors, returns a
+	 *         view name of change password page.
+	 */
 	@RequestMapping(value = "/change_password", method = RequestMethod.POST)
 	public ModelAndView change(@ModelAttribute("passwordDTO") PasswordDTO passwordDTO, BindingResult result,
 			ModelAndView model) {
 		passwordValidator.validate(passwordDTO, result);
-		
+
 		if (result.hasErrors()) {
 			return model;
 		}
-		
+
 		changePasswordFacade.changePassword(passwordDTO);
 		return new ModelAndView(REDIRECT_PREFIX + "/welcome");
 	}

@@ -5,6 +5,14 @@ import org.springframework.binding.convert.converters.TwoWayConverter;
 import by.sam.horbach.ticketService.dto.UserDTO;
 import by.sam.horbach.ticketService.entities.User;
 
+/**
+ * Converts User to UserDTO and vice versa. Unlike other converters, this
+ * implementation converts only the data specified and contained in the object
+ * of User during registration.
+ * 
+ * @author Horbach Anton
+ *
+ */
 public class UserRegistrationConverter implements TwoWayConverter {
 
 	@Override

@@ -3,15 +3,13 @@ package by.sam.horbach.ticketService.dto;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 
-import by.sam.horbach.ticketService.entities.Location;
-
 public class EventDTO {
 
 	private int id;
 	private String title;
 	private String summary;
 	private LocalDateTime date;
-	private Location location;
+	private LocationDTO locationDTO;
 	private int price;
 	private Path iconPath;
 
@@ -19,13 +17,13 @@ public class EventDTO {
 
 	}
 
-	public EventDTO(int id, String title, String summary, LocalDateTime date, Location location, int price,
+	public EventDTO(int id, String title, String summary, LocalDateTime date, LocationDTO locationDTO, int price,
 			Path iconPath) {
 		this.id = id;
 		this.title = title;
 		this.summary = summary;
 		this.date = date;
-		this.location = location;
+		this.locationDTO = locationDTO;
 		this.price = price;
 		this.iconPath = iconPath;
 	}
@@ -62,12 +60,12 @@ public class EventDTO {
 		this.date = date;
 	}
 
-	public Location getLocation() {
-		return location;
+	public LocationDTO getLocation() {
+		return locationDTO;
 	}
 
-	public void setLocation(Location location) {
-		this.location = location;
+	public void setLocation(LocationDTO locationDTO) {
+		this.locationDTO = locationDTO;
 	}
 
 	public int getPrice() {

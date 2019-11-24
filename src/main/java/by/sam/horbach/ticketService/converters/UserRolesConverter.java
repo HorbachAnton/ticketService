@@ -5,6 +5,13 @@ import javax.persistence.Converter;
 
 import by.sam.horbach.ticketService.entities.UserRoles;
 
+/**
+ * Converts entity attribute state of type UserRoles into database column
+ * representation of type Integer and back again.
+ * 
+ * @author Антон
+ *
+ */
 @Converter(autoApply = true)
 public class UserRolesConverter implements AttributeConverter<UserRoles, Integer> {
 

@@ -6,6 +6,13 @@ import by.sam.horbach.ticketService.dto.forms.PersonalDataDTO;
 import by.sam.horbach.ticketService.entities.User;
 import by.sam.horbach.ticketService.services.UserService;
 
+/**
+ * Converts PersonalDataDTO to current User and vice versa. Allows to Set
+ * UserService for receiving the current User.
+ * 
+ * @author Horbach Anton
+ *
+ */
 public class PersonalDataDTOConverter implements TwoWayConverter {
 
 	UserService userService;
@@ -42,6 +49,11 @@ public class PersonalDataDTOConverter implements TwoWayConverter {
 		return personalDataDTO;
 	}
 
+	/**
+	 * Sets UserService for receiving the current User.
+	 * 
+	 * @param userService - an instance implementing the UserService interface
+	 */
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}

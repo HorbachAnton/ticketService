@@ -7,6 +7,11 @@ import by.sam.horbach.ticketService.entities.User;
 import by.sam.horbach.ticketService.entities.UserRoles;
 import org.springframework.binding.convert.converters.TwoWayConverter;
 
+/**
+ * Converts User to UserDTO and vice versa.
+ * @author Horbach Anton
+ *
+ */
 public class UserConverter implements TwoWayConverter {
 
 	@Override

@@ -8,6 +8,12 @@ import by.sam.horbach.ticketService.dao.AbstractBaseDao;
 import by.sam.horbach.ticketService.dao.UserDao;
 import by.sam.horbach.ticketService.entities.User;
 
+/**
+ * * A class implementing database operations associated with the User entity.
+ * 
+ * @author Horbach Anton
+ *
+ */
 @Transactional
 public class UserDaoImpl extends AbstractBaseDao implements UserDao {
 
@@ -18,7 +24,7 @@ public class UserDaoImpl extends AbstractBaseDao implements UserDao {
 		User user = null;
 		try {
 			user = (User) getCurrentSession().createSQLQuery(QUERY_USER_BY_EMAIL).addEntity(User.class).setParameter(1, email).getSingleResult();
-		} catch (NoResultException  e) {
+		} catch (NoResultException e) {
 			user = null;
 		}
 		return user;
