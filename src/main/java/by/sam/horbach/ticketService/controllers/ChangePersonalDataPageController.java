@@ -54,7 +54,7 @@ public class ChangePersonalDataPageController implements Constants {
 	public ModelAndView change(@ModelAttribute("personalDataDTO") PersonalDataDTO personalDataDTO,
 			BindingResult result) {
 		changePersonalDataFacade.changePersonalData(personalDataDTO);
-		return new ModelAndView(REDIRECT_PREFIX + "/welcome");
+		return new ModelAndView(REDIRECT_PREFIX + "/");
 	}
 
 }

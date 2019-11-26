@@ -18,10 +18,10 @@
 		<!-- access denied page -->
 		<access-denied-handler error-page="/403" />
 		<form-login login-page="/authorization"
-			default-target-url="/welcome"
+			default-target-url="/"
 			authentication-failure-url="/authorization-failed"
 			username-parameter="email" password-parameter="password" />
-		<logout logout-url="/logout" logout-success-url="/welcome"
+		<logout logout-url="/logout" logout-success-url="/"
 			delete-cookies="JSESSIONID" />
 		<remember-me token-validity-seconds="1209600"
 			remember-me-parameter="remember-me" />

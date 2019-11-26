@@ -9,6 +9,7 @@
                 <head-tag:addCssAndScripts/>
               </head>
               <body>
+                <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
                 <spring:message code="header.a.main_page" var="main_page"/>
                 <spring:message code="header.a.news_page" var="news_page"/>
                 <spring:message code="header.a.poster_page" var="poster_page"/>
@@ -34,7 +35,7 @@
                     <div class="row d-flex align-items-center">
                       <div class="col-md-4 d-flex justify-content-around">
                         <p>
-                          <a href="welcome"><c:out value="${main_page}"/></a>
+                          <a href="${contextPath}/"><c:out value="${main_page}"/></a>
                         </p>
                         <p>
                           <a href="#"><c:out value="${news_page}"/></a>

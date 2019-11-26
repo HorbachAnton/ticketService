@@ -67,7 +67,7 @@ public class ChangePasswordPageController implements Constants {
 		}
 
 		changePasswordFacade.changePassword(passwordDTO);
-		return new ModelAndView(REDIRECT_PREFIX + "/welcome");
+		return new ModelAndView(REDIRECT_PREFIX + "/");
 	}
 
 }
