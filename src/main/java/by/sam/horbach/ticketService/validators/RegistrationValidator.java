@@ -1,5 +1,7 @@
 package by.sam.horbach.ticketService.validators;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -44,6 +46,11 @@ public class RegistrationValidator implements Validator, Constants {
 
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
+	}
+	
+	public static void main(String[] args) {
+		Path path = Paths.get("resources\\img\\profile_icons");
+		System.out.println(path.toAbsolutePath());
 	}
 
 }

@@ -57,7 +57,7 @@
 												</a>
 											</div>
 											<div class="col-xl-4">
-												<img src="<c:url value="/resources/img/logo.png" />" class="img-fluid rounded mx-auto d-block" alt="logo"/>
+												<img src="<c:url value="/resources/img/profile_icons.png" />" class="img-fluid rounded mx-auto d-block" alt="logo"/>
 											</div>
 											<div class="col-xl-4 d-flex justify-content-end">
 												<form class="form-inline">
