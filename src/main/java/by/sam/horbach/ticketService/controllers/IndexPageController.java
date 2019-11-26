@@ -15,7 +15,7 @@ import by.sam.horbach.ticketService.facades.impl.WelcomeFacadeImpl;
  *
  */
 @Controller
-public class WelcomePageController {
+public class IndexPageController {
 
 	@Autowired
 	WelcomeFacadeImpl welcomeFacadeFacade;
@@ -28,10 +28,10 @@ public class WelcomePageController {
 	 * @param model Model interface implementation
 	 * @return a view name of a welcome page
 	 */
-	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getPage(Model model) {
 		model.addAttribute("upcomingEvents", welcomeFacadeFacade.getUpcomingEvents());
-		return "welcome";
+		return "index";
 	}
 
 	/**
