@@ -2,6 +2,7 @@ package by.sam.horbach.ticketService.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import by.sam.horbach.ticketService.dto.forms.FileUploadDTO;
 import by.sam.horbach.ticketService.facades.LoadProfileIconFacade;
 import by.sam.horbach.ticketService.utils.Constants;
 
@@ -32,12 +34,13 @@ public class LoadProfileIconPageController implements Constants {
 	 * @return a view name of a load user icon page
 	 */
 	@RequestMapping(value = "/load_user_icon_page", method = RequestMethod.GET)
-	public ModelAndView getPage(ModelAndView model) {
-		return new ModelAndView("load_profile_icon");
+	public String getPage(Model model) {
+		model.addAttribute("fileUploadDTO", new FileUploadDTO());
+		return "load_profile_icon";
 	}
 
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-	public ModelAndView loadUserIcon(@RequestParam("file") MultipartFile file, BindingResult result) {
+	public ModelAndView loadUserIcon(@RequestParam("fileUploadDTO") MultipartFile file, BindingResult result) {
 		loadUserIconFacade.loadProfileIcon(file);
 		return new ModelAndView(REDIRECT_PREFIX + "/");
 	}

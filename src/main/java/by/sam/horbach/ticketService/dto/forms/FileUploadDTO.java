@@ -1,4 +1,4 @@
-package by.sam.horbach.ticketService.dto;
+package by.sam.horbach.ticketService.dto.forms;
 
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 

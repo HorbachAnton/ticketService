@@ -76,7 +76,7 @@
                 <div class="main-place container-fluid form-container">
                   <div class="row">
                     <div class="col-md-4"></div>
-                    <form:form method="POST" action="/uploadFile" enctype="multipart/form-data">
+                    <form:form method="POST" action="uploadFile" enctype="multipart/form-data" modelAttribute="fileUploadDTO">
                       <table>
                         <tr>
                           <td>
