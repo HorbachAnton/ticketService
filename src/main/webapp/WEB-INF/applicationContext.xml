@@ -151,6 +151,11 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		<property name="userService" ref="userService" />
 	</bean>
 
+	<bean id="loadUserIconFacade"
+		class="by.sam.horbach.ticketService.facades.impl.LoadProfileIconFacadeImpl">
+		<property name="userService" ref="userService" />
+	</bean>
+
 	<bean id="registrationFormValidator"
 		class="by.sam.horbach.ticketService.validators.RegistrationValidator">
 		<property name="userDao" ref="userDao" />

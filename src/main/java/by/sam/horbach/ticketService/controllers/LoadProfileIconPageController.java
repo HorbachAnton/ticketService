@@ -1,6 +1,8 @@
 package by.sam.horbach.ticketService.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,8 +18,9 @@ import by.sam.horbach.ticketService.utils.Constants;
  * @author Horbach Anton
  *
  */
+@Controller
 public class LoadProfileIconPageController implements Constants {
-	
+
 	@Autowired
 	LoadProfileIconFacade loadUserIconFacade;
 
@@ -28,13 +31,13 @@ public class LoadProfileIconPageController implements Constants {
 	 * 
 	 * @return a view name of a load user icon page
 	 */
-	@RequestMapping(value = "/load_user_icon", method = RequestMethod.GET)
-	public String getPage() {
-		return "load_user_icon";
+	@RequestMapping(value = "/load_user_icon_page", method = RequestMethod.GET)
+	public ModelAndView getPage(ModelAndView model) {
+		return new ModelAndView("load_profile_icon");
 	}
 
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-	public ModelAndView loadUserIcon(@RequestParam("file") MultipartFile file) {
+	public ModelAndView loadUserIcon(@RequestParam("file") MultipartFile file, BindingResult result) {
 		loadUserIconFacade.loadProfileIcon(file);
 		return new ModelAndView(REDIRECT_PREFIX + "/");
 	}
