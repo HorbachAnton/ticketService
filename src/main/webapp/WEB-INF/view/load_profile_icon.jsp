@@ -20,6 +20,8 @@
                 <spring:message code="header.input.registration" var="registration"/>
                 <spring:message code="header.input.logout" var="logout"/>
                 <spring:message code="header.input.user_profile" var="user_profile"/>
+                <spring:message code="load_profile_icon.label.select_image" var="select_image"/>
+                <spring:message code="load_profile_icon.button.download_image" var="download_image"/>
                 <spring:message code="footer.div.rights" var="rights"/>
 
                 <header>
@@ -76,18 +78,12 @@
                 <div class="main-place container-fluid form-container">
                   <div class="row">
                     <div class="col-md-4"></div>
-                    <form:form method="POST" action="uploadFile" enctype="multipart/form-data" modelAttribute="fileUploadDTO">
-                      <table>
-                        <tr>
-                          <td>
-                            <form:label path="file">Select a file to upload</form:label>
-                          </td>
-                          <td><input type="file" name="file"/></td>
-                        </tr>
-                        <tr>
-                          <td><input type="submit" value="Submit"/></td>
-                        </tr>
-                      </table>
+                    <form:form class="col-md-4 border border-dark rounded" method="POST" action="upload_file" enctype="multipart/form-data" modelAttribute="fileUploadDTO">
+                      <div class="form-group">
+                        <form:label path="file">${select_image}</form:label>
+                        <form:input class="btn btn-primary" path="file" type="file" name="file"/>
+                      </div>
+                      <button type="submit" class="btn btn-primary">${download_image}</button>
                     </form:form>
                     <div class="col-md-4"></div>
                   </div>
