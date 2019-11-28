@@ -78,10 +78,10 @@
                 <div class="main-place container-fluid form-container">
                   <div class="row">
                     <div class="col-md-4"></div>
-                    <form:form class="col-md-4 border border-dark rounded" method="POST" action="upload_file" enctype="multipart/form-data" modelAttribute="fileUploadDTO">
+                    <form:form class="col-md-4 border border-dark rounded" method="POST" action="upload_file?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data" modelAttribute="fileUploadDTO">
                       <div class="form-group">
                         <form:label path="file">${select_image}</form:label>
-                        <form:input class="btn btn-primary" path="file" type="file" name="file"/>
+                        <form:input path="file" type="file" name="file"/>
                       </div>
                       <button type="submit" class="btn btn-primary">${download_image}</button>
                     </form:form>

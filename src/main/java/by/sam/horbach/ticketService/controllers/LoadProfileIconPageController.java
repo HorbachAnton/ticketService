@@ -1,5 +1,7 @@
 package by.sam.horbach.ticketService.controllers;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,9 @@ public class LoadProfileIconPageController implements Constants {
 
 	@Autowired
 	LoadProfileIconFacade loadUserIconFacade;
+	
+	@Autowired
+	ServletContext servletContext;
 
 	/**
 	 * Returns a view name of a load user icon page to be resolved with ViewResolver
