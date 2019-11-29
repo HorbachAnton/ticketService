@@ -4,15 +4,11 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import javax.servlet.ServletContext;
-
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import by.sam.horbach.ticketService.dao.UserDao;
@@ -65,15 +61,11 @@ public class UserServiceImpl implements UserService, Constants {
 	}
 
 	private Path getUserIconPath(int userId) {
-		return Paths.get(getServletContext().getRealPath(USER_PROFILE_ICONS_PATH.toString()), userId + PROFILE_IMAGE_POSTFIX).toAbsolutePath();
+		return Paths.get(SERVLET_CONTEXT.getRealPath(USER_PROFILE_ICONS_PATH.toString()), userId + PROFILE_IMAGE_POSTFIX).toAbsolutePath();
 	}
 
 	public User getUserByEmail(String userEmail) {
 		return userDao.findByUserEmail(userEmail);
-	}
-
-	private ServletContext getServletContext() {
-		return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getServletContext();
 	}
 
 	@Override

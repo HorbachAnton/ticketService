@@ -1,6 +1,8 @@
 package by.sam.horbach.ticketService.converters;
 
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Optional;
 
 import by.sam.horbach.ticketService.dto.UserDTO;
 import by.sam.horbach.ticketService.entities.User;
@@ -9,6 +11,7 @@ import org.springframework.binding.convert.converters.TwoWayConverter;
 
 /**
  * Converts User to UserDTO and vice versa.
+ * 
  * @author Horbach Anton
  *
  */
@@ -36,7 +39,7 @@ public class UserConverter implements TwoWayConverter {
 		target.setName(sourceUser.getName());
 		target.setSurname(sourceUser.getSurname());
 		target.setRole(UserRoles.getRoleById(sourceUser.getIdRole()));
-		target.setIconPath(Paths.get(sourceUser.getIconPath()));
+		target.setIconPath(getIconPath(sourceUser));
 
 		return target;
 	}
@@ -56,6 +59,15 @@ public class UserConverter implements TwoWayConverter {
 		source.setIconPath(targetDTO.getIconPath().toString());
 
 		return source;
+	}
+
+	private Path getIconPath(User user) {
+		Path path = null;
+		Optional<String> value = Optional.ofNullable(user.getIconPath());
+		if (value.isPresent()) {
+			path = Paths.get(value.get());
+		}
+		return path;
 	}
 
 }

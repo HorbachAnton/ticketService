@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `ticketservice`.`User` (
   `name` VARCHAR(45) NULL DEFAULT NULL,
   `surname` VARCHAR(45) NULL DEFAULT NULL,
   `Role_id` INT NOT NULL,
-  `iconPath` VARCHAR(100) NULL DEFAULT NULL,
+  `iconPath` VARCHAR(220) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id` (`id` ASC, `email` ASC) VISIBLE,
   INDEX `fk_User_Role_idx` (`Role_id` ASC) VISIBLE,
@@ -130,8 +130,8 @@ COLLATE = utf8mb4_0900_ai_ci;
 INSERT INTO `ticketservice`.`role` (`id`, `name`) VALUES ('1', 'CONSUMER');
 INSERT INTO `ticketservice`.`role` (`id`, `name`) VALUES ('2', 'ADMINISTRATOR');
 
-INSERT INTO `ticketservice`.`user` (`id`, `email`, `password`, `enabled`, `name`, `surname`, `Role_id`, `iconPath`) VALUES ('1', 'dmitri@yandex.by', '$2a$12$suF6cYY6yDobn8Ri4JjmK.A0wZ0rjiwfbEKqytpt2HafKMsbAJWDO', '1', 'Dmitri', 'Fedorovich', '1', 'Не указано');
-INSERT INTO `ticketservice`.`user` (`id`, `email`, `password`, `enabled`, `name`, `surname`, `Role_id`, `iconPath`) VALUES ('2', 'vadim@mail.ru', '$2a$12$suF6cYY6yDobn8Ri4JjmK.A0wZ0rjiwfbEKqytpt2HafKMsbAJWDO', '1', 'Vadim', 'Dmitrievich', '2', 'Не указано');
+INSERT INTO `ticketservice`.`user` (`id`, `email`, `password`, `enabled`, `name`, `surname`, `Role_id`, `iconPath`) VALUES ('1', 'dmitri@yandex.by', '$2a$12$suF6cYY6yDobn8Ri4JjmK.A0wZ0rjiwfbEKqytpt2HafKMsbAJWDO', '1', 'Dmitri', 'Fedorovich', '1', null);
+INSERT INTO `ticketservice`.`user` (`id`, `email`, `password`, `enabled`, `name`, `surname`, `Role_id`, `iconPath`) VALUES ('2', 'vadim@mail.ru', '$2a$12$suF6cYY6yDobn8Ri4JjmK.A0wZ0rjiwfbEKqytpt2HafKMsbAJWDO', '1', 'Vadim', 'Dmitrievich', '2', null);
 
 INSERT INTO `ticketservice`.`location` (`id`, `title`) VALUES ('1', 'Магнит');
 INSERT INTO `ticketservice`.`location` (`id`, `title`) VALUES ('2', 'ТЦ ПЛАЗА');

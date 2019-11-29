@@ -26,7 +26,6 @@ public class UserProfileFacadeImpl implements UserProfileFacade {
 					UserDTO.class);
 		} catch (Exception exception) {
 			LOGGER.error(ERROR_MESSAGE, exception);
-			;
 		}
 		return userDTO;
 

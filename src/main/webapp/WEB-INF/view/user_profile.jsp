@@ -9,8 +9,12 @@
 								<head-tag:addCssAndScripts/>
 							</head>
 							<body>
+								<c:url value="/resources/img/profile_icons/icon_profile_not_found.png"  var ="icon_profile_not_found" />
+								<c:url value="${userDTO.iconPath}"  var ="icon_profile_path" />
 								<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 								<c:set var="enabled" scope="session" value="${userDTO.enabled}"/>
+								<c:set var="iconPath" scope="session" value="${empty icon_profile_path ? icon_profile_not_found : icon_profile_path}"/>
+
 								<spring:message code="header.a.main_page" var="main_page"/>
 								<spring:message code="header.a.news_page" var="news_page"/>
 								<spring:message code="header.a.poster_page" var="poster_page"/>
@@ -57,7 +61,7 @@
 												</a>
 											</div>
 											<div class="col-xl-4">
-												<img src="<c:url value="/resources/img/profile_icons.png" />" class="img-fluid rounded mx-auto d-block" alt="logo"/>
+												<img src="<c:url value="/resources/img/logo.png" />" class="img-fluid rounded mx-auto d-block" alt="logo"/>
 											</div>
 											<div class="col-xl-4 d-flex justify-content-end">
 												<form class="form-inline">
@@ -91,7 +95,7 @@
 											<div class="col-xl-8  border border-dark rounded">
 												<div class="container-fluid text-center">
 													<figure class="figure">
-														<img src="<c:url value="/resources/img/icon_profile_not_found.png" />" class="border border-dark rounded"/>
+														<img src="${iconPath}" class="border border-dark rounded"/>
 														<figcaption class="figure-caption text-center">
 															<h3>${email} ${userDTO.email}</h3>
 														</figcaption>
