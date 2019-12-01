@@ -169,6 +169,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		<property name="userDao" ref="userDao" />
 	</bean>
 
+	<bean id="loadProfileIconValidator"
+		class="by.sam.horbach.ticketService.validators.LoadProfileIconValidator" />
+
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames">

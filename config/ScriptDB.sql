@@ -130,8 +130,8 @@ COLLATE = utf8mb4_0900_ai_ci;
 INSERT INTO `ticketservice`.`role` (`id`, `name`) VALUES ('1', 'CONSUMER');
 INSERT INTO `ticketservice`.`role` (`id`, `name`) VALUES ('2', 'ADMINISTRATOR');
 
-INSERT INTO `ticketservice`.`user` (`id`, `email`, `password`, `enabled`, `name`, `surname`, `Role_id`, `iconPath`) VALUES ('1', 'dmitri@yandex.by', '$2a$12$suF6cYY6yDobn8Ri4JjmK.A0wZ0rjiwfbEKqytpt2HafKMsbAJWDO', '1', 'Dmitri', 'Fedorovich', '1', null);
-INSERT INTO `ticketservice`.`user` (`id`, `email`, `password`, `enabled`, `name`, `surname`, `Role_id`, `iconPath`) VALUES ('2', 'vadim@mail.ru', '$2a$12$suF6cYY6yDobn8Ri4JjmK.A0wZ0rjiwfbEKqytpt2HafKMsbAJWDO', '1', 'Vadim', 'Dmitrievich', '2', null);
+INSERT INTO `ticketservice`.`user` (`id`, `email`, `password`, `enabled`, `name`, `surname`, `Role_id`, `iconPath`) VALUES ('1', 'dmitri@yandex.by', '$2a$12$YRvw/MMuK.tXvOBPbTm7NOHV5BLXFFq7vUQ5/VDqPlR6lJpUvXjSK', '1', 'Dmitri', 'Fedorovich', '1', null);
+INSERT INTO `ticketservice`.`user` (`id`, `email`, `password`, `enabled`, `name`, `surname`, `Role_id`, `iconPath`) VALUES ('2', 'vadim@mail.ru', '$2a$12$YRvw/MMuK.tXvOBPbTm7NOHV5BLXFFq7vUQ5/VDqPlR6lJpUvXjSK', '1', 'Vadim', 'Dmitrievich', '2', null);
 
 INSERT INTO `ticketservice`.`location` (`id`, `title`) VALUES ('1', 'Магнит');
 INSERT INTO `ticketservice`.`location` (`id`, `title`) VALUES ('2', 'ТЦ ПЛАЗА');

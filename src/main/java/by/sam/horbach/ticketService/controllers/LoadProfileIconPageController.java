@@ -1,7 +1,5 @@
 package by.sam.horbach.ticketService.controllers;
 
-import javax.servlet.ServletContext;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import by.sam.horbach.ticketService.dto.forms.FileUploadDTO;
 import by.sam.horbach.ticketService.facades.LoadProfileIconFacade;
 import by.sam.horbach.ticketService.utils.Constants;
+import by.sam.horbach.ticketService.validators.LoadProfileIconValidator;
 
 /**
  * A class responsible for interacting with the load user icon page.
@@ -26,9 +25,9 @@ public class LoadProfileIconPageController implements Constants {
 
 	@Autowired
 	LoadProfileIconFacade loadUserIconFacade;
-	
+
 	@Autowired
-	ServletContext servletContext;
+	LoadProfileIconValidator loadProfileIconValidator;
 
 	/**
 	 * Returns a view name of a load user icon page to be resolved with ViewResolver
@@ -44,8 +43,16 @@ public class LoadProfileIconPageController implements Constants {
 	}
 
 	@RequestMapping(value = "/upload_file", method = RequestMethod.POST)
-	public ModelAndView loadUserIcon(@ModelAttribute("fileUploadDTO") FileUploadDTO file, BindingResult result) {
+	public ModelAndView loadUserIcon(@ModelAttribute("fileUploadDTO") FileUploadDTO file, BindingResult result,
+			ModelAndView model) {
+		loadProfileIconValidator.validate(file, result);
+
+		if (result.hasErrors()) {
+			return new ModelAndView("load_profile_icon");
+		}
+
 		loadUserIconFacade.loadProfileIcon(file.getFile());
 		return new ModelAndView(REDIRECT_PREFIX + "/");
 	}
+
 }

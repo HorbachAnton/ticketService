@@ -3,6 +3,8 @@ package by.sam.horbach.ticketService.services.impl;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -20,6 +22,7 @@ import by.sam.horbach.ticketService.utils.Constants;
 public class UserServiceImpl implements UserService, Constants {
 
 	private static final String PROFILE_IMAGE_POSTFIX = "_profile_icon.png";
+	private static final String RELATIVE_USER_ICON_PATH_REGEX = "resources\\\\*.*";
 
 	PasswordEncoder passwordEncoder;
 	UserDao userDao;
@@ -54,14 +57,28 @@ public class UserServiceImpl implements UserService, Constants {
 	@Override
 	public void saveProfileIcon(MultipartFile file) throws IOException {
 		User user = getCurrentUser();
-		Path iconPath = getUserIconPath(user.getId());
+		Path iconPath = getAbsoluteUserIconPath(user.getId());
 		file.transferTo(iconPath.toFile());
-		user.setIconPath(iconPath.toString());
+		user.setIconPath(getRelativeUserIconPath(iconPath));
 		userDao.update(user);
 	}
 
-	private Path getUserIconPath(int userId) {
-		return Paths.get(SERVLET_CONTEXT.getRealPath(USER_PROFILE_ICONS_PATH.toString()), userId + PROFILE_IMAGE_POSTFIX).toAbsolutePath();
+	private Path getAbsoluteUserIconPath(int userId) {
+		return Paths
+				.get(SERVLET_CONTEXT.getRealPath(USER_PROFILE_ICONS_PATH.toString()), userId + PROFILE_IMAGE_POSTFIX)
+				.toAbsolutePath();
+	}
+
+	private String getRelativeUserIconPath(Path absolutePath) {
+		String relativePath = null;
+		Pattern pattern = Pattern.compile(RELATIVE_USER_ICON_PATH_REGEX);
+		Matcher matcher = pattern.matcher(absolutePath.toString());
+
+		if (matcher.find()) {
+			relativePath = matcher.group();
+		}
+
+		return relativePath;
 	}
 
 	public User getUserByEmail(String userEmail) {

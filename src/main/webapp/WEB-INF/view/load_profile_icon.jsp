@@ -80,8 +80,12 @@
                     <div class="col-md-4"></div>
                     <form:form class="col-md-4 border border-dark rounded" method="POST" action="upload_file?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data" modelAttribute="fileUploadDTO">
                       <div class="form-group">
-                        <form:label path="file">${select_image}</form:label>
-                        <form:input path="file" type="file" name="file"/>
+                        <h2>${select_image}</h2>
+                        <div class="custom-file">
+                          <form:input path="file" type="file" class="custom-file-input" id="customFile"/>
+                          <form:label path="file" class="custom-file-label" for="customFile">Choose file</form:label>
+                        </div>
+                        <form:errors path="file" CssClass="error"/>
                       </div>
                       <button type="submit" class="btn btn-primary">${download_image}</button>
                     </form:form>

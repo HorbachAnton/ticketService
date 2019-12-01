@@ -15,7 +15,7 @@
 			access="isAuthenticated()" />
 		<intercept-url pattern="/change_personal_data_page*"
 			access="isAuthenticated()" />
-		<intercept-url pattern="load_user_icon_page*"
+		<intercept-url pattern="/load_user_icon_page*"
 			access="isAuthenticated()" />
 		<!-- access denied page -->
 		<access-denied-handler error-page="/403" />
