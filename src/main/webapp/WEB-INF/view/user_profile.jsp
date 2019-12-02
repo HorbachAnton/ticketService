@@ -89,7 +89,8 @@
 									</div>
 								</header>
 								<body>
-									<div class="container-fluid form-container">
+
+									<div class="container-fluid user_profile_container">
 										<div class="row">
 											<div class="col-xl-2"></div>
 											<div class="col-xl-8  border border-dark rounded">

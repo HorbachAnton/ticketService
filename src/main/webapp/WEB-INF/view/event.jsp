@@ -21,8 +21,11 @@
                 <spring:message code="header.input.registration" var="registration"/>
                 <spring:message code="header.input.logout" var="logout"/>
                 <spring:message code="header.input.user_profile" var="user_profile"/>
-                <spring:message code="load_profile_icon.label.select_image" var="select_image"/>
-                <spring:message code="load_profile_icon.button.download_image" var="download_image"/>
+                <spring:message code="event.p.title" var="title"/>
+                <spring:message code="event.p.summary" var="summary"/>
+                <spring:message code="event.p.date" var="date"/>
+                <spring:message code="event.p.location" var="location"/>
+                <spring:message code="event.p.price" var="price"/>
                 <spring:message code="footer.div.rights" var="rights"/>
 
                 <header>
@@ -76,23 +79,20 @@
                     </div>
                   </div>
                 </header>
-                <div class="main-place container-fluid form-container">
+
+                <div class="main-place container-fluid event_details_contailner">
                   <div class="row">
                     <div class="col-md-4"></div>
-                    <form:form class="col-md-4 border border-dark rounded" method="POST" action="upload_file?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data" modelAttribute="fileUploadDTO">
-                      <div class="form-group">
-                        <h2>${select_image}</h2>
-                        <div class="custom-file">
-                          <form:input path="file" type="file" class="custom-file-input" id="customFile"/>
-                          <form:label path="file" class="custom-file-label" for="customFile">Choose file</form:label>
-                        </div>
-                        <form:errors path="file" CssClass="error"/>
+                    <div class="col-md-4 border border-dark rounded">
+                      <div class="container-fluid text-center">
+                        <p>${title} &nbsp; ${eventDTO.getTitle()}</p>
+                        <img src="<c:url value="${eventDTO.getIconPath().toString()}"/>"/>
                       </div>
-                      <button type="submit" class="btn btn-primary">${download_image}</button>
-                    </form:form>
+                    </div>
                     <div class="col-md-4"></div>
                   </div>
                 </div>
+
                 <footer class="footer d-flex align-items-center">
                   <div class="container-fluid">
                     <div class="row flex-d justify-content-center">${rights}</div>

@@ -9,6 +9,10 @@ import by.sam.horbach.ticketService.services.EventService;
 public class EventServiceImpl implements EventService {
 
 	EventDao eventDao;
+	
+	public Event getEventById(Integer eventID) {
+		return (Event) eventDao.getById(Event.class, eventID.intValue());
+	}
 
 	@Override
 	public List<Event> getEvents() {

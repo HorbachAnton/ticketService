@@ -142,6 +142,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		<property name="eventService" ref="eventService" />
 	</bean>
 
+	<bean id="eventFacade"
+		class="by.sam.horbach.ticketService.facades.impl.EventFacadeImpl">
+		<property name="eventConverter" ref="eventConverter" />
+		<property name="eventService" ref="eventService" />
+	</bean>
+
 	<bean id="changePasswordFacade"
 		class="by.sam.horbach.ticketService.facades.impl.ChangePasswordFacadeImpl">
 		<property name="converter" ref="passwordDTOConverter" />

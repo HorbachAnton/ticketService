@@ -80,6 +80,7 @@
                     </div>
                   </div>
                 </header>
+
                 <body>
                   <div class="container-fluid border border-dark">
                     <div class="row border border-dark">
@@ -118,74 +119,78 @@
                           <figcaption class="figure-caption text-center">Тестовое название</figcaption>
                           <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
                           <button type="button" class="btn btn-primary text-center">${read_news}</button>
-                        </figure>
-                      </div>
+                      </figure>
                     </div>
                   </div>
-                  <div class="container-fluid border border-dark">
-                    <div class="row border border-dark">
-                      <div class="col-xl-12 center-block text-center">
-                        <h1>${upcoming_events_message}</h1>
-                      </div>
-                    </div>
-                    <div class="row border border-dark">
-                      <c:forEach var="event" items="${upcomingEvents}">
-                        <div class="col-xl-3 border border-dark rounded d-flex justify-content-center upcoming-events-block">
-                          <figure class="figure">
-                            <img src="<c:url value="${event.getIconPath()}" />" class="border border-dark rounded"/>
-                            <figcaption class="figure-caption text-center"><c:out value="${event.getTitle()}"/></figcaption>
-                            <figcaption class="figure-caption text-center"><c:out value="${event.getSummary()}"/></figcaption>
-                            <button type="button" class="btn btn-primary">${upcoming_events_bt}</button>
-                          </figure>
-                        </div>
-                      </c:forEach>
+                </div>
+                <div class="container-fluid border border-dark">
+                  <div class="row border border-dark">
+                    <div class="col-xl-12 center-block text-center">
+                      <h1>${upcoming_events_message}</h1>
                     </div>
                   </div>
-                  <div class="container-fluid border border-dark">
-                    <div class="row border border-dark">
-                      <div class="col-xl-12 center-block text-center">
-                        <h1>${recent_comments}</h1>
-                      </div>
-                    </div>
-                    <div class="row border border-dark">
-                      <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                  <div class="row border border-dark">
+                    <c:forEach var="event" items="${upcomingEvents}">
+                      <div class="col-xl-3 border border-dark rounded d-flex justify-content-center upcoming-events-block">
                         <figure class="figure">
-                          <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
-                          <figcaption class="figure-caption text-center">Тестовое название</figcaption>
-                          <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary">${read_recent_comments}</button>
+                          <img src="<c:url value="${event.getIconPath()}" />" class="border border-dark rounded"/>
+                          <figcaption class="figure-caption text-center"><c:out value="${event.getTitle()}"/></figcaption>
+                          <figcaption class="figure-caption text-center"><c:out value="${event.getSummary()}"/></figcaption>
+                          <form action="learn_more_about_event" method="GET">
+                            <input type="hidden" id="eventId" name="eventId" value="${event.getId()}"/>
+                            <button type="submit" class="btn btn-primary">${upcoming_events_bt}</button>
+                          </form>
                         </figure>
                       </div>
-                      <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
-                        <figure class="figure">
-                          <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
-                          <figcaption class="figure-caption text-center">Тестовое название</figcaption>
-                          <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary">${read_recent_comments}</button>
-                        </figure>
-                      </div>
-                      <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
-                        <figure class="figure">
-                          <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded center-block"/>
-                          <figcaption class="figure-caption text-center">Тестовое название</figcaption>
-                          <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary">${read_recent_comments}</button>
-                        </figure>
-                      </div>
-                      <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
-                        <figure class="figure">
-                          <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
-                          <figcaption class="figure-caption text-center">Тестовое название</figcaption>
-                          <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
-                          <button type="button" class="btn btn-primary text-center">${read_recent_comments}</button>
-                        </figure>
-                      </div>
+                    </c:forEach>
+                  </div>
+                </div>
+                <div class="container-fluid border border-dark">
+                  <div class="row border border-dark">
+                    <div class="col-xl-12 center-block text-center">
+                      <h1>${recent_comments}</h1>
                     </div>
                   </div>
-                </body>
+                  <div class="row border border-dark">
+                    <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                      <figure class="figure">
+                        <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
+                        <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                        <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                        <button type="button" class="btn btn-primary">${read_recent_comments}</button>
+                      </figure>
+                    </div>
+                    <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                      <figure class="figure">
+                        <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
+                        <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                        <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                        <button type="button" class="btn btn-primary">${read_recent_comments}</button>
+                      </figure>
+                    </div>
+                    <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                      <figure class="figure">
+                        <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded center-block"/>
+                        <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                        <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                        <button type="button" class="btn btn-primary">${read_recent_comments}</button>
+                      </figure>
+                    </div>
+                    <div class="col-xl-3 border border-dark rounded d-flex justify-content-center">
+                      <figure class="figure">
+                        <img src="<c:url value="/resources/img/page_not_found.png" />" class="border border-dark rounded"/>
+                        <figcaption class="figure-caption text-center">Тестовое название</figcaption>
+                        <figcaption class="figure-caption text-center">Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</figcaption>
+                        <button type="button" class="btn btn-primary text-center">${read_recent_comments}</button>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+
                 <footer class="footer-welcome  d-flex align-items-center">
                   <div class="container-fluid">
                     <div class="row flex-d justify-content-center">${rights}</div>
                   </div>
                 </footer>
-              </html>
+              </body>
+            </html>

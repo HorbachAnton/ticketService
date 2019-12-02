@@ -39,6 +39,24 @@ body .upcoming-events-block img {
   height: 190px;
 }
 
+body .event_details_contailner {
+  margin-top: 40px;
+}
+
+body .event_details_contailner img {
+  width: 404px;
+  height: 404px;
+}
+
+body .user_profile_container {
+  margin-top: 40px;
+}
+
+body .user_profile_container img {
+  width: 202px;
+  height: 202px;
+}
+
 .form-container {
   margin-top: 10%;
   text-align: center;
@@ -48,7 +66,7 @@ body .upcoming-events-block img {
   margin: 10px;
 }
 
-.form-container .form_buttons input {
+.user_profile_container .form_buttons input {
   margin: 10px;
 }
 
