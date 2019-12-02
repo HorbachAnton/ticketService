@@ -44,10 +44,10 @@
                         <p>
                           <a href="#"><c:out value="${rating_page}"/></a>
                         </p>
-                        <a href="?lang=en_EN">
+                        <a href="?eventId=${eventDTO.getId()}&lang=en_EN">
                           <button class="btn btn-primary" type="submit">${english_locale}</button>
                         </a>
-                        <a href="?lang=ru_RU">
+                        <a href="?eventId=${eventDTO.getId()}&lang=ru_RU">
                           <button class="btn btn-primary" type="submit">${russian_locale}</button>
                         </a>
                       </div>
