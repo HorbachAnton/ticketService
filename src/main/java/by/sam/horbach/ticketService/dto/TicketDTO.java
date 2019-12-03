@@ -1,22 +1,19 @@
 package by.sam.horbach.ticketService.dto;
 
-import by.sam.horbach.ticketService.entities.Event;
-import by.sam.horbach.ticketService.entities.User;
-
 public class TicketDTO {
 
 	private int id;
-	private Event event;
-	private User user;
+	private EventDTO eventDTO;
+	private UserDTO userDTO;
 
 	public TicketDTO() {
 
 	}
 
-	public TicketDTO(int id, Event event, User user) {
+	public TicketDTO(int id, EventDTO eventDTO, UserDTO userDTO) {
 		this.id = id;
-		this.event = event;
-		this.user = user;
+		this.eventDTO = eventDTO;
+		this.userDTO = userDTO;
 	}
 
 	public int getId() {
@@ -27,20 +24,20 @@ public class TicketDTO {
 		this.id = id;
 	}
 
-	public Event getEvent() {
-		return event;
+	public EventDTO getEvent() {
+		return eventDTO;
 	}
 
-	public void setEvent(Event event) {
-		this.event = event;
+	public void setEvent(EventDTO eventDTO) {
+		this.eventDTO = eventDTO;
 	}
 
-	public User getUser() {
-		return user;
+	public UserDTO getUser() {
+		return userDTO;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(UserDTO userDTO) {
+		this.userDTO = userDTO;
 	}
 
 }

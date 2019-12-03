@@ -10,6 +10,7 @@
               </head>
               <body>
                 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+                <c:set var="eventId" value="${eventDTO.getId()}"/>
                 <spring:message code="header.a.main_page" var="main_page"/>
                 <spring:message code="header.a.news_page" var="news_page"/>
                 <spring:message code="header.a.poster_page" var="poster_page"/>
@@ -26,6 +27,8 @@
                 <spring:message code="event.p.date" var="date"/>
                 <spring:message code="event.p.location" var="location"/>
                 <spring:message code="event.p.price" var="price"/>
+                <spring:message code="event.label.indicate_quantity" var="indicate_quantity"/>
+                <spring:message code="event.button.buy_tickets" var="buy_tickets"/>
                 <spring:message code="footer.div.rights" var="rights"/>
 
                 <header>
@@ -44,10 +47,10 @@
                         <p>
                           <a href="#"><c:out value="${rating_page}"/></a>
                         </p>
-                        <a href="?eventId=${eventDTO.getId()}&lang=en_EN">
+                        <a href="?eventId=${eventId}&lang=en_EN">
                           <button class="btn btn-primary" type="submit">${english_locale}</button>
                         </a>
-                        <a href="?eventId=${eventDTO.getId()}&lang=ru_RU">
+                        <a href="?eventId=${eventId}&lang=ru_RU">
                           <button class="btn btn-primary" type="submit">${russian_locale}</button>
                         </a>
                       </div>
@@ -86,17 +89,38 @@
                     <div class="col-md-4 border border-dark rounded">
                       <div class="container-fluid text-center">
                         <p>${title} &nbsp; ${eventDTO.getTitle()}</p>
-                        <img src="<c:url value="${eventDTO.getIconPath().toString()}"/>"/>
+                        <figure class="figure">
+                          <img src="<c:url value="${eventDTO.getIconPath().toString()}"/>"/>
+                          <figcaption class="figure-caption text-center">${summary}
+                            <br>
+                              ${eventDTO.getSummary()}</figcaption>
+                            <figcaption class="figure-caption text-center">${date} &nbsp; ${eventDTO.getDate()}</figcaption>
+                            <figcaption class="figure-caption text-center">${location} &nbsp; ${eventDTO.getLocation().getTitle()}</figcaption>
+                            <figcaption class="figure-caption text-center">${price} &nbsp; ${eventDTO.getPrice()}</figcaption>
+                          </figure>
+                        </div>
                       </div>
+                      <div class="col-md-4"></div>
                     </div>
-                    <div class="col-md-4"></div>
+                    <div class="row">
+                      <div class="col-md-4"></div>
+                      <form:form class="col-md-4 border border-dark rounded text-center" method="POST" action="buy_tickets" modelAttribute="buyTicketsDTO">
+                        <div class="form-group">
+                          <form:hidden path="idEvent" value="${eventId}"/>
+                          <form:label path="quantity">${indicate_quantity}</form:label>
+                          <form:input path="quantity" type="text" class="form-control" placeholder="0" name="name"/>
+                          <form:errors path="quantity" CssClass="error"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">${buy_tickets}</button>
+                      </form:form>
+                      <div class="col-md-4"></div>
+                    </div>
                   </div>
-                </div>
 
-                <footer class="footer d-flex align-items-center">
-                  <div class="container-fluid">
-                    <div class="row flex-d justify-content-center">${rights}</div>
-                  </div>
-                </footer>
-              </body>
-            </html>
+                  <footer class="footer d-flex align-items-center">
+                    <div class="container-fluid">
+                      <div class="row flex-d justify-content-center">${rights}</div>
+                    </div>
+                  </footer>
+                </body>
+              </html>
