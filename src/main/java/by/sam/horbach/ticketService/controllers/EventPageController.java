@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import by.sam.horbach.ticketService.dto.forms.BuyTicketsDTO;
@@ -23,30 +24,33 @@ public class EventPageController {
 	@Autowired
 	BuyTicketsValidator buyTicketsValidator;
 
+	@ModelAttribute("buyTicketsDTO")
+	public BuyTicketsDTO newMyForm() {
+		return new BuyTicketsDTO();
+	}
+
 	@RequestMapping(value = "/event_page", method = RequestMethod.GET)
-	public String getPage(@ModelAttribute("eventId") Integer eventId, Model model) {
+	public String getPage(@ModelAttribute("eventId") Integer eventId, Model model, BindingResult result) {
 		model.addAttribute("eventDTO", eventFacade.getEventById(eventId));
-		model.addAttribute("buyTicketsDTO", new BuyTicketsDTO());
 		return "event";
 	}
 
 	@RequestMapping(value = "/buy_tickets", method = RequestMethod.POST)
-	public ModelAndView buyTickets(@ModelAttribute("buyTicketsDTO") BuyTicketsDTO buyTicketsDTO, BindingResult result) {
+	public ModelAndView buyTickets(@ModelAttribute("buyTicketsDTO") BuyTicketsDTO buyTicketsDTO, BindingResult result,
+			RedirectAttributes redirectAttributes) {
+
+		RedirectView redirectView = new RedirectView("/ticket-service/");
 		buyTicketsValidator.validate(buyTicketsDTO, result);
 
 		if (result.hasErrors()) {
-			redirectToEventPage(buyTicketsDTO, result);
+			redirectView.setUrl("/ticket-service/event_page");
+			redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.buyTicketsDTO", result);
+			redirectAttributes.addFlashAttribute("buyTicketsDTO", buyTicketsDTO);
+		} else {
+			eventFacade.buyTickets(buyTicketsDTO);
 		}
 
-		eventFacade.buyTickets(buyTicketsDTO);
-		return new ModelAndView(new RedirectView("/ticket-service/event_page")).addObject("eventId",
-				buyTicketsDTO.getIdEvent());
-	}
-
-	private ModelAndView redirectToEventPage(@ModelAttribute("buyTicketsDTO") BuyTicketsDTO buyTicketsDTO,
-			BindingResult result) {
-		return new ModelAndView(new RedirectView("/ticket-service/event_page")).addObject("eventId",
-				buyTicketsDTO.getIdEvent());
+		return new ModelAndView(redirectView).addObject("eventId", buyTicketsDTO.getIdEvent());
 	}
 
 }
