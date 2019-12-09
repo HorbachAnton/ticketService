@@ -2,14 +2,17 @@ package by.sam.horbach.ticketService.services.impl;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import by.sam.horbach.ticketService.dao.EventDao;
 import by.sam.horbach.ticketService.entities.Event;
 import by.sam.horbach.ticketService.services.EventService;
 
+@Transactional
 public class EventServiceImpl implements EventService {
 
 	private EventDao eventDao;
-	
+
 	public Event getEventById(Integer eventID) {
 		return (Event) eventDao.getById(Event.class, eventID.intValue());
 	}

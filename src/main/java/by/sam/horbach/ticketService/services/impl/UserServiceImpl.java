@@ -6,6 +6,8 @@ import java.nio.file.Paths;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
@@ -19,6 +21,7 @@ import by.sam.horbach.ticketService.entities.UserRoles;
 import by.sam.horbach.ticketService.services.UserService;
 import by.sam.horbach.ticketService.utils.Constants;
 
+@Transactional
 public class UserServiceImpl implements UserService, Constants {
 
 	private static final String PROFILE_IMAGE_POSTFIX = "_profile_icon.png";

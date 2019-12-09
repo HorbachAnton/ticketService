@@ -21,6 +21,7 @@
                 <spring:message code="header.input.registration" var="registration"/>
                 <spring:message code="header.input.logout" var="logout"/>
                 <spring:message code="header.input.user_profile" var="user_profile"/>
+                <spring:message code="footer.div.rights" var="rights"/>
 
                 <header>
                   <div class="container-fluid">

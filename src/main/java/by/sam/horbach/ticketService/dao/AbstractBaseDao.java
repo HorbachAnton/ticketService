@@ -2,7 +2,6 @@ package by.sam.horbach.ticketService.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Abstract base class implementing the common IAbstractBaseDao methods.
@@ -10,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Horbach Anton
  *
  */
-@Transactional
 public abstract class AbstractBaseDao implements IAbstractBaseDao {
 
 	protected SessionFactory session;

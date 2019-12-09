@@ -2,10 +2,13 @@ package by.sam.horbach.ticketService.services.impl;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import by.sam.horbach.ticketService.dao.TicketDao;
 import by.sam.horbach.ticketService.entities.Ticket;
 import by.sam.horbach.ticketService.services.TicketService;
 
+@Transactional
 public class TicketServiceImpl implements TicketService {
 
 	private TicketDao ticketDao;

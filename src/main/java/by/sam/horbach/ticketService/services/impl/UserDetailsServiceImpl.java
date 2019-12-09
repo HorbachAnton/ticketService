@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +16,7 @@ import by.sam.horbach.ticketService.dao.UserDao;
 import by.sam.horbach.ticketService.entities.User;
 import by.sam.horbach.ticketService.entities.UserRoles;
 
+@Transactional
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	private UserDao userDao;
@@ -27,7 +30,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	private org.springframework.security.core.userdetails.User buildUserForAuthentication(User user,
 			List<GrantedAuthority> authorities) {
-		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), user.isEnabled(), true, true, true, authorities);
+		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
+				user.isEnabled(), true, true, true, authorities);
 	}
 
 	private List<GrantedAuthority> buildUserAuthority(int idRole) {
