@@ -34,7 +34,7 @@ public class RegistrationValidator implements Validator, Constants {
 		Matcher matcher = PATTERN_PASSWORD.matcher(userDTO.getPassword());
 
 		if (!matcher.matches()) {
-			errors.rejectValue("password", "erros.invalid_password", "erros.invalid_password.message");
+			errors.rejectValue("password", "errors.invalid_password", "errors.invalid_password.message");
 		}
 
 		if (userService.getUserByEmail(userDTO.getEmail()) != null) {

@@ -38,7 +38,7 @@ public class UpdatePasswordValidator implements Validator, Constants {
 		Matcher matcher = PATTERN_PASSWORD.matcher(passwordDTO.getPassword());
 
 		if (!matcher.matches()) {
-			errors.rejectValue("password", "erros.invalid_password", "erros.invalid_password.message");
+			errors.rejectValue("password", "errors.invalid_password", "errors.invalid_password.message");
 		}
 
 		if (!StringUtils.equals(passwordDTO.getPassword(), passwordDTO.getConfirmPassword())) {
