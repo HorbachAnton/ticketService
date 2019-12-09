@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService, Constants {
 	private static final String PROFILE_IMAGE_POSTFIX = "_profile_icon.png";
 	private static final String RELATIVE_USER_ICON_PATH_REGEX = "resources\\\\*.*";
 
-	PasswordEncoder passwordEncoder;
-	UserDao userDao;
+	private PasswordEncoder passwordEncoder;
+	private UserDao userDao;
 
 	public boolean register(User user) {
 		boolean result = true;

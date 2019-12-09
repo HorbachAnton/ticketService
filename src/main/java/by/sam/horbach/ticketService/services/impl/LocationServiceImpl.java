@@ -6,7 +6,7 @@ import by.sam.horbach.ticketService.services.LocationService;
 
 public class LocationServiceImpl implements LocationService {
 
-	LocationDao locationDao;
+	private LocationDao locationDao;
 	
 	@Override
 	public Location getLocation(int id) {

@@ -8,7 +8,7 @@ import by.sam.horbach.ticketService.services.TicketService;
 
 public class TicketServiceImpl implements TicketService {
 
-	TicketDao ticketDao;
+	private TicketDao ticketDao;
 
 	public void buyTickets(List<Ticket> ticketsList) {
 		for (int j = 0; j < ticketsList.size(); j++) {
