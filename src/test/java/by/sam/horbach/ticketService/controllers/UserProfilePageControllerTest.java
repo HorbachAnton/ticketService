@@ -23,12 +23,13 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/applicationContext.xml" })
 @WebAppConfiguration
-public class AuthorizationPageControllerTest {
+public class UserProfilePageControllerTest {
 
-	public static final String AUTHORIZATION_PAGE_CONTROLLER_BEAN_NAME = "authorizationPageController";
+	public static final String USER_PROFILE_CONTROLLER_BEAN_NAME = "userProfilePageController";
 
-	public static final String AUTHORIZATION_PAGE_URL = "/authorization";
-	public static final String AUTHORIZATION_EXPECTED_VIEW_NAME = "authorization";
+	public static final String USER_PROFILE_PAGE_URL = "/user_profile";
+	public static final String USER_PROFILE_DTO_ATTRIBUTE_NAME = "userDTO";
+	public static final String USER_PROFILE_PAGE_VIEW_NAME = "user_profile";
 
 	@Autowired
 	private WebApplicationContext wac;
@@ -47,15 +48,17 @@ public class AuthorizationPageControllerTest {
 
 		Assert.assertNotNull(servletContext);
 		Assert.assertTrue(servletContext instanceof MockServletContext);
-		Assert.assertNotNull(wac.getBean(AUTHORIZATION_PAGE_CONTROLLER_BEAN_NAME));
+		Assert.assertNotNull(wac.getBean(USER_PROFILE_CONTROLLER_BEAN_NAME));
 	}
 
 	@Test
 	@WithMockUser(username = "dmitri@yandex.by", roles = { "CONSUMER" })
 	public void getPage() throws Exception {
-		this.mockMvc.perform(MockMvcRequestBuilders.get(AUTHORIZATION_PAGE_URL)).andDo(MockMvcResultHandlers.print())
-				.andExpect(MockMvcResultMatchers.view().name(AUTHORIZATION_EXPECTED_VIEW_NAME))
-				.andExpect(MockMvcResultMatchers.status().isOk());
+		this.mockMvc.perform(MockMvcRequestBuilders.get(USER_PROFILE_PAGE_URL)).andDo(MockMvcResultHandlers.print())
+				.andExpect(MockMvcResultMatchers.status().isOk())
+				.andExpect(MockMvcResultMatchers.model().attributeExists(USER_PROFILE_DTO_ATTRIBUTE_NAME))
+				.andExpect(MockMvcResultMatchers.view().name(USER_PROFILE_PAGE_VIEW_NAME));
 	}
-
+	
+	
 }

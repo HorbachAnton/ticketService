@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockServletContext;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -24,7 +26,7 @@ import org.springframework.web.context.WebApplicationContext;
 public class AuthorizationFailedPageControllerTest {
 
 	public static final String AUTHORIZATION_FAILED_PAGE_CONTROLLER_BEAN_NAME = "authorizationFailedPageController";
-	
+
 	public static final String AUTHORIZATION_FAILDE_PAGE_URL = "/authorization-failed";
 	public static final String AUTHORIZATION_FAILDE_EXPECTED_VIEW_NAME = "/authorization-failed";
 
@@ -35,7 +37,8 @@ public class AuthorizationFailedPageControllerTest {
 
 	@Before
 	public void setup() throws Exception {
-		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).apply(SecurityMockMvcConfigurers.springSecurity())
+				.build();
 	}
 
 	@Test
@@ -46,12 +49,14 @@ public class AuthorizationFailedPageControllerTest {
 		Assert.assertTrue(servletContext instanceof MockServletContext);
 		Assert.assertNotNull(wac.getBean(AUTHORIZATION_FAILED_PAGE_CONTROLLER_BEAN_NAME));
 	}
-	
+
 	@Test
+	@WithMockUser(username = "dmitri@yandex.by", roles = { "CONSUMER" })
 	public void getPage() throws Exception {
-		this.mockMvc.perform(MockMvcRequestBuilders.get(AUTHORIZATION_FAILDE_PAGE_URL)).andDo(MockMvcResultHandlers.print())
-		.andExpect(MockMvcResultMatchers.view().name(AUTHORIZATION_FAILDE_EXPECTED_VIEW_NAME))
-		.andExpect(MockMvcResultMatchers.status().isOk());
+		this.mockMvc.perform(MockMvcRequestBuilders.get(AUTHORIZATION_FAILDE_PAGE_URL))
+				.andDo(MockMvcResultHandlers.print())
+				.andExpect(MockMvcResultMatchers.view().name(AUTHORIZATION_FAILDE_EXPECTED_VIEW_NAME))
+				.andExpect(MockMvcResultMatchers.status().isOk());
 	}
 
 }

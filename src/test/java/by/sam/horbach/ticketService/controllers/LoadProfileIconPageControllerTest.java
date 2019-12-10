@@ -23,12 +23,16 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/applicationContext.xml" })
 @WebAppConfiguration
-public class AuthorizationPageControllerTest {
+public class LoadProfileIconPageControllerTest {
 
-	public static final String AUTHORIZATION_PAGE_CONTROLLER_BEAN_NAME = "authorizationPageController";
+	public static final String LOAD_PROFILE_ICON_CONTROLLER_BEAN_NAME = "loadProfileIconPageController";
 
-	public static final String AUTHORIZATION_PAGE_URL = "/authorization";
-	public static final String AUTHORIZATION_EXPECTED_VIEW_NAME = "authorization";
+	public static final String LOAD_PROFILE_PAGE_URL = "/load_user_icon_page";
+	public static final String LOAD_PROFILE_ICON_VIEW_NAME = "load_profile_icon";
+	public static final String LOAD_PROFILE_ICON_DTO_ATTRIBUTE = "fileUploadDTO";
+
+	public static final String LOAD_PROFILE_ICON_METHOD_URL = "/upload_file";
+	public static final String LOAD_PROFILE_ICON_FILE_ATTRIBUTE = "file";
 
 	@Autowired
 	private WebApplicationContext wac;
@@ -47,15 +51,16 @@ public class AuthorizationPageControllerTest {
 
 		Assert.assertNotNull(servletContext);
 		Assert.assertTrue(servletContext instanceof MockServletContext);
-		Assert.assertNotNull(wac.getBean(AUTHORIZATION_PAGE_CONTROLLER_BEAN_NAME));
+		Assert.assertNotNull(wac.getBean(LOAD_PROFILE_ICON_CONTROLLER_BEAN_NAME));
 	}
 
 	@Test
 	@WithMockUser(username = "dmitri@yandex.by", roles = { "CONSUMER" })
 	public void getPage() throws Exception {
-		this.mockMvc.perform(MockMvcRequestBuilders.get(AUTHORIZATION_PAGE_URL)).andDo(MockMvcResultHandlers.print())
-				.andExpect(MockMvcResultMatchers.view().name(AUTHORIZATION_EXPECTED_VIEW_NAME))
-				.andExpect(MockMvcResultMatchers.status().isOk());
+		this.mockMvc.perform(MockMvcRequestBuilders.get(LOAD_PROFILE_PAGE_URL)).andDo(MockMvcResultHandlers.print())
+				.andExpect(MockMvcResultMatchers.status().isOk())
+				.andExpect(MockMvcResultMatchers.view().name(LOAD_PROFILE_ICON_VIEW_NAME))
+				.andExpect(MockMvcResultMatchers.model().attributeExists(LOAD_PROFILE_ICON_DTO_ATTRIBUTE));
 	}
 
 }

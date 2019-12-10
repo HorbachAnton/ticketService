@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockServletContext;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -25,18 +26,19 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/applicationContext.xml" })
 @WebAppConfiguration
-public class IndexPageControllerTest {
+public class RegistrationPageControllerTest {
 
-	private static final String INDEX_PAGE_CONTROLLER_BEAN_NAME = "indexPageController";
+	public static final String REGISTRAION_CONTROLLER_BEAN_NAME = "registrationPageController";
 
-	private static final String INDEX_PAGE_URL = "/";
-	private static final String GET_PAGE_EXPECTED_VIEW_NAME = "index";
-	private static final String GET_PAGE_EXPECTING_ATTRIBUTE = "upcomingEvents";
+	public static final String REGISTRATION_CONTROLLER_PAGE_URL = "/registration";
+	public static final String REGISTRATION_CONTROLLER_DTO_ATTRIBUTE = "userDTO";
+	public static final String REGISTRATION_PAGE_VIEW_NAME = "registration";
 
-	private static final String REDIRECT_TO_EVENT_PAGE_URL = "/learn_more_about_event";
-	private static final String EVENT_ID_PARAMETER_NAME = "eventId";
-	private static final String TEST_VALUE_EVENT_ID = "1";
-	private static final String REDIRECTED_URL = "/ticket-service/event_page?eventId=" + TEST_VALUE_EVENT_ID;
+	public static final String REGISTER_COMMAND_URL = "/register";
+	public static final String REGISTER_COMMAND_EMAIL_ATTRIBUTE_NAME = "email";
+	public static final String REGISTER_COMMAND_EMAIL_ATTRIBUTE_VALUE = "egsbtrh@mail.ru";
+	public static final String REGISTER_COMMAND_PASSWORD_ATTRIBUTE_NAME = "password";
+	public static final String REGISTER_COMMAND_PASSWORD_ATTRIBUTE_VALUE = "dH12$$Bd";
 
 	@Autowired
 	private WebApplicationContext wac;
@@ -55,26 +57,26 @@ public class IndexPageControllerTest {
 
 		Assert.assertNotNull(servletContext);
 		Assert.assertTrue(servletContext instanceof MockServletContext);
-		Assert.assertNotNull(wac.getBean(INDEX_PAGE_CONTROLLER_BEAN_NAME));
+		Assert.assertNotNull(wac.getBean(REGISTRAION_CONTROLLER_BEAN_NAME));
 	}
 
 	@Test
 	@WithMockUser(username = "dmitri@yandex.by", roles = { "CONSUMER" })
 	public void getPage() throws Exception {
-		this.mockMvc.perform(MockMvcRequestBuilders.get(INDEX_PAGE_URL)).andDo(MockMvcResultHandlers.print())
-				.andExpect(MockMvcResultMatchers.view().name(GET_PAGE_EXPECTED_VIEW_NAME))
-				.andExpect(model().attributeExists(GET_PAGE_EXPECTING_ATTRIBUTE))
-				.andExpect(MockMvcResultMatchers.status().isOk());
+		this.mockMvc.perform(MockMvcRequestBuilders.get(REGISTRATION_CONTROLLER_PAGE_URL))
+				.andDo(MockMvcResultHandlers.print()).andExpect(MockMvcResultMatchers.status().isOk())
+				.andExpect(model().attributeExists(REGISTRATION_CONTROLLER_DTO_ATTRIBUTE))
+				.andExpect(MockMvcResultMatchers.view().name(REGISTRATION_PAGE_VIEW_NAME));
 	}
 
 	@Test
 	@WithMockUser(username = "dmitri@yandex.by", roles = { "CONSUMER" })
-	public void requestToEventPage() throws Exception {
+	public void register() throws Exception {
 		this.mockMvc
-				.perform(MockMvcRequestBuilders.get(REDIRECT_TO_EVENT_PAGE_URL).param(EVENT_ID_PARAMETER_NAME,
-						TEST_VALUE_EVENT_ID))
-				.andDo(MockMvcResultHandlers.print()).andExpect(MockMvcResultMatchers.redirectedUrl(REDIRECTED_URL))
-				.andExpect(MockMvcResultMatchers.status().isFound());
+				.perform(MockMvcRequestBuilders.post(REGISTER_COMMAND_URL)
+						.param(REGISTER_COMMAND_EMAIL_ATTRIBUTE_NAME, REGISTER_COMMAND_EMAIL_ATTRIBUTE_VALUE)
+						.param(REGISTER_COMMAND_PASSWORD_ATTRIBUTE_NAME, REGISTER_COMMAND_PASSWORD_ATTRIBUTE_VALUE)
+						.with(SecurityMockMvcRequestPostProcessors.csrf()))
+				.andDo(MockMvcResultHandlers.print()).andExpect(MockMvcResultMatchers.status().isOk());
 	}
-
 }
