@@ -19,11 +19,19 @@
 			access="isAuthenticated()" />
 		<intercept-url pattern="/event_page*"
 			access="isAuthenticated()" />
+		<intercept-url pattern="/admin_page*"
+			access="hasAuthority('ADMINISTRATOR')" />
+		<intercept-url pattern="/user_center*"
+			access="hasAuthority('ADMINISTRATOR')" />
+		<intercept-url pattern="/event_center*"
+			access="hasAuthority('ADMINISTRATOR')" />
+		<intercept-url pattern="/ticket_center*"
+			access="hasAuthority('ADMINISTRATOR')" />
 
 		<!-- access denied page -->
 		<access-denied-handler error-page="/403" />
 		<form-login login-page="/authorization"
-			default-target-url="/"
+			authentication-success-handler-ref="AuthenticationSuccessHandlerImpl"
 			authentication-failure-url="/authorization-failed"
 			username-parameter="email" password-parameter="password" />
 		<logout logout-url="/logout" logout-success-url="/"
@@ -31,6 +39,9 @@
 		<remember-me token-validity-seconds="1209600"
 			remember-me-parameter="remember-me" />
 	</http>
+
+	<beans:bean id="AuthenticationSuccessHandlerImpl"
+		class=" by.sam.horbach.ticketService.handlers.AuthenticationSuccessHandlerImpl" />
 
 	<authentication-manager>
 		<authentication-provider
