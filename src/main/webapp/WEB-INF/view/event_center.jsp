@@ -24,6 +24,13 @@
                 <spring:message code="header.input.registration" var="registration"/>
                 <spring:message code="header.input.logout" var="logout"/>
                 <spring:message code="header.input.user_profile" var="user_profile"/>
+                <spring:message code="event_center.p.id" var="id"/>
+                <spring:message code="event_center.p.title" var="title"/>
+                <spring:message code="event_center.p.summary" var="summary"/>
+                <spring:message code="event_center.p.date" var="date"/>
+                <spring:message code="event_center.p.location" var="location"/>
+                <spring:message code="event_center.p.price" var="price"/>
+                <spring:message code="event_center.p.icon_path" var="icon_path"/>
                 <spring:message code="footer.div.rights" var="rights"/>
 
                 <header>
@@ -77,6 +84,122 @@
                     </div>
                   </div>
                 </header>
+
+                <div class="container-fluid user_profile_container">
+                  <div class="row">
+                    <div class="col-xl-12">
+                      <div class="container d-flex flex-row block_events_information">
+                        <div class="col-xl-1 d-flex align-items-center text-center border border-dark">
+                          <div class="container d-flex flex-column">
+                            <div class="block_attribute_event_info d-flex justify-content-center">
+                              <p>${id}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-1 d-flex align-items-center text-center border border-dark">
+                          <div class="container d-flex flex-column">
+                            <div class="block_attribute_event_info d-flex justify-content-center">
+                              <p>${title}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-2 d-flex align-items-center text-center border border-dark">
+                          <div class="container d-flex flex-column">
+                            <div class="block_attribute_event_info d-flex justify-content-center">
+                              <p>${summary}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-2 d-flex align-items-center text-center border border-dark">
+                          <div class="container d-flex flex-column">
+                            <div class="block_attribute_event_info d-flex justify-content-center">
+                              <p>${date}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-2 d-flex align-items-center text-center border border-dark">
+                          <div class="container d-flex flex-column">
+                            <div class="block_attribute_event_info d-flex justify-content-center">
+                              <p>${location}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-2 d-flex align-items-center  text-center border border-dark">
+                          <div class="container d-flex flex-column">
+                            <div class="block_attribute_event_info d-flex justify-content-center">
+                              <p>${price}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-2 d-flex align-items-center  text-center border border-dark">
+                          <div class="container d-flex flex-column">
+                            <div class="block_attribute_event_info d-flex justify-content-center">
+                              <p>${icon_path}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <c:forEach begin="${first_event}" end="${last_event}" var="eventDTO" items="${listEvents}">
+                        <div class="row">
+                          <div class="col-xl-12">
+                            <div class="container d-flex flex-row">
+                              <div class="col-xl-1 d-flex align-items-center  text-center border border-dark">
+                                <div class="container d-flex flex-column">
+                                  <div class="block_attribute_event_info d-flex justify-content-center">
+                                    <p>${eventDTO.getId()}</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-1 d-flex align-items-center  text-center border border-dark">
+                                <div class="container d-flex flex-column">
+                                  <div class="block_attribute_event_info d-flex justify-content-center">
+                                    <p>${eventDTO.getTitle()}</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-2 d-flex align-items-center  text-center border border-dark">
+                                <div class="container d-flex flex-column">
+                                  <div class="block_attribute_event_info d-flex justify-content-center">
+                                    <p>${eventDTO.getSummary()}</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-2 d-flex align-items-center  text-center border border-dark">
+                                <div class="container d-flex flex-column">
+                                  <div class="block_attribute_event_info d-flex justify-content-center">
+                                    <p>${eventDTO.getDate()}</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-2 d-flex align-items-center  text-center border border-dark">
+                                <div class="container d-flex flex-column">
+                                  <div class="block_attribute_event_info d-flex justify-content-center">
+                                    <p>${eventDTO.getLocation().getTitle()}</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-2 d-flex align-items-center  text-center border border-dark">
+                                <div class="container d-flex flex-column">
+                                  <div class="block_attribute_event_info d-flex justify-content-center">
+                                    <p>${eventDTO.getPrice()}</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-2 d-flex align-items-center  text-center border border-dark">
+                                <div class="container d-flex flex-column">
+                                  <div class="block_attribute_event_info d-flex justify-content-center">
+                                    <p>${eventDTO.getIconPath()}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </c:forEach>
+                    </div>
+                  </div>
+                </div>
+
                 <footer class="footer d-flex align-items-center">
                   <div class="container-fluid">
                     <div class="row flex-d justify-content-center">${rights}</div>

@@ -13,13 +13,8 @@ public class AdminPageController {
 	}
 
 	@RequestMapping(value = "/user_center_page", method = RequestMethod.GET)
-	public String getUserCenterPafe() {
+	public String getUserCenterPage() {
 		return "user_center";
-	}
-
-	@RequestMapping(value = "/event_center_page", method = RequestMethod.GET)
-	public String getEventCenterPage() {
-		return "event_center";
 	}
 
 	@RequestMapping(value = "/ticket_center_page", method = RequestMethod.GET)
