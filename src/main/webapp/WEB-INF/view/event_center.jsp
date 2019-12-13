@@ -139,7 +139,7 @@
                           </div>
                         </div>
                       </div>
-                      <c:forEach begin="${first_event}" end="${last_event}" var="eventDTO" items="${listEvents}">
+                      <c:forEach var="eventDTO" items="${listEvents}">
                         <div class="row">
                           <div class="col-xl-12">
                             <div class="container d-flex flex-row">
@@ -195,7 +195,28 @@
                             </div>
                           </div>
                         </div>
+                        <div class="row">
+                          <div class="col-xl-12">
+                            <div class="container d-flex flex-row">
+                            </div>
+                          </div>
+                        </div>
                       </c:forEach>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="container-fluid pagination_container">
+                  <div class="row">
+                    <div class="col-xl-12">
+                      <div class="container d-flex flex-row  justify-content-center block_pagination_pages">
+                        <c:forEach begin="${1}" end="${numberOfPages}" varStatus="сounter">
+                          <form class="form_button_paggination" action="get_chosen_page">
+                            <input type="hidden" name="chosen_page" value="${сounter.count}"/>
+                            <button type="submit" class="btn btn-primary">${сounter.count}</button>
+                          </form>
+                        </c:forEach>
+                      </div>
                     </div>
                   </div>
                 </div>

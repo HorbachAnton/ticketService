@@ -25,7 +25,7 @@ public class EventPageController {
 	BuyTicketsValidator buyTicketsValidator;
 
 	@ModelAttribute("buyTicketsDTO")
-	public BuyTicketsDTO newMyForm() {
+	public BuyTicketsDTO createBuyTicketsDTO() {
 		return new BuyTicketsDTO();
 	}
 

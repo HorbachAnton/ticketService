@@ -57,6 +57,14 @@ body .user_profile_container img {
   height: 202px;
 }
 
+body .pagination_container{
+  padding: 20px;
+}
+
+body .pagination_container .form_button_paggination{
+  margin: 8px;
+}
+
 .form-container {
   margin-top: 10%;
   text-align: center;
