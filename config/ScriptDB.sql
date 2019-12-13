@@ -119,7 +119,8 @@ CREATE TABLE IF NOT EXISTS `ticketservice`.`Comment` (
   INDEX `fk_Comment_Event1_idx` (`Event_id` ASC) VISIBLE,
   CONSTRAINT `fk_Comment_Event1`
     FOREIGN KEY (`Event_id`)
-    REFERENCES `ticketservice`.`event` (`id`),
+    REFERENCES `ticketservice`.`event` (`id`)
+    ON DELETE CASCADE,
   CONSTRAINT `fk_Comment_User1`
     FOREIGN KEY (`User_id`)
     REFERENCES `ticketservice`.`user` (`id`))

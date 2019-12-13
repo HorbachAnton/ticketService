@@ -6,4 +6,6 @@ public interface EventCenterFacade {
 
 	public PaginationEventDTO getPaginationEventDTO(int chosenPage);
 
+	void deleteEvent(int eventId);
+
 }

@@ -25,13 +25,14 @@ public class EventCenterFacadeImpl implements EventCenterFacade {
 	private EventService eventService;
 	private TwoWayConverter eventListConverter;
 
+	@Override
 	public PaginationEventDTO getPaginationEventDTO(int chosenPage) {
 		List<Event> eventList = eventService.getEvents();
 
 		PaginationEventDTO paginationEventDTO = new PaginationEventDTO();
 		paginationEventDTO.setPagesNumber((int) Math.ceil(((double) eventList.size()) / 6));
 		paginationEventDTO.setEventDTOList(convertEventDTOListToEventList(getEventSubList(eventList, chosenPage)));
-		
+
 		return paginationEventDTO;
 	}
 
@@ -71,6 +72,11 @@ public class EventCenterFacadeImpl implements EventCenterFacade {
 		}
 
 		return eventDTOList;
+	}
+
+	@Override
+	public void deleteEvent(int eventId) {
+		eventService.deleteEvent(eventId);
 	}
 
 	public void setEventService(EventService eventService) {

@@ -13,6 +13,7 @@ public class EventServiceImpl implements EventService {
 
 	private EventDao eventDao;
 
+	@Override
 	public Event getEventById(Integer eventID) {
 		return (Event) eventDao.getById(Event.class, eventID.intValue());
 	}
@@ -25,6 +26,11 @@ public class EventServiceImpl implements EventService {
 	@Override
 	public List<Event> getUpcomingEvents() {
 		return eventDao.getUpcomingEvents();
+	}
+
+	@Override
+	public void deleteEvent(int eventId) {
+		eventDao.delete(getEventById(eventId));
 	}
 
 	public void setEventDao(EventDao eventDao) {
