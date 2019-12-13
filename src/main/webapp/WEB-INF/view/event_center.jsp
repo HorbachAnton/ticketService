@@ -31,6 +31,9 @@
                 <spring:message code="event_center.p.location" var="location"/>
                 <spring:message code="event_center.p.price" var="price"/>
                 <spring:message code="event_center.p.icon_path" var="icon_path"/>
+                <spring:message code="event_center.button.change_event_data" var="change_event_data"/>
+                <spring:message code="event_center.button.delete_event" var="delete_event"/>
+                <spring:message code="event_center.button.add_event" var="add_event"/>
                 <spring:message code="footer.div.rights" var="rights"/>
 
                 <header>
@@ -143,7 +146,7 @@
                         <div class="row">
                           <div class="col-xl-12">
                             <div class="container d-flex flex-row">
-                              <div class="col-xl-1 d-flex align-items-center  text-center border border-dark">
+                              <div class="col-xl-1 d-flex align-items-center text-center border border-dark">
                                 <div class="container d-flex flex-column">
                                   <div class="block_attribute_event_info d-flex justify-content-center">
                                     <p>${eventDTO.getId()}</p>
@@ -197,7 +200,18 @@
                         </div>
                         <div class="row">
                           <div class="col-xl-12">
-                            <div class="container d-flex flex-row">
+                            <div class="container d-flex flex-row justify-content-center">
+                              <form class="form_changing_buttons_block" action="get_change_page">
+                                <input type="hidden" name="event_id" value="${eventDTO.getId()}"/>
+                                <button type="submit" class="btn btn-primary">${change_event_data}</button>
+                              </form>
+                              <form class="form_changing_buttons_block" action="delete_event">
+                                <input type="hidden" name="event_id" value="${eventDTO.getId()}"/>
+                                <button type="submit" class="btn btn-primary">${delete_event}</button>
+                              </form>
+                              <form class="form_changing_buttons_block" action="get_added_user_page">
+                                <button type="submit" class="btn btn-primary">${add_event}</button>
+                              </form>
                             </div>
                           </div>
                         </div>

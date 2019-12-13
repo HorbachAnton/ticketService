@@ -57,11 +57,16 @@ body .user_profile_container img {
   height: 202px;
 }
 
-body .pagination_container{
-  padding: 20px;
+body .form_changing_buttons_block {
+  margin: 8px;
 }
 
-body .pagination_container .form_button_paggination{
+body .pagination_container {
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+body .pagination_container .form_button_paggination {
   margin: 8px;
 }
 
