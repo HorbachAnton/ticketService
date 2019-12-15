@@ -9,7 +9,7 @@ public class EventDTO {
 	private String title;
 	private String summary;
 	private LocalDateTime date;
-	private LocationDTO locationDTO;
+	private LocationDTO location;
 	private int price;
 	private Path iconPath;
 
@@ -17,13 +17,13 @@ public class EventDTO {
 
 	}
 
-	public EventDTO(int id, String title, String summary, LocalDateTime date, LocationDTO locationDTO, int price,
+	public EventDTO(int id, String title, String summary, LocalDateTime date, LocationDTO location, int price,
 			Path iconPath) {
 		this.id = id;
 		this.title = title;
 		this.summary = summary;
 		this.date = date;
-		this.locationDTO = locationDTO;
+		this.location = location;
 		this.price = price;
 		this.iconPath = iconPath;
 	}
@@ -61,11 +61,11 @@ public class EventDTO {
 	}
 
 	public LocationDTO getLocation() {
-		return locationDTO;
+		return location;
 	}
 
-	public void setLocation(LocationDTO locationDTO) {
-		this.locationDTO = locationDTO;
+	public void setLocation(LocationDTO location) {
+		this.location = location;
 	}
 
 	public int getPrice() {

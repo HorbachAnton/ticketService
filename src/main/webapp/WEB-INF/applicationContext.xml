@@ -187,6 +187,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		<property name="eventListConverter" ref="eventListConverter" />
 	</bean>
 
+	<bean id="adminEventFacade"
+		class="by.sam.horbach.ticketService.facades.impl.AdminEventFacadeImpl">
+		<property name="eventConverter" ref="eventConverter" />
+		<property name="eventService" ref="eventService" />
+	</bean>
+
 	<bean id="registrationFormValidator"
 		class="by.sam.horbach.ticketService.validators.RegistrationValidator">
 		<property name="userService" ref="userService" />

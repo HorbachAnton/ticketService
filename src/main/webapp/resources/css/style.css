@@ -48,6 +48,16 @@ body .event_details_contailner img {
   height: 404px;
 }
 
+body .admin_event_details_contailner {
+  margin-top: 40px;
+  margin-bottom: 120px;
+}
+
+body .admin_event_details_contailner img {
+  width: 404px;
+  height: 404px;
+}
+
 body .user_profile_container {
   margin-top: 40px;
 }

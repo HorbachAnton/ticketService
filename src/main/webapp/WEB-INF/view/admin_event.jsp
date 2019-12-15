@@ -22,13 +22,14 @@
                 <spring:message code="header.input.registration" var="registration"/>
                 <spring:message code="header.input.logout" var="logout"/>
                 <spring:message code="header.input.user_profile" var="user_profile"/>
-                <spring:message code="event.p.title" var="title"/>
-                <spring:message code="event.p.summary" var="summary"/>
-                <spring:message code="event.p.date" var="date"/>
-                <spring:message code="event.p.location" var="location"/>
-                <spring:message code="event.p.price" var="price"/>
-                <spring:message code="event.label.indicate_quantity" var="indicate_quantity"/>
-                <spring:message code="event.button.buy_tickets" var="buy_tickets"/>
+                <spring:message code="admin_event.h4.id" var="id"/>
+                <spring:message code="admin_event.h4.title" var="title"/>
+                <spring:message code="admin_event.h4.summary" var="summary"/>
+                <spring:message code="admin_event.h4.date" var="date"/>
+                <spring:message code="admin_event.h4.location" var="location"/>
+                <spring:message code="admin_event.h4.price" var="price"/>
+                <spring:message code="admin_event.h4.iconPath" var="iconPath"/>
+                <spring:message code="admin_event.button.change_event_details" var="change_event_details"/>
                 <spring:message code="footer.div.rights" var="rights"/>
 
                 <header>
@@ -83,46 +84,55 @@
                   </div>
                 </header>
 
-                <div class="main-place container-fluid event_details_contailner">
+                <div class="main-place container-fluid admin_event_details_contailner">
                   <div class="row">
                     <div class="col-md-4"></div>
                     <div class="col-md-4 border border-dark rounded">
                       <div class="container-fluid text-center">
-                        <h4>${title} &nbsp; ${eventDTO.getTitle()}</h4>
                         <figure class="figure">
                           <img src="<c:url value="${eventDTO.getIconPath().toString()}"/>"/>
-                          <figcaption class="text-center">
-                            <h4>${summary}
-                              <br>
-                                ${eventDTO.getSummary()}</h4>
+                          <form:form action="change_event_details" method="POST" modelAttribute="eventDTO">
+                            <figcaption class="text-center">
+                              <h4>${id}</h4>
+                              <form:input path="id" type="text" class="form-control" value="${eventId}"/>
                             </figcaption>
-                            <figcaption class="text-center"><h4>${date} &nbsp; ${eventDTO.getDate().toLocalDate()} &nbsp; ${eventDTO.getDate().toLocalTime()}</h4></figcaption>
-                            <figcaption class="text-center"><h4>${location} &nbsp; ${eventDTO.getLocation().getTitle()}</h4></figcaption>
-                            <figcaption class="text-center"><h4>${price} &nbsp; ${eventDTO.getPrice()}</h4></figcaption>
-                          </figure>
-                        </div>
+                            <figcaption class="text-center">
+                              <h4>${title}</h4>
+                              <form:input path="title" type="text" class="form-control" value="${eventDTO.getTitle()}"/>
+                            </figcaption>
+                            <figcaption class="text-center">
+                              <h4>${summary}</h4>
+                              <form:input path="summary" type="text" class="form-control" value="${eventDTO.getSummary()}"/>
+                            </figcaption>
+                            <figcaption class="text-center">
+                              <h4>${date}</h4>
+                              <form:input path="date" type="text" class="form-control" value="${eventDTO.getDate()}"/>
+                            </figcaption>
+                            <figcaption class="text-center">
+                              <h4>${location}</h4>
+                              <form:input path="location.title" type="text" class="form-control" value="${eventDTO.getLocation().getTitle()}"/>
+                            </figcaption>
+                            <figcaption class="text-center">
+                              <h4>${price}</h4>
+                              <form:input path="price" type="text" class="form-control" value="${eventDTO.getPrice()}"/>
+                            </figcaption>
+                            <figcaption class="text-center">
+                              <h4>${iconPath}</h4>
+                              <form:input path="iconPath" type="text" class="form-control" value="${eventDTO.getIconPath().toString()}"/>
+                            </figcaption>
+                            <button type="submit" class="btn btn-primary">${change_event_details}</button>
+                          </form:form>
+                        </figure>
                       </div>
-                      <div class="col-md-4"></div>
                     </div>
-                    <div class="row">
-                      <div class="col-md-4"></div>
-                      <form:form class="col-md-4 border border-dark rounded text-center" method="POST" action="buy_tickets" modelAttribute="buyTicketsDTO">
-                        <div class="form-group">
-                          <form:hidden path="idEvent" value="${eventId}"/>
-                          <form:label path="quantity">${indicate_quantity}</form:label>
-                          <form:input path="quantity" type="text" class="form-control" placeholder="0" name="name"/>
-                          <form:errors path="quantity" CssClass="error"/>
-                        </div>
-                        <button type="submit" class="btn btn-primary">${buy_tickets}</button>
-                      </form:form>
-                      <div class="col-md-4"></div>
-                    </div>
+                    <div class="col-md-4"></div>
                   </div>
+                </div>
 
-                  <footer class="footer d-flex align-items-center">
-                    <div class="container-fluid">
-                      <div class="row flex-d justify-content-center">${rights}</div>
-                    </div>
-                  </footer>
-                </body>
-              </html>
+                <footer class="footer d-flex align-items-center">
+                  <div class="container-fluid">
+                    <div class="row flex-d justify-content-center">${rights}</div>
+                  </div>
+                </footer>
+              </body>
+            </html>
