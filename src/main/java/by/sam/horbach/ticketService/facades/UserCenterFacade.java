@@ -2,10 +2,10 @@ package by.sam.horbach.ticketService.facades;
 
 public interface UserCenterFacade {
 
-	public void deleteUser();
+	void deleteUser();
 
-	public void addUser();
+	void addUser();
 
-	public void updateUser();
+	void updateUser();
 
 }

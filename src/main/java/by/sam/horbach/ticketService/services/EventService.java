@@ -13,5 +13,7 @@ public interface EventService {
 	List<Event> getUpcomingEvents();
 
 	void deleteEvent(int eventId);
+	
+	void updateEvent(Event event);
 
 }

@@ -19,12 +19,14 @@ public class UserDaoImpl extends AbstractBaseDao implements UserDao {
 	@Override
 	public User findByUserEmail(String email) {
 		User user = null;
+		
 		try {
 			user = (User) getCurrentSession().createSQLQuery(QUERY_USER_BY_EMAIL).addEntity(User.class)
 					.setParameter(1, email).getSingleResult();
 		} catch (NoResultException e) {
 			user = null;
 		}
+		
 		return user;
 	}
 

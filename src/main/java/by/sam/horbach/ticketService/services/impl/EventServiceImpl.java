@@ -32,6 +32,11 @@ public class EventServiceImpl implements EventService {
 	public void deleteEvent(int eventId) {
 		eventDao.delete(getEventById(eventId));
 	}
+	
+	@Override
+	public void updateEvent(Event event) {
+		eventDao.update(event);
+	}
 
 	public void setEventDao(EventDao eventDao) {
 		this.eventDao = eventDao;

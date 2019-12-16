@@ -7,6 +7,7 @@ import org.springframework.binding.convert.converters.TwoWayConverter;
 import by.sam.horbach.ticketService.dto.EventDTO;
 import by.sam.horbach.ticketService.dto.LocationDTO;
 import by.sam.horbach.ticketService.entities.Event;
+import by.sam.horbach.ticketService.entities.Location;
 import by.sam.horbach.ticketService.services.LocationService;
 
 /**
@@ -41,8 +42,7 @@ public class EventConverter implements TwoWayConverter {
 		target.setTitle(sourceEvent.getTitle());
 		target.setSummary(sourceEvent.getSummary());
 		target.setDate(sourceEvent.getDate());
-		target.setLocation((LocationDTO) locationConverter.convertSourceToTargetClass(
-				locationService.getLocation(sourceEvent.getIdLocation()), LocationDTO.class));
+		target.setLocation(convertLocationToLocationDTO(sourceEvent));
 		target.setPrice(sourceEvent.getPrice());
 		target.setIconPath(Paths.get(sourceEvent.getIconPath()));
 
@@ -63,6 +63,12 @@ public class EventConverter implements TwoWayConverter {
 		source.setIconPath(targetDTO.getIconPath().toString());
 
 		return source;
+	}
+
+	private LocationDTO convertLocationToLocationDTO(Event sourceEvent) throws Exception {
+		int idLocation = sourceEvent.getIdLocation();
+		Location location = locationService.getLocation(idLocation);
+		return (LocationDTO) locationConverter.convertSourceToTargetClass(location, LocationDTO.class);
 	}
 
 	/**

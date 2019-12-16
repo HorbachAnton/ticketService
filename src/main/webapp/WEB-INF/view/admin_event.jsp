@@ -26,7 +26,8 @@
                 <spring:message code="admin_event.h4.title" var="title"/>
                 <spring:message code="admin_event.h4.summary" var="summary"/>
                 <spring:message code="admin_event.h4.date" var="date"/>
-                <spring:message code="admin_event.h4.location" var="location"/>
+                <spring:message code="admin_event.h4.location_id" var="location_id"/>
+                <spring:message code="admin_event.h4.location_title" var="location_title"/>
                 <spring:message code="admin_event.h4.price" var="price"/>
                 <spring:message code="admin_event.h4.iconPath" var="iconPath"/>
                 <spring:message code="admin_event.button.change_event_details" var="change_event_details"/>
@@ -109,7 +110,11 @@
                               <form:input path="date" type="text" class="form-control" value="${eventDTO.getDate()}"/>
                             </figcaption>
                             <figcaption class="text-center">
-                              <h4>${location}</h4>
+                              <h4>${location_id}</h4>
+                              <form:input path="location.id" type="text" class="form-control" value="${eventDTO.getLocation().getId()}"/>
+                            </figcaption>
+                            <figcaption class="text-center">
+                              <h4>${location_title}</h4>
                               <form:input path="location.title" type="text" class="form-control" value="${eventDTO.getLocation().getTitle()}"/>
                             </figcaption>
                             <figcaption class="text-center">

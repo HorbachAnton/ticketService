@@ -27,7 +27,7 @@ public class AdminEventPageController {
 	@RequestMapping(value = "/change_event_details", method = RequestMethod.POST)
 	public ModelAndView changeEventDetails(@ModelAttribute("eventDTO") EventDTO eventDTO) {
 		ModelAndView modelAndView = new ModelAndView("admin_event");
-		System.out.println(eventDTO.toString());
+		adminEventFacade.changeEventDetails(eventDTO);
 		return modelAndView;
 	}
 

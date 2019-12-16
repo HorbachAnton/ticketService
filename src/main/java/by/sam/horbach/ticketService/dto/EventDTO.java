@@ -3,11 +3,15 @@ package by.sam.horbach.ticketService.dto;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 public class EventDTO {
 
 	private int id;
 	private String title;
 	private String summary;
+	@DateTimeFormat(iso = ISO.DATE_TIME)
 	private LocalDateTime date;
 	private LocationDTO location;
 	private int price;

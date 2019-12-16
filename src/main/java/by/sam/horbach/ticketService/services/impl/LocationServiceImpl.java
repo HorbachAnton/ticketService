@@ -16,6 +16,16 @@ public class LocationServiceImpl implements LocationService {
 		return (Location) locationDao.getById(Location.class, id);
 	}
 
+	@Override
+	public Location getLocationByTitle(String title) {
+		return locationDao.getLocationByTitle(title);
+	}
+
+	@Override
+	public void saveLocation(Location location) {
+		locationDao.save(location);
+	}
+
 	public void setLocationDao(LocationDao locationDao) {
 		this.locationDao = locationDao;
 	}
