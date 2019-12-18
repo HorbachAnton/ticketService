@@ -86,11 +86,11 @@
                     <form:form class="col-md-4 border border-dark rounded" method="POST" action="change_personal_data" modelAttribute="personalDataDTO">
                       <div class="form-group">
                         <form:label path="name" for="name">${name_lb}</form:label>
-                        <form:input path="name" type="text" class="form-control" placeholder="${name_ph}" name="name"/>
+                        <form:input path="name" type="text" class="form-control" placeholder="${name_ph}" name="name" required="required"/>
                       </div>
                       <div class="form-group">
                         <form:label path="surname" for="surname">${surname_lb}</form:label>
-                        <form:input path="surname" type="text" class="form-control" placeholder="${surname_ph}" name="surname"/>
+                        <form:input path="surname" type="text" class="form-control" placeholder="${surname_ph}" name="surname" required="required"/>
                       </div>
                       <button type="submit" class="btn btn-primary">${change_personal_data}</button>
                     </form:form>

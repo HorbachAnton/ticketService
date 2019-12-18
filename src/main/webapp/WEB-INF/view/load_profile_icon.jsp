@@ -83,7 +83,7 @@
                       <div class="form-group">
                         <h2>${select_image}</h2>
                         <div class="custom-file">
-                          <form:input path="file" type="file" class="custom-file-input" id="customFile"/>
+                          <form:input path="file" type="file" class="custom-file-input" id="customFile" required="required"/>
                           <form:label path="file" class="custom-file-label" for="customFile">Choose file</form:label>
                         </div>
                         <form:errors path="file" CssClass="error"/>

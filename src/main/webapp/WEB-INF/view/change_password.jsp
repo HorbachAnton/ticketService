@@ -85,12 +85,12 @@
                     <form:form class="col-md-4 border border-dark rounded" method="POST" action="change_password" modelAttribute="passwordDTO" oninput='confirmPassword.setCustomValidity(confirmPassword.value != password.value ? "Passwords do not match." : "")'>
                       <div class="form-group">
                         <form:label path="password" for="password">${password_lb}</form:label>
-                        <form:input path="password" type="password" class="form-control" id="password" placeholder="${password_ph}" name="password"/>
+                        <form:input path="password" type="password" class="form-control" id="password" placeholder="${password_ph}" name="password" required="required"/>
                         <form:errors path="password" CssClass="error"/>
                       </div>
                       <div class="form-group">
                         <form:label path="confirmPassword" for="confirmPassword">${password_confirm_lb}</form:label>
-                        <form:input path="confirmPassword" type="password" class="form-control" placeholder="${password_confirm_ph}" id="confirmPassword" name="confirmPassword"/>
+                        <form:input path="confirmPassword" type="password" class="form-control" placeholder="${password_confirm_ph}" id="confirmPassword" name="confirmPassword" required="required"/>
                         <form:errors path="confirmPassword" CssClass="error"/>
                       </div>
                       <button type="submit" class="btn btn-primary">${change_password}</button>

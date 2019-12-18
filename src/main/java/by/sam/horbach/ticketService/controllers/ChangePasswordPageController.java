@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 import by.sam.horbach.ticketService.dto.forms.PasswordDTO;
 import by.sam.horbach.ticketService.facades.impl.ChangePasswordFacadeImpl;
 import by.sam.horbach.ticketService.utils.Constants;
-import by.sam.horbach.ticketService.validators.UpdatePasswordValidator;
 
 /**
  * A class responsible for interacting with the change password page.
@@ -24,7 +24,7 @@ import by.sam.horbach.ticketService.validators.UpdatePasswordValidator;
 public class ChangePasswordPageController implements Constants {
 
 	@Autowired
-	UpdatePasswordValidator passwordValidator;
+	Validator updatePasswordValidator;
 
 	@Autowired
 	ChangePasswordFacadeImpl changePasswordFacade;
@@ -60,7 +60,7 @@ public class ChangePasswordPageController implements Constants {
 	@RequestMapping(value = "/change_password", method = RequestMethod.POST)
 	public ModelAndView change(@ModelAttribute("passwordDTO") PasswordDTO passwordDTO, BindingResult result,
 			ModelAndView model) {
-		passwordValidator.validate(passwordDTO, result);
+		updatePasswordValidator.validate(passwordDTO, result);
 
 		if (result.hasErrors()) {
 			return model;

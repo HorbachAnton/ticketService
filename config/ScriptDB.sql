@@ -9,7 +9,7 @@ USE `ticketservice` ;
 -- Table `ticketservice`.`Location`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ticketservice`.`Location` (
-`id` INT NOT NULL,
+`id` INT NOT NULL AUTO_INCREMENT,
 `title` VARCHAR(45) NOT NULL,
 PRIMARY KEY (`id`),
 UNIQUE INDEX `id` (`id` ASC, `title` ASC) VISIBLE,

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 import by.sam.horbach.ticketService.dto.forms.FileUploadDTO;
 import by.sam.horbach.ticketService.facades.LoadProfileIconFacade;
 import by.sam.horbach.ticketService.utils.Constants;
-import by.sam.horbach.ticketService.validators.LoadProfileIconValidator;
 
 /**
  * A class responsible for interacting with the load user icon page.
@@ -27,7 +27,7 @@ public class LoadProfileIconPageController implements Constants {
 	LoadProfileIconFacade loadUserIconFacade;
 
 	@Autowired
-	LoadProfileIconValidator loadProfileIconValidator;
+	Validator loadProfileIconValidator;
 
 	/**
 	 * Returns a view name of a load user icon page to be resolved with ViewResolver

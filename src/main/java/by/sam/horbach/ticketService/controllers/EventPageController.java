@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,7 +14,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import by.sam.horbach.ticketService.dto.forms.BuyTicketsDTO;
 import by.sam.horbach.ticketService.facades.EventFacade;
-import by.sam.horbach.ticketService.validators.BuyTicketsValidator;
 
 @Controller
 public class EventPageController {
@@ -22,7 +22,7 @@ public class EventPageController {
 	EventFacade eventFacade;
 
 	@Autowired
-	BuyTicketsValidator buyTicketsValidator;
+	Validator buyTicketsValidator;
 
 	@ModelAttribute("buyTicketsDTO")
 	public BuyTicketsDTO createBuyTicketsDTO() {

@@ -30,6 +30,8 @@
                 <spring:message code="admin_event.h4.location_title" var="location_title"/>
                 <spring:message code="admin_event.h4.price" var="price"/>
                 <spring:message code="admin_event.h4.iconPath" var="iconPath"/>
+                <spring:message code="admin_event.label.date" var="label_date"/>
+                <spring:message code="admin_event.label.iconPath" var="label_iconPath"/>
                 <spring:message code="admin_event.button.change_event_details" var="change_event_details"/>
                 <spring:message code="footer.div.rights" var="rights"/>
 
@@ -94,36 +96,52 @@
                           <img src="<c:url value="${eventDTO.getIconPath().toString()}"/>"/>
                           <form:form action="change_event_details" method="POST" modelAttribute="eventDTO">
                             <figcaption class="text-center">
-                              <h4>${id}</h4>
-                              <form:input path="id" type="text" class="form-control" value="${eventId}"/>
+                              <h4>${id} : ${eventId}</h4>
+                              <form:input path="id" type="hidden" class="form-control" value="${eventId}" required="required"/>
+                              <form:errors path="id" CssClass="error"/>
                             </figcaption>
                             <figcaption class="text-center">
                               <h4>${title}</h4>
-                              <form:input path="title" type="text" class="form-control" value="${eventDTO.getTitle()}"/>
+                              <form:input path="title" type="text" class="form-control" value="${eventDTO.getTitle()}" maxlength="45" required="required"/>
+                              <form:errors path="title" CssClass="error"/>
                             </figcaption>
                             <figcaption class="text-center">
                               <h4>${summary}</h4>
-                              <form:input path="summary" type="text" class="form-control" value="${eventDTO.getSummary()}"/>
+                              <form:input path="summary" type="text" class="form-control" value="${eventDTO.getSummary()}" maxlength="400" required="required"/>
+                              <form:errors path="summary" CssClass="error"/>
                             </figcaption>
                             <figcaption class="text-center">
                               <h4>${date}</h4>
-                              <form:input path="date" type="text" class="form-control" value="${eventDTO.getDate()}"/>
+                              <form:label path="date">${label_date}</form:label>
+                              <form:input
+                                path="date"
+                                type="text"
+                                class="form-control"
+                                value="${eventDTO.getDate()}"
+                                pattern="^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))T(20|21|22|23|[01]\d|\d)((:[0-5]\d){1,2})((:[0-5]\d){1,2})$"
+                                required="required"/>
+                              <form:errors path="date" CssClass="error"/>
                             </figcaption>
                             <figcaption class="text-center">
-                              <h4>${location_id}</h4>
-                              <form:input path="location.id" type="text" class="form-control" value="${eventDTO.getLocation().getId()}"/>
+                              <h4>${location_id} : ${eventDTO.getLocation().getId()}</h4>
+                              <form:input path="location.id" type="hidden" class="form-control" value="${eventDTO.getLocation().getId()}" required="required"/>
+                              <form:errors path="location.id" CssClass="error"/>
                             </figcaption>
                             <figcaption class="text-center">
                               <h4>${location_title}</h4>
-                              <form:input path="location.title" type="text" class="form-control" value="${eventDTO.getLocation().getTitle()}"/>
+                              <form:input path="location.title" type="text" class="form-control" value="${eventDTO.getLocation().getTitle()}" maxlength="45" required="required"/>
+                              <form:errors path="location.title" CssClass="error"/>
                             </figcaption>
                             <figcaption class="text-center">
                               <h4>${price}</h4>
-                              <form:input path="price" type="text" class="form-control" value="${eventDTO.getPrice()}"/>
+                              <form:input path="price" type="text" class="form-control" value="${eventDTO.getPrice()}" pattern="^\d+$" required="required"/>
+                              <form:errors path="price" CssClass="error"/>
                             </figcaption>
                             <figcaption class="text-center">
                               <h4>${iconPath}</h4>
-                              <form:input path="iconPath" type="text" class="form-control" value="${eventDTO.getIconPath().toString()}"/>
+                              <form:label path="date">${label_iconPath}</form:label>
+                              <form:input path="iconPath" type="text" class="form-control" value="${eventDTO.getIconPath().toString()}" maxlength="100" pattern="^(\S*/)*(\S*)\.png$" required="required"/>
+                              <form:errors path="iconPath" CssClass="error"/>
                             </figcaption>
                             <button type="submit" class="btn btn-primary">${change_event_details}</button>
                           </form:form>

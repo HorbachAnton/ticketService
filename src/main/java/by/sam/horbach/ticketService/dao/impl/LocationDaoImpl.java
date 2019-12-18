@@ -14,7 +14,7 @@ import by.sam.horbach.ticketService.entities.Location;
  */
 public class LocationDaoImpl extends AbstractBaseDao implements LocationDao {
 
-	private static final String FIND_LOCATION_BY_TITLE_QUERY = "SELECT * FROM Location Where title=?";
+	private static final String FIND_LOCATION_BY_TITLE_QUERY = "SELECT * FROM Location Where title = ?";
 
 	@Override
 	public Location getLocationByTitle(String title) {
@@ -22,7 +22,7 @@ public class LocationDaoImpl extends AbstractBaseDao implements LocationDao {
 
 		try {
 			location = (Location) getCurrentSession().createSQLQuery(FIND_LOCATION_BY_TITLE_QUERY)
-					.addEntity(Location.class).setParameter("1", title).getSingleResult();
+					.addEntity(Location.class).setParameter(1, title).getSingleResult();
 		} catch (NoResultException e) {
 			location = null;
 		}

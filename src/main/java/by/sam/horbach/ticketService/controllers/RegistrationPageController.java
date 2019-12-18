@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import by.sam.horbach.ticketService.dto.UserDTO;
 import by.sam.horbach.ticketService.facades.impl.RegistrationFacadeImpl;
-import by.sam.horbach.ticketService.validators.RegistrationValidator;
 
 /**
  * A class responsible for interacting with the registration page page.
@@ -25,7 +25,7 @@ public class RegistrationPageController {
 	RegistrationFacadeImpl registrationFacade;
 
 	@Autowired
-	RegistrationValidator registrationValidator;
+	Validator registrationFormValidator;
 
 	/**
 	 * Returns a view name of a registration page to be resolved with ViewResolver
@@ -54,7 +54,7 @@ public class RegistrationPageController {
 	 */
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(@ModelAttribute("userDTO") UserDTO userDTO, BindingResult result) {
-		registrationValidator.validate(userDTO, result);
+		registrationFormValidator.validate(userDTO, result);
 
 		if (result.hasErrors()) {
 			return "registration";
