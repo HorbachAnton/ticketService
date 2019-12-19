@@ -96,12 +96,11 @@
                           <img src="<c:url value="${eventDTO.getIconPath().toString()}"/>"/>
                           <form:form action="change_event_details" method="POST" modelAttribute="eventDTO">
                             <figcaption class="text-center">
-                              <h4>${id} : ${eventId}</h4>
                               <form:input path="id" type="hidden" class="form-control" value="${eventId}" required="required"/>
                               <form:errors path="id" CssClass="error"/>
                             </figcaption>
                             <figcaption class="text-center">
-                              <h4>${title}</h4>
+                              <h4>${title} (${id}: ${eventId})</h4>
                               <form:input path="title" type="text" class="form-control" value="${eventDTO.getTitle()}" maxlength="45" required="required"/>
                               <form:errors path="title" CssClass="error"/>
                             </figcaption>
@@ -123,12 +122,11 @@
                               <form:errors path="date" CssClass="error"/>
                             </figcaption>
                             <figcaption class="text-center">
-                              <h4>${location_id} : ${eventDTO.getLocation().getId()}</h4>
                               <form:input path="location.id" type="hidden" class="form-control" value="${eventDTO.getLocation().getId()}" required="required"/>
                               <form:errors path="location.id" CssClass="error"/>
                             </figcaption>
                             <figcaption class="text-center">
-                              <h4>${location_title}</h4>
+                              <h4>${location_title} (${location_id}: ${eventDTO.getLocation().getId()})</h4>
                               <form:input path="location.title" type="text" class="form-control" value="${eventDTO.getLocation().getTitle()}" maxlength="45" required="required"/>
                               <form:errors path="location.title" CssClass="error"/>
                             </figcaption>

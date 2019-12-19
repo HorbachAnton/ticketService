@@ -210,8 +210,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	<bean id="buyTicketsValidator"
 		class="by.sam.horbach.ticketService.validators.BuyTicketsValidator" />
 
-	<bean id="сhangeEventDetailsValidator"
-		class="by.sam.horbach.ticketService.validators.ChangeEventDetailsValidator" />
+	<bean id="eventDetailsValidator"
+		class="by.sam.horbach.ticketService.validators.EventDetailsValidator" />
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">

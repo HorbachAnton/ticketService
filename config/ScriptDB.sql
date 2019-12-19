@@ -96,10 +96,14 @@ CREATE TABLE IF NOT EXISTS `ticketservice`.`Ticket` (
   INDEX `fk_Ticket_User1_idx` (`User_id` ASC) VISIBLE,
   CONSTRAINT `fk_Ticket_Event1`
     FOREIGN KEY (`Event_id`)
-    REFERENCES `ticketservice`.`event` (`id`),
+    REFERENCES `ticketservice`.`event` (`id`)
+    on delete cascade
+    on update cascade,
   CONSTRAINT `fk_Ticket_User1`
     FOREIGN KEY (`User_id`)
-    REFERENCES `ticketservice`.`user` (`id`))
+    REFERENCES `ticketservice`.`user` (`id`)
+    on delete cascade
+    on update cascade)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;

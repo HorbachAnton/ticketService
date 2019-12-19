@@ -46,7 +46,7 @@ public class IndexPageController implements Constants {
 	 */
 	@RequestMapping(value = "/learn_more_about_event", method = RequestMethod.GET)
 	public ModelAndView requestToEventPage(@ModelAttribute("eventId") Integer eventId) {
-		return  new ModelAndView(new RedirectView("/ticket-service/event_page"));
+		return new ModelAndView(new RedirectView("/ticket-service/event_page"));
 	}
 
 }

@@ -32,10 +32,15 @@ public class EventServiceImpl implements EventService {
 	public void deleteEvent(int eventId) {
 		eventDao.delete(getEventById(eventId));
 	}
-	
+
 	@Override
 	public void updateEvent(Event event) {
 		eventDao.update(event);
+	}
+
+	@Override
+	public void saveEvent(Event event) {
+		eventDao.save(event);
 	}
 
 	public void setEventDao(EventDao eventDao) {

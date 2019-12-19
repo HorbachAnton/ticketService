@@ -2,6 +2,7 @@ package by.sam.horbach.ticketService.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,12 +17,12 @@ import by.sam.horbach.ticketService.facades.AdminEventFacade;
 public class AdminEventPageController {
 
 	@Autowired
-	Validator сhangeEventDetailsValidator;
+	Validator eventDetailsValidator;
 
 	@Autowired
 	AdminEventFacade adminEventFacade;
 
-	@RequestMapping(value = "/get_admin_event_page", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin_event", method = RequestMethod.GET)
 	public ModelAndView getPage(@RequestParam("eventId") int eventId) {
 		ModelAndView modelAndView = new ModelAndView("admin_event");
 		modelAndView.addObject("eventDTO", adminEventFacade.getEvent(eventId));
@@ -29,8 +30,9 @@ public class AdminEventPageController {
 	}
 
 	@RequestMapping(value = "/change_event_details", method = RequestMethod.POST)
-	public ModelAndView changeEventDetails(@ModelAttribute("eventDTO") EventDTO eventDTO) {
+	public ModelAndView changeEventDetails(@ModelAttribute("eventDTO") EventDTO eventDTO, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView("admin_event");
+		eventDetailsValidator.validate(eventDTO, bindingResult);
 		adminEventFacade.changeEventDetails(eventDTO);
 		return modelAndView;
 	}

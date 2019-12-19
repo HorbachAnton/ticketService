@@ -6,6 +6,8 @@ public interface AdminEventFacade {
 
 	EventDTO getEvent(int eventId);
 	
-	void changeEventDetails(EventDTO eventDTO); 
+	void changeEventDetails(EventDTO eventDTO);
+
+	void addEvent(EventDTO eventDTO); 
 
 }

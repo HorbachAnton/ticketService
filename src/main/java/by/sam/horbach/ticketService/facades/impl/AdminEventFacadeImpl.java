@@ -38,6 +38,18 @@ public class AdminEventFacadeImpl implements AdminEventFacade {
 
 	@Override
 	public void changeEventDetails(EventDTO eventDTO) {
+		Event event = convertToEvent(eventDTO);
+		eventService.updateEvent(event);
+
+	}
+
+	@Override
+	public void addEvent(EventDTO eventDTO) {
+		Event event = convertToEvent(eventDTO);
+		eventService.saveEvent(event);
+	}
+
+	private Event convertToEvent(EventDTO eventDTO) {
 		Event event = null;
 
 		try {
@@ -47,8 +59,7 @@ public class AdminEventFacadeImpl implements AdminEventFacade {
 			LOGGER.error(CONVERT_IN_EVENT_ERROR_MESSAGE, exception);
 		}
 
-		eventService.updateEvent(event);
-
+		return event;
 	}
 
 	private void setupConvertingEventDTO(EventDTO eventDTO) {

@@ -201,7 +201,7 @@
                         <div class="row">
                           <div class="col-xl-12">
                             <div class="container d-flex flex-row justify-content-center">
-                              <form class="form_changing_buttons_block" action="get_admin_event_page">
+                              <form class="form_changing_buttons_block" action="admin_event">
                                 <input type="hidden" name="eventId" value="${eventDTO.getId()}"/>
                                 <button type="submit" class="btn btn-primary">${change_event_data}</button>
                               </form>
@@ -209,7 +209,7 @@
                                 <input type="hidden" name="event_id" value="${eventDTO.getId()}"/>
                                 <button type="submit" class="btn btn-primary">${delete_event}</button>
                               </form>
-                              <form class="form_changing_buttons_block" action="get_added_user_page">
+                              <form class="form_changing_buttons_block" action="event_creation">
                                 <button type="submit" class="btn btn-primary">${add_event}</button>
                               </form>
                             </div>

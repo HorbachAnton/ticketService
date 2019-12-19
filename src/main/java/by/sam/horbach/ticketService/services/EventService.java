@@ -12,8 +12,10 @@ public interface EventService {
 
 	List<Event> getUpcomingEvents();
 
+	void saveEvent(Event event);
+
 	void deleteEvent(int eventId);
-	
+
 	void updateEvent(Event event);
 
 }
