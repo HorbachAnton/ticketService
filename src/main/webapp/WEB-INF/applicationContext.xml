@@ -30,9 +30,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
 	<bean id="user" class="by.sam.horbach.ticketService.entities.User" />
 
-	<bean id="comment"
-		class="by.sam.horbach.ticketService.entities.Comment" />
-
 	<bean id="event"
 		class="by.sam.horbach.ticketService.entities.Event" />
 
@@ -44,9 +41,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
 	<bean id="userDTO"
 		class="by.sam.horbach.ticketService.dto.UserDTO" />
-
-	<bean id="commentDTO"
-		class="by.sam.horbach.ticketService.dto.CommentDTO" />
 
 	<bean id="eventDTO"
 		class="by.sam.horbach.ticketService.dto.EventDTO" />

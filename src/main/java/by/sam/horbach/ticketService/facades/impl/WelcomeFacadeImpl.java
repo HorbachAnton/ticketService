@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.binding.convert.converters.TwoWayConverter;
 
 import by.sam.horbach.ticketService.dto.EventDTO;
-import by.sam.horbach.ticketService.entities.Comment;
 import by.sam.horbach.ticketService.facades.WelcomeFacade;
 import by.sam.horbach.ticketService.services.EventService;
 
@@ -32,11 +31,6 @@ public class WelcomeFacadeImpl implements WelcomeFacade {
 		}
 
 		return eventsDTO;
-	}
-
-	@Override
-	public List<Comment> getComments() {
-		return null;
 	}
 
 	public void setEventListConverter(TwoWayConverter eventListConverter) {

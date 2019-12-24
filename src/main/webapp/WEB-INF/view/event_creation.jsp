@@ -12,9 +12,6 @@
                 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
                 <c:set var="eventId" value="${eventDTO.getId()}"/>
                 <spring:message code="header.a.main_page" var="main_page"/>
-                <spring:message code="header.a.news_page" var="news_page"/>
-                <spring:message code="header.a.poster_page" var="poster_page"/>
-                <spring:message code="header.a.rating_page" var="rating_page"/>
                 <spring:message code="header.button.english_locale" var="english_locale"/>
                 <spring:message code="header.button.russian_locale" var="russian_locale"/>
                 <spring:message code="header.input.message" var="message"/>
@@ -37,33 +34,24 @@
                   <div class="container-fluid">
                     <div class="row d-flex align-items-center">
                       <div class="col-md-4 d-flex justify-content-around">
-                        <p>
-                          <a href="${contextPath}/"><c:out value="${main_page}"/></a>
-                        </p>
-                        <p>
-                          <a href="#"><c:out value="${news_page}"/></a>
-                        </p>
-                        <p>
-                          <a href="#"><c:out value="${poster_page}"/></a>
-                        </p>
-                        <p>
-                          <a href="#"><c:out value="${rating_page}"/></a>
-                        </p>
-                        <a href="?lang=en_EN">
-                          <button class="btn btn-primary" type="submit">${english_locale}</button>
-                        </a>
-                        <a href="?lang=ru_RU">
-                          <button class="btn btn-primary" type="submit">${russian_locale}</button>
-                        </a>
+                        <div class="container">
+                          <p>
+                            <a href="${contextPath}/"><c:out value="${main_page}"/></a>
+                          </p>
+                        </div>
+                        <div class="container">
+                          <a href="?lang=en_EN">
+                            <button class="btn btn-primary" type="submit">${english_locale}</button>
+                          </a>
+                          <a href="?lang=ru_RU">
+                            <button class="btn btn-primary" type="submit">${russian_locale}</button>
+                          </a>
+                        </div>
                       </div>
                       <div class="col-xl-4">
                         <img src="<c:url value="/resources/img/logo.png" />" class="img-fluid rounded mx-auto d-block" alt="logo"/>
                       </div>
                       <div class="col-xl-4 d-flex justify-content-end">
-                        <form class="form-inline">
-                          <input class="form-control " type="search" placeholder="${message}" aria-label="${message}"/>
-                          <button class="btn btn-outline-success" type="submit">${message}</button>
-                        </form>
                         <sec:authorize access="!isAuthenticated()">
                           <form:form method="GET" action="authorization">
                             <input class="btn btn-primary" type="submit" value="${authorization_hd}"/>
@@ -98,7 +86,7 @@
                           </div>
                           <div class="text-center">
                             <h4>${summary}</h4>
-                            <form:input path="summary" type="text" class="form-control" maxlength="400" required="required"/>
+                            <form:input path="summary" type="text" class="form-control" maxlength="600" required="required"/>
                             <form:errors path="summary" CssClass="error"/>
                           </div>
                           <div class="text-center">
@@ -130,16 +118,16 @@
                           </div>
                           <button type="submit" class="btn btn-primary">${add_new_event}</button>
                         </form:form>
+                      </div>
                     </div>
+                    <div class="col-md-4"></div>
                   </div>
-                  <div class="col-md-4"></div>
                 </div>
-              </div>
 
-              <footer class="footer d-flex align-items-center">
-                <div class="container-fluid">
-                  <div class="row flex-d justify-content-center">${rights}</div>
-                </div>
-              </footer>
-            </body>
-          </html>
+                <footer class="footer d-flex align-items-center">
+                  <div class="container-fluid">
+                    <div class="row flex-d justify-content-center">${rights}</div>
+                  </div>
+                </footer>
+              </body>
+            </html>

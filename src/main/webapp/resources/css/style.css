@@ -1,5 +1,22 @@
+header .container-fluid {
+  border: 6px ridge;
+}
+
 header p {
   margin: 0px 10px 0px 0px;
+  font-family: initial;
+}
+
+header p a {
+  font-size: 20px;
+}
+
+header button {
+  font-family: initial;
+}
+
+header input {
+  font-family: initial;
 }
 
 header .row a .btn-primary {
@@ -35,17 +52,22 @@ body .figure button {
 }
 
 body .upcoming-events-block img {
-  width: 252px;
-  height: 190px;
+  width: 300px;
+  height: 300px;
 }
 
 body .event_details_contailner {
   margin-top: 40px;
+  margin-bottom: 180px;
 }
 
 body .event_details_contailner img {
   width: 404px;
   height: 404px;
+}
+
+body .event_details_contailner button {
+  margin-bottom: 20px;
 }
 
 body .admin_event_details_contailner {

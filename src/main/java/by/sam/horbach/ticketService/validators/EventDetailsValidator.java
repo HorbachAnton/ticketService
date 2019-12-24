@@ -70,7 +70,7 @@ public class EventDetailsValidator implements Validator {
 	}
 
 	private void validateLengthSummary(String title, Errors errors) {
-		if (title.length() > 400) {
+		if (title.length() > 600) {
 			errors.rejectValue("summary", "errors.invalid_event_summary_length",
 					"errors.invalid_event_summary_length.message");
 		}
