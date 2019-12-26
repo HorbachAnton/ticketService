@@ -31,6 +31,8 @@
 			access="hasAuthority('ADMINISTRATOR')" />
 		<intercept-url pattern="/admin_event*"
 			access="hasAuthority('ADMINISTRATOR')" />
+		<intercept-url pattern="/ticket_center_page*"
+			access="hasAuthority('ADMINISTRATOR')" />
 
 		<!-- access denied page -->
 		<access-denied-handler error-page="/403" />
