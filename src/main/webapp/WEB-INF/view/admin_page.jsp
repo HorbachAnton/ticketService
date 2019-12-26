@@ -13,7 +13,7 @@
                 <c:url value="/resources/img/event_center/event_center_icon.png" var="event_center_icon"/>
                 <c:url value="/resources/img/ticket_center/ticket_center_icon.png" var="ticket_center_icon"/>
                 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-                <spring:message code="header.a.main_page" var="main_page"/>
+                <spring:message code="header.a.admin_page" var="admin_page"/>
                 <spring:message code="header.button.english_locale" var="english_locale"/>
                 <spring:message code="header.button.russian_locale" var="russian_locale"/>
                 <spring:message code="header.input.message" var="message"/>
@@ -21,10 +21,8 @@
                 <spring:message code="header.input.registration" var="registration"/>
                 <spring:message code="header.input.logout" var="logout"/>
                 <spring:message code="header.input.user_profile" var="user_profile"/>
-                <spring:message code="admin_page.input.user_center" var="user_center"/>
                 <spring:message code="admin_page.input.event_center" var="event_center"/>
                 <spring:message code="admin_page.input.ticket_center" var="ticket_center"/>
-                <spring:message code="admin_page.h3.user_center_summary" var="user_center_summary"/>
                 <spring:message code="admin_page.h3.event_center_summary" var="event_center_summary"/>
                 <spring:message code="admin_page.h3.ticket_center_summary" var="ticket_center_summary"/>
                 <spring:message code="footer.div.rights" var="rights"/>
@@ -35,7 +33,7 @@
                       <div class="col-md-4 d-flex justify-content-around">
                         <div class="container">
                           <p>
-                            <a href="${contextPath}/"><c:out value="${main_page}"/></a>
+                            <a href="${contextPath}/admin_page"><c:out value="${admin_page}"/></a>
                           </p>
                         </div>
                         <div class="container">
@@ -74,22 +72,7 @@
 
                 <div class="container-fluid user_profile_container">
                   <div class="row">
-                    <div class="col-xl-4 border border-dark rounded">
-                      <div class="container-fluid text-center">
-                        <figure class="figure">
-                          <img src="${user_center_icon}" class="border border-dark rounded"/>
-                          <figcaption class="figure-caption text-center">
-                            <h3>${user_center_summary}</h3>
-                          </figcaption>
-                        </figure>
-                      </div>
-                      <div class="container-fluid d-flex justify-content-center form_buttons">
-                        <form:form method="GET" action="user_center_page">
-                          <input class="btn btn-primary" type="submit" value="${user_center}"/>
-                        </form:form>
-                      </div>
-                    </div>
-                    <div class="col-xl-4 border border-dark rounded">
+                    <div class="col-xl-6 border border-dark rounded">
                       <div class="container-fluid text-center">
                         <figure class="figure">
                           <img src="${event_center_icon}" class="border border-dark rounded"/>
@@ -104,7 +87,7 @@
                         </form:form>
                       </div>
                     </div>
-                    <div class="col-xl-4 border border-dark rounded">
+                    <div class="col-xl-6 border border-dark rounded">
                       <div class="container-fluid text-center">
                         <figure class="figure">
                           <img src="${ticket_center_icon}" class="border border-dark rounded"/>

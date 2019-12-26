@@ -31,7 +31,7 @@ public class EventCenterFacadeImpl implements EventCenterFacade {
 
 		PaginationEventDTO paginationEventDTO = new PaginationEventDTO();
 		paginationEventDTO.setPagesNumber((int) Math.ceil(((double) eventList.size()) / 6));
-		paginationEventDTO.setEventDTOList(convertEventDTOListToEventList(getEventSubList(eventList, chosenPage)));
+		paginationEventDTO.setEventDTOList(convertEventListToEventDTOList(getEventSubList(eventList, chosenPage)));
 
 		return paginationEventDTO;
 	}
@@ -55,14 +55,14 @@ public class EventCenterFacadeImpl implements EventCenterFacade {
 		if (eventList.size() > lastEvent || eventList.size() == lastEvent) {
 			pagginationEventList = eventList.subList(firstEvent, lastEvent);
 		} else {
-			pagginationEventList = eventList.subList(firstEvent, eventList.size() - 1);
+			pagginationEventList = eventList.subList(firstEvent, eventList.size());
 		}
 
 		return pagginationEventList;
 	}
 
 	@SuppressWarnings("unchecked")
-	private List<EventDTO> convertEventDTOListToEventList(List<Event> eventList) {
+	private List<EventDTO> convertEventListToEventDTOList(List<Event> eventList) {
 		List<EventDTO> eventDTOList = null;
 
 		try {

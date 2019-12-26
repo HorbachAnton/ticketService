@@ -12,14 +12,4 @@ public class AdminPageController {
 		return "admin_page";
 	}
 
-	@RequestMapping(value = "/user_center_page", method = RequestMethod.GET)
-	public String getUserCenterPage() {
-		return "user_center";
-	}
-
-	@RequestMapping(value = "/ticket_center_page", method = RequestMethod.GET)
-	public String getTicketCenterPage() {
-		return "ticket_center";
-	}
-
 }

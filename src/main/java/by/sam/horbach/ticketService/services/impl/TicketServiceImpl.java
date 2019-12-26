@@ -19,6 +19,11 @@ public class TicketServiceImpl implements TicketService {
 		}
 	}
 
+	@Override
+	public List<Ticket> getTickets() {
+		return ticketDao.getTickets();
+	}
+
 	public void setTicketDao(TicketDao ticketDao) {
 		this.ticketDao = ticketDao;
 	}

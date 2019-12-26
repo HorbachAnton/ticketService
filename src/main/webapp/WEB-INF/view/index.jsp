@@ -93,7 +93,7 @@
                     </div>
                   </div>
 
-                  <footer class="footer-welcome  d-flex align-items-center">
+                  <footer class="footer d-flex align-items-center">
                     <div class="container-fluid">
                       <div class="row flex-d justify-content-center">${rights}</div>
                     </div>

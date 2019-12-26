@@ -13,7 +13,7 @@
                 <c:url value="/resources/img/event_center/event_center_icon.png" var="event_center_icon"/>
                 <c:url value="/resources/img/ticket_center/ticket_center_icon.png" var="ticket_center_icon"/>
                 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-                <spring:message code="header.a.main_page" var="main_page"/>
+                <spring:message code="header.a.admin_page" var="admin_page"/>
                 <spring:message code="header.button.english_locale" var="english_locale"/>
                 <spring:message code="header.button.russian_locale" var="russian_locale"/>
                 <spring:message code="header.input.message" var="message"/>
@@ -39,7 +39,7 @@
                       <div class="col-md-4 d-flex justify-content-around">
                         <div class="container">
                           <p>
-                            <a href="${contextPath}/"><c:out value="${main_page}"/></a>
+                            <a href="${contextPath}/admin_page"><c:out value="${admin_page}"/></a>
                           </p>
                         </div>
                         <div class="container">
@@ -133,7 +133,7 @@
                       <c:forEach var="eventDTO" items="${listEvents}">
                         <div class="row">
                           <div class="col-xl-12">
-                            <div class="container d-flex flex-row">
+                            <div class="container d-flex flex-row block_event_information">
                               <div class="col-xl-1 d-flex align-items-center text-center border border-dark">
                                 <div class="container d-flex flex-column">
                                   <div class="block_attribute_event_info d-flex justify-content-center">

@@ -63,6 +63,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	<bean id="buyTicketsDTO"
 		class="by.sam.horbach.ticketService.dto.forms.BuyTicketsDTO" />
 
+	<bean id="paginationTicketDTO"
+		class="by.sam.horbach.ticketService.dto.PaginationTicketDTO" />
+
+	<bean id="paginationEventDTO"
+		class="by.sam.horbach.ticketService.dto.PaginationEventDTO" />
+
 	<bean id="userService"
 		class="by.sam.horbach.ticketService.services.impl.UserServiceImpl">
 		<property name="userDao" ref="userDao" />
@@ -130,6 +136,21 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		<property name="userService" ref="userService" />
 	</bean>
 
+	<bean id="ticketToDTOConverter"
+		class="by.sam.horbach.ticketService.converters.TicketToDTOConverter">
+		<property name="userConverter" ref="userConverter" />
+		<property name="eventConverter" ref="eventConverter" />
+		<property name="ticketService" ref="ticketService" />
+		<property name="eventService" ref="eventService" />
+		<property name="userService" ref="userService" />
+	</bean>
+
+	<bean id="ticketListToDTOListConverter"
+		class="by.sam.horbach.ticketService.converters.TicketListToDTOListConverter">
+		<property name="ticketToDTOConverter"
+			ref="ticketToDTOConverter" />
+	</bean>
+
 	<bean id="registrationFacade"
 		class="by.sam.horbach.ticketService.facades.impl.RegistrationFacadeImpl">
 		<property name="userConverter"
@@ -179,6 +200,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 		class="by.sam.horbach.ticketService.facades.impl.EventCenterFacadeImpl">
 		<property name="eventService" ref="eventService" />
 		<property name="eventListConverter" ref="eventListConverter" />
+	</bean>
+
+	<bean id="ticketCenterFacade"
+		class="by.sam.horbach.ticketService.facades.impl.TicketCenterFacadeImpl">
+		<property name="ticketListToDTOListConverter"
+			ref="ticketListToDTOListConverter" />
+		<property name="ticketService" ref="ticketService" />
 	</bean>
 
 	<bean id="adminEventFacade"

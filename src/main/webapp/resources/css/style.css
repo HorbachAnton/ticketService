@@ -1,3 +1,11 @@
+.row .block_events_information {
+  max-width: 1920px;
+}
+
+.row .block_event_information {
+  max-width: 1920px;
+}
+
 header .container-fluid {
   border: 6px ridge;
 }
