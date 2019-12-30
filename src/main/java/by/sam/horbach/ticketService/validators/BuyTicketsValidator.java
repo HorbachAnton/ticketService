@@ -15,8 +15,8 @@ public class BuyTicketsValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		BuyTicketsDTO buyTicketsDTO = (BuyTicketsDTO) target;
-		
-		if(buyTicketsDTO.getQuantity() == 0) {
+
+		if (buyTicketsDTO.getQuantity() == 0) {
 			errors.rejectValue("quantity", "errors.null_quantity", "errors.null_quantity.message");
 		}
 	}

@@ -5,9 +5,9 @@ import by.sam.horbach.ticketService.dto.EventDTO;
 public interface AdminEventFacade {
 
 	EventDTO getEvent(int eventId);
-	
+
 	void changeEventDetails(EventDTO eventDTO);
 
-	void addEvent(EventDTO eventDTO); 
+	void addEvent(EventDTO eventDTO);
 
 }

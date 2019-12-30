@@ -1,22 +1,22 @@
 package by.sam.horbach.ticketService.facades.impl;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.binding.convert.converters.TwoWayConverter;
+
 import by.sam.horbach.ticketService.dto.UserDTO;
 import by.sam.horbach.ticketService.entities.User;
 import by.sam.horbach.ticketService.facades.RegistrationFacade;
 import by.sam.horbach.ticketService.services.UserService;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.binding.convert.converters.TwoWayConverter;
+public class RegistrationFacadeImpl implements RegistrationFacade {
 
-public class RegistrationFacadeImpl implements RegistrationFacade{
-
-	private static final String ERROR_MESSAGE= "Failed to convert UserDTO in User";
+	private static final String ERROR_MESSAGE = "Failed to convert UserDTO in User";
 	private static final Logger LOGGER = LogManager.getLogger(RegistrationFacadeImpl.class);
-	
+
 	TwoWayConverter userConverter;
 	UserService userService;
-	
+
 	@Override
 	public void register(UserDTO userDTO) {
 		try {

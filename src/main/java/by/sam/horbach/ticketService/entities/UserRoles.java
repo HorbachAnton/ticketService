@@ -15,7 +15,7 @@ public enum UserRoles {
 	}
 
 	public static UserRoles getRoleById(int id) {
-		return (id == 1) ? UserRoles.CONSUMER : UserRoles.ADMINISTRATOR;
+		return id == 1 ? UserRoles.CONSUMER : UserRoles.ADMINISTRATOR;
 	}
 
 }

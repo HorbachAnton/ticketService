@@ -18,7 +18,8 @@ public class UserDTO {
 	public UserDTO() {
 	}
 
-	public UserDTO(int id, String email, String password, boolean enabled, String name, String surname, UserRoles role, Path iconPath) {
+	public UserDTO(int id, String email, String password, boolean enabled, String name, String surname, UserRoles role,
+			Path iconPath) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
@@ -52,7 +53,7 @@ public class UserDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public boolean isEnabled() {
 		return enabled;
 	}

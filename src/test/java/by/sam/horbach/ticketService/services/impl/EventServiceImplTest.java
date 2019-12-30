@@ -5,7 +5,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.doReturn;
 
-
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +29,7 @@ public class EventServiceImplTest {
 	private EventDao eventDao;
 
 	private Event expectedEvent;
-	
+
 	private Event deletedEvent;
 
 	private List<Event> expectedEventsList;
@@ -58,7 +57,7 @@ public class EventServiceImplTest {
 
 		expectedUpcomingEventsList = Arrays.asList(firstEvent, secondEvent, expectedEvent);
 	}
-	
+
 	@Before
 	public void createDeletedEvent() {
 		deletedEvent = new Event();
@@ -85,5 +84,5 @@ public class EventServiceImplTest {
 		List<Event> actualUpcomingEventsList = eventService.getUpcomingEvents();
 		assertThat(actualUpcomingEventsList, is(equalTo(expectedUpcomingEventsList)));
 	}
-	
+
 }

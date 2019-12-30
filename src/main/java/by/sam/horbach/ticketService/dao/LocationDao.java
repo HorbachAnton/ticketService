@@ -10,7 +10,7 @@ import by.sam.horbach.ticketService.entities.Location;
  *
  */
 public interface LocationDao extends IAbstractBaseDao {
-	
+
 	Location getLocationByTitle(String title);
 
 }

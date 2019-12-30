@@ -4,10 +4,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Optional;
 
+import org.springframework.binding.convert.converters.TwoWayConverter;
+
 import by.sam.horbach.ticketService.dto.UserDTO;
 import by.sam.horbach.ticketService.entities.User;
 import by.sam.horbach.ticketService.entities.UserRoles;
-import org.springframework.binding.convert.converters.TwoWayConverter;
 
 /**
  * Converts User to UserDTO and vice versa.

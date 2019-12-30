@@ -59,6 +59,5 @@ public class UserProfilePageControllerTest {
 				.andExpect(MockMvcResultMatchers.model().attributeExists(USER_PROFILE_DTO_ATTRIBUTE_NAME))
 				.andExpect(MockMvcResultMatchers.view().name(USER_PROFILE_PAGE_VIEW_NAME));
 	}
-	
-	
+
 }

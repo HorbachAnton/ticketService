@@ -18,7 +18,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
 @RunWith(MockitoJUnitRunner.class)
 public class UserDetailsServiceImplTest {
 
@@ -38,7 +37,7 @@ public class UserDetailsServiceImplTest {
 	@Test
 	public void loadUserByUsernameTest() {
 		doReturn(userDetails).when(userDetailsService).loadUserByUsername("emailn@yadex.com");
-		UserDetails actualUserDetails = userDetailsService.loadUserByUsername("emailn@yadex.com") ;
+		UserDetails actualUserDetails = userDetailsService.loadUserByUsername("emailn@yadex.com");
 		assertThat(actualUserDetails, is(equalTo(userDetails)));
 	}
 

@@ -1,12 +1,12 @@
 package by.sam.horbach.ticketService.dto.forms;
 
 public class RegistrationDTO {
-	
+
 	private String email;
 	private String password;
-	
+
 	public RegistrationDTO() {
-		
+
 	}
 
 	public RegistrationDTO(String email, String password) {

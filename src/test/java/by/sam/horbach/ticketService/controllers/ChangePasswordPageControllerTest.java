@@ -71,7 +71,7 @@ public class ChangePasswordPageControllerTest {
 	public void change() throws Exception {
 		this.mockMvc
 				.perform(MockMvcRequestBuilders.post("/change_password").param("password", "qQ1122@@")
-						.param("confirmPassword", "qQ1122@@").with((SecurityMockMvcRequestPostProcessors.csrf())))
+						.param("confirmPassword", "qQ1122@@").with(SecurityMockMvcRequestPostProcessors.csrf()))
 				.andDo(MockMvcResultHandlers.print()).andExpect(MockMvcResultMatchers.status().isFound())
 				.andExpect(MockMvcResultMatchers.redirectedUrl(REDIRECT_URL))
 				.andExpect(MockMvcResultMatchers.view().name(REDIRECT_VIEW_NAME));

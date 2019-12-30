@@ -30,7 +30,7 @@ public class TicketCenterFacadeImpl implements TicketCenterFacade {
 		List<Ticket> ticketList = ticketService.getTickets();
 
 		PaginationTicketDTO paginationTicketDTO = new PaginationTicketDTO();
-		paginationTicketDTO.setPagesNumber((int) Math.ceil(((double) ticketList.size()) / 6));
+		paginationTicketDTO.setPagesNumber((int) Math.ceil((double) ticketList.size() / 6));
 		paginationTicketDTO.setTicketDTOList(convertTickeListToTicketDTOList(getTicketSubList(ticketList, chosenPage)));
 
 		return paginationTicketDTO;

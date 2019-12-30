@@ -30,7 +30,7 @@ public class EventCenterFacadeImpl implements EventCenterFacade {
 		List<Event> eventList = eventService.getEvents();
 
 		PaginationEventDTO paginationEventDTO = new PaginationEventDTO();
-		paginationEventDTO.setPagesNumber((int) Math.ceil(((double) eventList.size()) / 6));
+		paginationEventDTO.setPagesNumber((int) Math.ceil((double) eventList.size() / 6));
 		paginationEventDTO.setEventDTOList(convertEventListToEventDTOList(getEventSubList(eventList, chosenPage)));
 
 		return paginationEventDTO;

@@ -2,10 +2,10 @@ package by.sam.horbach.ticketService.entities;
 
 import java.io.Serializable;
 
-public class User implements Serializable{
+public class User implements Serializable {
 
 	private static final long serialVersionUID = -7058462798911073661L;
-	
+
 	private int id;
 	private String email;
 	private String password;
@@ -100,14 +100,14 @@ public class User implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + (email == null ? 0 : email.hashCode());
 		result = prime * result + (enabled ? 1231 : 1237);
-		result = prime * result + ((iconPath == null) ? 0 : iconPath.hashCode());
+		result = prime * result + (iconPath == null ? 0 : iconPath.hashCode());
 		result = prime * result + id;
 		result = prime * result + idRole;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
+		result = prime * result + (name == null ? 0 : name.hashCode());
+		result = prime * result + (password == null ? 0 : password.hashCode());
+		result = prime * result + (surname == null ? 0 : surname.hashCode());
 		return result;
 	}
 
