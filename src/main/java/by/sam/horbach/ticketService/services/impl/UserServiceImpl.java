@@ -85,6 +85,11 @@ public class UserServiceImpl implements UserService, Constants {
 
 		return relativePath;
 	}
+	
+	@Override
+	public User getUserByID(int userID) {
+		return (User) userDao.getById(User.class, userID);
+	}
 
 	@Override
 	public User getUserByEmail(String userEmail) {

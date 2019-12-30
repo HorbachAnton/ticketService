@@ -37,7 +37,8 @@ public class TicketToDTOConverter implements TwoWayConverter {
 		ticketDTO.setId(ticket.getId());
 		ticketDTO.setEvent((EventDTO) eventConverter
 				.convertSourceToTargetClass(eventService.getEventById(ticket.getIdEvent()), Event.class));
-		ticketDTO.setUser((UserDTO) userConverter.convertSourceToTargetClass(ticket.getIdUser(), UserDTO.class));
+		ticketDTO.setUser((UserDTO) userConverter
+				.convertSourceToTargetClass(userService.getUserByID(ticket.getIdUser()), UserDTO.class));
 
 		return ticketDTO;
 	}

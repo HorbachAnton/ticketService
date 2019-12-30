@@ -15,6 +15,8 @@ public interface UserService {
 
 	void changePersonalData(User user);
 
+	User getUserByID(int userID);
+
 	User getUserByEmail(String userEmail);
 
 	User getCurrentUser();
