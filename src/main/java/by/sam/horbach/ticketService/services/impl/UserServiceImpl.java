@@ -6,13 +6,12 @@ import java.nio.file.Paths;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import by.sam.horbach.ticketService.dao.UserDao;
@@ -30,6 +29,7 @@ public class UserServiceImpl implements UserService, Constants {
 	private PasswordEncoder passwordEncoder;
 	private UserDao userDao;
 
+	@Override
 	public boolean register(User user) {
 		boolean result = true;
 		prepareUser(user);
@@ -48,11 +48,13 @@ public class UserServiceImpl implements UserService, Constants {
 		return passwordEncoder.encode(password);
 	}
 
+	@Override
 	public void changePassword(User user) {
 		user.setPassword(encodePassword(user.getPassword()));
 		userDao.update(user);
 	}
 
+	@Override
 	public void changePersonalData(User user) {
 		userDao.update(user);
 	}
@@ -84,6 +86,7 @@ public class UserServiceImpl implements UserService, Constants {
 		return relativePath;
 	}
 
+	@Override
 	public User getUserByEmail(String userEmail) {
 		return userDao.findByUserEmail(userEmail);
 	}

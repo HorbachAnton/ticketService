@@ -13,18 +13,22 @@ public abstract class AbstractBaseDao implements IAbstractBaseDao {
 
 	protected SessionFactory session;
 
+	@Override
 	public void save(Object object) {
 		session.getCurrentSession().save(object);
 	}
 
+	@Override
 	public void update(Object object) {
 		session.getCurrentSession().update(object);
 	}
 
+	@Override
 	public void delete(Object object) {
 		session.getCurrentSession().delete(object);
 	}
 
+	@Override
 	public <T> Object getById(Class<T> expectedClass, int objectId) {
 		return session.getCurrentSession().get(expectedClass, objectId);
 	}

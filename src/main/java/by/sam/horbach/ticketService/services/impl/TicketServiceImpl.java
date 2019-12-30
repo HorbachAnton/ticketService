@@ -13,9 +13,10 @@ public class TicketServiceImpl implements TicketService {
 
 	private TicketDao ticketDao;
 
+	@Override
 	public void buyTickets(List<Ticket> ticketsList) {
-		for (int j = 0; j < ticketsList.size(); j++) {
-			ticketDao.save(ticketsList.get(j));
+		for (Ticket element : ticketsList) {
+			ticketDao.save(element);
 		}
 	}
 

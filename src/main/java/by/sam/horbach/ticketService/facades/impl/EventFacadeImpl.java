@@ -25,6 +25,7 @@ public class EventFacadeImpl implements EventFacade {
 	private static final String CONVERT_EVENT_ERROR_MESSAGE = "Failed to convert Event in EventDTO";
 	private static final Logger LOGGER = LogManager.getLogger(EventFacadeImpl.class);
 
+	@Override
 	public EventDTO getEventById(Integer eventId) {
 		EventDTO eventDTO = null;
 

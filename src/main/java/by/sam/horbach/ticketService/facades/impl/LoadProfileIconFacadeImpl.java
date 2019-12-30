@@ -16,6 +16,7 @@ public class LoadProfileIconFacadeImpl implements LoadProfileIconFacade {
 
 	UserService userService;
 
+	@Override
 	public void loadProfileIcon(MultipartFile file) {
 		try {
 			userService.saveProfileIcon(file);
