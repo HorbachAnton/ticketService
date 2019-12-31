@@ -3,16 +3,15 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 09.11.2019 20:14:27 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="by.sam.horbach.ticketService.entities.Ticket" table="TICKET">
-        <id name="id" type="int">
-            <column name="id" />
-            <generator class="assigned" />
-        </id>
-        <property name="idEvent" type="int">
-            <column name="Event_id" />
-        </property>
-        <property name="idUser" type="int">
-            <column name="User_id" />
-        </property>
-    </class>
+	<class name="by.sam.horbach.ticketService.entities.Ticket"
+		table="TICKET">
+		<id name="id" type="int">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<many-to-one name="event" column="Event_id"
+			class="by.sam.horbach.ticketService.entities.Event" not-null="true" />
+		<many-to-one name="user" column="User_id"
+			class="by.sam.horbach.ticketService.entities.User" not-null="true" />
+	</class>
 </hibernate-mapping>

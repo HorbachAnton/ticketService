@@ -2,11 +2,12 @@ package by.sam.horbach.ticketService.converters;
 
 import org.springframework.binding.convert.converters.TwoWayConverter;
 
-import antlr.debug.Event;
 import by.sam.horbach.ticketService.dto.EventDTO;
 import by.sam.horbach.ticketService.dto.TicketDTO;
 import by.sam.horbach.ticketService.dto.UserDTO;
+import by.sam.horbach.ticketService.entities.Event;
 import by.sam.horbach.ticketService.entities.Ticket;
+import by.sam.horbach.ticketService.entities.User;
 import by.sam.horbach.ticketService.services.EventService;
 import by.sam.horbach.ticketService.services.TicketService;
 import by.sam.horbach.ticketService.services.UserService;
@@ -35,10 +36,8 @@ public class TicketToDTOConverter implements TwoWayConverter {
 
 		TicketDTO ticketDTO = new TicketDTO();
 		ticketDTO.setId(ticket.getId());
-		ticketDTO.setEvent((EventDTO) eventConverter
-				.convertSourceToTargetClass(eventService.getEventById(ticket.getIdEvent()), Event.class));
-		ticketDTO.setUser((UserDTO) userConverter
-				.convertSourceToTargetClass(userService.getUserByID(ticket.getIdUser()), UserDTO.class));
+		ticketDTO.setEvent((EventDTO) eventConverter.convertSourceToTargetClass(ticket.getEvent(), EventDTO.class));
+		ticketDTO.setUser((UserDTO) userConverter.convertSourceToTargetClass(ticket.getUser(), UserDTO.class));
 
 		return ticketDTO;
 	}
@@ -49,8 +48,8 @@ public class TicketToDTOConverter implements TwoWayConverter {
 
 		Ticket ticket = new Ticket();
 		ticket.setId(ticketDTO.getId());
-		ticket.setIdEvent(ticketDTO.getEvent().getId());
-		ticket.setIdUser(ticketDTO.getUser().getId());
+		ticket.setEvent((Event) eventConverter.convertTargetToSourceClass(ticketDTO.getEvent(), Event.class));
+		ticket.setUser((User) userConverter.convertTargetToSourceClass(ticketDTO.getUser(), User.class));
 
 		return ticket;
 	}
