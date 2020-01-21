@@ -14,7 +14,7 @@ import by.sam.horbach.ticketService.entities.Ticket;
  */
 public class TicketDaoImpl extends AbstractBaseDao implements TicketDao {
 
-	private String GET_TICKETS_RESULT = "SELECT * FROM ticket";
+	private static final String GET_TICKETS_RESULT = "SELECT * FROM ticket";
 
 	@Override
 	@SuppressWarnings("unchecked")

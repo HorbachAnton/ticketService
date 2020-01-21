@@ -151,7 +151,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 			ref="ticketToDTOConverter" />
 	</bean>
 
-	<bean id="registrationFacade"
+ 	<bean id="registrationFacade"
 		class="by.sam.horbach.ticketService.facades.impl.RegistrationFacadeImpl">
 		<property name="userConverter"
 			ref="userRegistrationConverter" />
@@ -222,9 +222,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	</bean>
 
 	<bean id="updatePasswordValidator"
-		class="by.sam.horbach.ticketService.validators.UpdatePasswordValidator">
-		<property name="userDao" ref="userDao" />
-	</bean>
+		class="by.sam.horbach.ticketService.validators.UpdatePasswordValidator" />
 
 	<bean id="loadProfileIconValidator"
 		class="by.sam.horbach.ticketService.validators.LoadProfileIconValidator" />
