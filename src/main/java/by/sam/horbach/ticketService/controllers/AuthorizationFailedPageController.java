@@ -1,8 +1,7 @@
 package by.sam.horbach.ticketService.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * A class responsible for interacting with the authorization-failed page.
@@ -13,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AuthorizationFailedPageController {
 
+	private static final String GET_AUTHORIZATION_FAILED_PAGE_REQUEST = "/authorization-failed";
+	private static final String AUTHORIZATION_FAILED_PAGE_NAME = "authorization-failed";
+
 	/**
 	 * Returns a view name of an authorization-failed page to be resolved with
 	 * ViewResolver implementations and used together with the implicit model —
@@ -20,9 +22,9 @@ public class AuthorizationFailedPageController {
 	 * 
 	 * @return a view name of an authorization-failed page
 	 */
-	@RequestMapping(value = "/authorization-failed", method = RequestMethod.GET)
+	@GetMapping(value = GET_AUTHORIZATION_FAILED_PAGE_REQUEST)
 	public String getErrorPage() {
-		return "/authorization-failed";
+		return AUTHORIZATION_FAILED_PAGE_NAME;
 	}
 
 }

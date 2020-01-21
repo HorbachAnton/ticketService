@@ -1,15 +1,17 @@
 package by.sam.horbach.ticketService.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AdminPageController {
 
-	@RequestMapping(value = "/admin_page", method = RequestMethod.GET)
+	private static final String GET_ADMIN_PAGE_REQUEST = "/admin_page";
+	private static final String ADMIN_PAGE_NAME = "admin_page";
+
+	@GetMapping(value = GET_ADMIN_PAGE_REQUEST)
 	public String getPage() {
-		return "admin_page";
+		return ADMIN_PAGE_NAME;
 	}
 
 }

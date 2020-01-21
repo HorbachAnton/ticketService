@@ -5,9 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import by.sam.horbach.ticketService.dto.forms.PasswordDTO;
@@ -15,7 +15,9 @@ import by.sam.horbach.ticketService.facades.impl.ChangePasswordFacadeImpl;
 import by.sam.horbach.ticketService.utils.Constants;
 
 /**
- * A class responsible for interacting with the change password page.
+ * The class responsible for intercepting, processing, and sending responses to
+ * user requests sent from the change password page (change_password.jsp). The
+ * class also processing the request for getting page (change_password.jsp).
  * 
  * @author Horbach Anton
  *
@@ -23,32 +25,36 @@ import by.sam.horbach.ticketService.utils.Constants;
 @Controller
 public class ChangePasswordPageController implements Constants {
 
-	@Autowired
-	Validator updatePasswordValidator;
+	private static final String GET_CHANGE_PASSWORD_PAGE_REQUEST = "/change_password_page";
+	private static final String CHANGE_PASSWORD_REQUEST = "/change_password";
+
+	private static final String PASSWORD_DTO_ATTRIBUTE_NAME = "passwordDTO";
+	private static final String CHANGE_PASSWORD_PAGE_NAME = "change_password";
 
 	@Autowired
-	ChangePasswordFacadeImpl changePasswordFacade;
+	private Validator updatePasswordValidator;
+
+	@Autowired
+	private ChangePasswordFacadeImpl changePasswordFacade;
 
 	/**
-	 * Returns a view name of a change password page to be resolved with
-	 * ViewResolver implementations and used together with the implicit model —
-	 * determined through command objects and @ModelAttribute methods.
+	 * 
+	 * Returns a view name for change_password.jsp in response to a
+	 * "/change_password_page" request.
 	 * 
 	 * @param model Model interface implementation
 	 * @return a view name of a change password page
 	 */
-	@RequestMapping(value = "/change_password_page", method = RequestMethod.GET)
+	@GetMapping(value = GET_CHANGE_PASSWORD_PAGE_REQUEST)
 	public String getPage(Model model) {
-		model.addAttribute("passwordDTO", new PasswordDTO());
-		return "change_password";
+		model.addAttribute(PASSWORD_DTO_ATTRIBUTE_NAME, new PasswordDTO());
+		return CHANGE_PASSWORD_PAGE_NAME;
 	}
 
 	/**
 	 * Changes the user password in the system and returns a view name of a welcome
-	 * page to be resolved with ViewResolver implementations and used together with
-	 * the implicit model — determined through command objects and @ModelAttribute
-	 * methods. In case of binding errors, returns a view name of change password
-	 * page.
+	 * page in response to a "/change_password". In case of binding errors, returns
+	 * a view name of change password page.
 	 * 
 	 * @param passwordDTO instance of PasswordDTO class which contains the new
 	 *                    password
@@ -57,17 +63,21 @@ public class ChangePasswordPageController implements Constants {
 	 * @return a view name of a welcome page. In case of binding errors, returns a
 	 *         view name of change password page.
 	 */
-	@RequestMapping(value = "/change_password", method = RequestMethod.POST)
-	public ModelAndView change(@ModelAttribute("passwordDTO") PasswordDTO passwordDTO, BindingResult result,
-			ModelAndView model) {
-		updatePasswordValidator.validate(passwordDTO, result);
+	@PostMapping(value = CHANGE_PASSWORD_REQUEST)
+	public ModelAndView changePassword(@ModelAttribute(PASSWORD_DTO_ATTRIBUTE_NAME) PasswordDTO passwordDTO,
+			BindingResult result, ModelAndView model) {
+		validatePasswordDTO(passwordDTO, result);
 
-		if (result.hasErrors()) {
-			return model;
+		if (!result.hasErrors()) {
+			changePasswordFacade.changePassword(passwordDTO);
+			model = new ModelAndView(REDIRECT_PREFIX + "/");
 		}
 
-		changePasswordFacade.changePassword(passwordDTO);
-		return new ModelAndView(REDIRECT_PREFIX + "/");
+		return model;
+	}
+
+	private void validatePasswordDTO(PasswordDTO passwordDTO, BindingResult result) {
+		updatePasswordValidator.validate(passwordDTO, result);
 	}
 
 }

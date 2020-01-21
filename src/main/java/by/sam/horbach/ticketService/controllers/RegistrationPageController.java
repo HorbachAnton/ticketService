@@ -5,9 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import by.sam.horbach.ticketService.dto.UserDTO;
 import by.sam.horbach.ticketService.facades.impl.RegistrationFacadeImpl;
@@ -21,11 +21,19 @@ import by.sam.horbach.ticketService.facades.impl.RegistrationFacadeImpl;
 @Controller
 public class RegistrationPageController {
 
-	@Autowired
-	RegistrationFacadeImpl registrationFacade;
+	private static final String GET_REGISTRATION_PAGE_REQUEST = "/registration";
+	private static final String REGISTER_REQUEST = "/register";
+
+	private static final String USER_DTO_MODEL_ATTRIBUTE_NAME = "userDTO";
+	private static final String AUTHORIZATION_PAGE_NAME = "authorization";
+
+	private static final String REGISTRATION_PAGE_NAME = "registration";
 
 	@Autowired
-	Validator registrationFormValidator;
+	private RegistrationFacadeImpl registrationFacade;
+
+	@Autowired
+	private Validator registrationFormValidator;
 
 	/**
 	 * Returns a view name of a registration page to be resolved with ViewResolver
@@ -35,10 +43,10 @@ public class RegistrationPageController {
 	 * @param model Model interface implementation
 	 * @return a view name of a registration page
 	 */
-	@RequestMapping(value = "/registration", method = RequestMethod.GET)
+	@GetMapping(value = GET_REGISTRATION_PAGE_REQUEST)
 	public String getPage(Model model) {
-		model.addAttribute("userDTO", new UserDTO());
-		return "registration";
+		model.addAttribute(USER_DTO_MODEL_ATTRIBUTE_NAME, new UserDTO());
+		return REGISTRATION_PAGE_NAME;
 	}
 
 	/**
@@ -52,16 +60,16 @@ public class RegistrationPageController {
 	 * @return a view name of a registration page. In case of binding errors,
 	 *         returns a view name of registration page.
 	 */
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String register(@ModelAttribute("userDTO") UserDTO userDTO, BindingResult result) {
+	@PostMapping(value = REGISTER_REQUEST)
+	public String register(@ModelAttribute(USER_DTO_MODEL_ATTRIBUTE_NAME) UserDTO userDTO, BindingResult result) {
 		registrationFormValidator.validate(userDTO, result);
 
 		if (result.hasErrors()) {
-			return "registration";
+			return REGISTRATION_PAGE_NAME;
 		}
 
 		registrationFacade.register(userDTO);
-		return "authorization";
+		return AUTHORIZATION_PAGE_NAME;
 	}
 
 }

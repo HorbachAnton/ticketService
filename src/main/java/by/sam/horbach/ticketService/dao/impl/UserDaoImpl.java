@@ -15,6 +15,7 @@ import by.sam.horbach.ticketService.entities.User;
 public class UserDaoImpl extends AbstractBaseDao implements UserDao {
 
 	private static final String QUERY_USER_BY_EMAIL = "select * from User where email = ?";
+	private static final int EMAIL_PARAMETER_POSITION = 1;
 
 	@Override
 	public User findByUserEmail(String email) {
@@ -22,9 +23,9 @@ public class UserDaoImpl extends AbstractBaseDao implements UserDao {
 
 		try {
 			user = (User) getCurrentSession().createSQLQuery(QUERY_USER_BY_EMAIL).addEntity(User.class)
-					.setParameter(1, email).getSingleResult();
+					.setParameter(EMAIL_PARAMETER_POSITION, email).getSingleResult();
 		} catch (NoResultException e) {
-			user = null;
+			user = new User();
 		}
 
 		return user;

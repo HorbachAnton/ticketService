@@ -18,6 +18,9 @@ import by.sam.horbach.ticketService.facades.TicketCenterFacade;
 @Controller
 public class TicketCenterPageController {
 
+	private static final String GET_TICKET_CENTER_PAGE_REQUEST = "/ticket_center_page";
+	private static final String GET_CHOSEN_TICKET_CENTER_PAGE_REQUEST = "/get_chosen_ticket_center_page";
+
 	private static final String PAGE_NAME = "ticket_center";
 	private static final String LIST_TICKETS_ATTRIBUTE_NAME = "listTickets";
 	private static final String PAGES_NUMBER_ATTRIBUTE_NAME = "numberOfPages";
@@ -28,17 +31,17 @@ public class TicketCenterPageController {
 	private static final int DEFAULT_CHOSEN_PAGE_VALUE = 1;
 
 	@Autowired
-	TicketCenterFacade ticketCenterFacade;
+	private TicketCenterFacade ticketCenterFacade;
 
 	/**
-	 * Returns a ModelAndView for ticket_center.jsp in response to a
+	 * Returns a ModelAndView instance for ticket_center.jsp in response to a
 	 * "ticket_center_page" request. As a page for pagination, returns the page with
 	 * the number defined in the DEFAULT_CHOSEN_PAGE_VALUE constant.
 	 * 
 	 * 
 	 * @return ModelAndView instance.
 	 */
-	@GetMapping(value = "/ticket_center_page")
+	@GetMapping(value = GET_TICKET_CENTER_PAGE_REQUEST)
 	public ModelAndView getPage() {
 		ModelAndView modelAndView = createModelAndView();
 		PaginationTicketDTO paginationTicketDTO = getPaginationTicketDTO(DEFAULT_CHOSEN_PAGE_VALUE);
@@ -47,7 +50,7 @@ public class TicketCenterPageController {
 	}
 
 	/**
-	 * Returns a ModelAndView for ticket_center.jsp in response to a
+	 * Returns a ModelAndView instance for ticket_center.jsp in response to a
 	 * "ticket_center_page" request. As a page for pagination, returns the page with
 	 * the number defined in the request parameter (the parameter name defined in
 	 * the CHOSEN_PAGE_REQUEST_PARAMETER_NAME constant).
@@ -55,7 +58,7 @@ public class TicketCenterPageController {
 	 * @param chosenPage a page number for pagination.
 	 * @return ModelAndView instance.
 	 */
-	@GetMapping(value = "/get_chosen_ticket_center_page")
+	@GetMapping(value = GET_CHOSEN_TICKET_CENTER_PAGE_REQUEST)
 	public ModelAndView getChosenPage(@RequestParam(CHOSEN_PAGE_REQUEST_PARAMETER_NAME) int chosenPage) {
 		ModelAndView modelAndView = createModelAndView();
 		PaginationTicketDTO paginationTicketDTO = getPaginationTicketDTO(chosenPage);

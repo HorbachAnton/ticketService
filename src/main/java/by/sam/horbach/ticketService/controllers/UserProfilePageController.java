@@ -3,11 +3,9 @@ package by.sam.horbach.ticketService.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import by.sam.horbach.ticketService.facades.impl.UserProfileFacadeImpl;
-import by.sam.horbach.ticketService.services.UserService;
 
 /**
  * A class responsible for interacting with the user profile page.
@@ -18,11 +16,12 @@ import by.sam.horbach.ticketService.services.UserService;
 @Controller
 public class UserProfilePageController {
 
-	@Autowired
-	UserProfileFacadeImpl userProfileFacade;
+	private static final String GET_USER_PROFILE_PAGE_REQUEST = "/user_profile";
+	private static final String USER_DTO_MODEL_ATTRIBUTE_NAME = "userDTO";
+	private static final String USER_PROFILE_PAGE_NAME = "user_profile";
 
 	@Autowired
-	UserService userService;
+	private UserProfileFacadeImpl userProfileFacade;
 
 	/**
 	 * Returns a view name of a user profile page to be resolved with ViewResolver
@@ -32,10 +31,10 @@ public class UserProfilePageController {
 	 * @param model Model interface implementation
 	 * @return a view name of a user profile page
 	 */
-	@RequestMapping(value = "/user_profile", method = RequestMethod.GET)
+	@GetMapping(value = GET_USER_PROFILE_PAGE_REQUEST)
 	public String getPage(Model model) {
-		model.addAttribute("userDTO", userProfileFacade.getUserByEmail());
-		return "user_profile";
+		model.addAttribute(USER_DTO_MODEL_ATTRIBUTE_NAME, userProfileFacade.getUserByEmail());
+		return USER_PROFILE_PAGE_NAME;
 	}
 
 }

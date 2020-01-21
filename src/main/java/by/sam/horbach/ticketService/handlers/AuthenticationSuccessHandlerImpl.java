@@ -19,6 +19,14 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHandler {
 
+	private static final String RESPONSE_COMMITTED_MESSAGE = "Response has already been committed. Unable to redirect to %s";
+
+	private static final String CONSUMER_AUTHORITY = "CONSUMER";
+	private static final String ADMINISTRATOR_AUTHORITY = "ADMINISTRATOR";
+
+	private static final String INDEX_PAGE_URL = "/";
+	private static final String ADMIN_PAGE_URL = "/admin_page";
+
 	public static final Logger LOGGER = LogManager.getLogger(AuthenticationSuccessHandlerImpl.class);
 
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
@@ -36,7 +44,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 		String targetUrl = determineTargetUrl(authentication);
 
 		if (response.isCommitted()) {
-			LOGGER.debug("Response has already been committed. Unable to redirect to %s", targetUrl);
+			LOGGER.debug(RESPONSE_COMMITTED_MESSAGE, targetUrl);
 			return;
 		}
 
@@ -48,19 +56,19 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 		boolean isAdministrator = false;
 		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		for (GrantedAuthority grantedAuthority : authorities) {
-			if (grantedAuthority.getAuthority().equals("CONSUMER")) {
+			if (grantedAuthority.getAuthority().equals(CONSUMER_AUTHORITY)) {
 				isConsumer = true;
 				break;
-			} else if (grantedAuthority.getAuthority().equals("ADMINISTRATOR")) {
+			} else if (grantedAuthority.getAuthority().equals(ADMINISTRATOR_AUTHORITY)) {
 				isAdministrator = true;
 				break;
 			}
 		}
 
 		if (isConsumer) {
-			return "/";
+			return INDEX_PAGE_URL;
 		} else if (isAdministrator) {
-			return "/admin_page";
+			return ADMIN_PAGE_URL;
 		} else {
 			throw new IllegalStateException();
 		}

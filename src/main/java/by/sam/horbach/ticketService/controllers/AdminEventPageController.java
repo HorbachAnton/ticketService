@@ -24,6 +24,9 @@ import by.sam.horbach.ticketService.facades.AdminEventFacade;
 @Controller
 public class AdminEventPageController {
 
+	private static final String GET_ADMIN_EVENT_PAGE_REQUEST = "/admin_event";
+	private static final String CHANGE_EVENT_DETAILS_REQUEST = "/change_event_details";
+
 	private static final String ADMIN_EVENT_PAGE_NAME = "admin_event";
 	private static final String EVENT_ID_REQUEST_PARAMETER_NAME = "eventId";
 	private static final String EVENT_DTO_MODEL_ATTRIBUTE_NAME = "eventDTO";
@@ -44,7 +47,7 @@ public class AdminEventPageController {
 	 * @return a ModelAndView instance of the administrator event page
 	 *         (admin_event.jsp).
 	 */
-	@GetMapping(value = "/admin_event")
+	@GetMapping(value = GET_ADMIN_EVENT_PAGE_REQUEST)
 	public ModelAndView getPage(@RequestParam(EVENT_ID_REQUEST_PARAMETER_NAME) int eventId) {
 		ModelAndView modelAndView = new ModelAndView(ADMIN_EVENT_PAGE_NAME);
 		setupPage(modelAndView, eventId);
@@ -66,7 +69,7 @@ public class AdminEventPageController {
 	 * @return a ModelAndView instance of the administrator event page
 	 *         (admin_event.jsp).
 	 */
-	@PostMapping(value = "/change_event_details")
+	@PostMapping(value = CHANGE_EVENT_DETAILS_REQUEST)
 	public ModelAndView changeEventDetails(@ModelAttribute(EVENT_DTO_MODEL_ATTRIBUTE_NAME) EventDTO eventDTO,
 			BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView(ADMIN_EVENT_PAGE_NAME);

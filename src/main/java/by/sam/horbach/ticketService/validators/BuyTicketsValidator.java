@@ -7,6 +7,10 @@ import by.sam.horbach.ticketService.dto.forms.BuyTicketsDTO;
 
 public class BuyTicketsValidator implements Validator {
 
+	private static final String QUANTITY_FIELD_NAME = "quantity";
+	private static final String NULL_QUANTITY_ERROR_CODE = "errors.null_quantity";
+	private static final String NULL_QUANTITY_DEFAULT_MESSAGE = "errors.null_quantity.message";
+
 	@Override
 	public boolean supports(Class<?> clazz) {
 		return BuyTicketsDTO.class.equals(clazz);
@@ -17,7 +21,7 @@ public class BuyTicketsValidator implements Validator {
 		BuyTicketsDTO buyTicketsDTO = (BuyTicketsDTO) target;
 
 		if (buyTicketsDTO.getQuantity() == 0) {
-			errors.rejectValue("quantity", "errors.null_quantity", "errors.null_quantity.message");
+			errors.rejectValue(QUANTITY_FIELD_NAME, NULL_QUANTITY_ERROR_CODE, NULL_QUANTITY_DEFAULT_MESSAGE);
 		}
 	}
 
